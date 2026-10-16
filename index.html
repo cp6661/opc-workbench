@@ -113,6 +113,10 @@ button{font-family:inherit}
   transition:background .15s;
 }
 .refresh-btn:hover{background:#e0def7}
+.install-btn{background:#eef2ff;color:#4338ca}
+.install-btn:hover{background:#e0e7ff}
+.install-btn[hidden]{display:none}
+@media(max-width:768px){.install-btn{font-size:12px;padding:6px 10px}}
 .content{flex:1;overflow-y:auto;padding:26px 30px}
 
 .view{display:none}
@@ -347,10 +351,10 @@ button{font-family:inherit}
 
     <div class="nav-label">情报</div>
     <div class="nav-item active" data-view="ai">
-      <span class="ico">🤖</span><span class="txt">AI 基础</span><span class="badge" id="aiBadge">0</span>
+      <span class="ico">🤖</span><span class="txt">AI 情报</span><span class="badge" id="aiBadge">0</span>
     </div>
     <div class="nav-item" data-view="tech">
-      <span class="ico">💻</span><span class="txt">计算机基础</span><span class="badge" id="techBadge">0</span>
+      <span class="ico">💻</span><span class="txt">计算机情报</span><span class="badge" id="techBadge">0</span>
     </div>
 
     <div class="nav-label">打卡</div>
@@ -367,23 +371,24 @@ button{font-family:inherit}
   <!-- 主区 -->
   <main class="main">
     <header class="topbar">
-      <h1 id="viewTitle">AI 基础</h1>
+      <h1 id="viewTitle">AI 情报</h1>
       <div class="meta">
         <span id="dataTime"></span>
         <button class="refresh-btn" onclick="refreshData()">↻ 刷新</button>
+        <button class="refresh-btn install-btn" id="installBtn" onclick="installApp()">📱 装到桌面</button>
       </div>
     </header>
     <div class="content">
 
       <!-- AI 资讯 -->
       <section class="view active" id="view-ai">
-        <div class="section-head">🤖 AI 基础 · 每日一学</div>
+        <div class="section-head">🤖 AI 情报 · 热榜 + 基础</div>
         <div class="news-list" id="aiList"></div>
       </section>
 
       <!-- 计算机行业资讯 -->
       <section class="view" id="view-tech">
-        <div class="section-head">💻 计算机基础 · 每日一学</div>
+        <div class="section-head">💻 计算机情报 · 热榜 + 基础</div>
         <div class="news-list" id="techList"></div>
       </section>
 
@@ -694,7 +699,43 @@ function requestNotify(){
 }
 
 /* ================= 导航 ================= */
-const VIEW_TITLES = {ai:'AI 基础', tech:'计算机基础', word:'记单词 · 四级', water:'喝水打卡'};
+const VIEW_TITLES = {ai:'AI 情报', tech:'计算机情报', word:'记单词 · 四级', water:'喝水打卡'};
+
+/* ================= 添加到桌面（PWA） ================= */
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', (e)=>{
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('installBtn').hidden = false;
+});
+window.addEventListener('appinstalled', ()=>{
+  deferredPrompt = null;
+  document.getElementById('installBtn').hidden = true;
+  toast('🎉 已添加到桌面', 'word');
+});
+function installApp(){
+  const btn = document.getElementById('installBtn');
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(r=>{
+      if(r.outcome === 'accepted') toast('🎉 正在添加到桌面…', 'word');
+      deferredPrompt = null; btn.hidden = true;
+    });
+    return;
+  }
+  const iOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  if(iOS || /safari/i.test(navigator.userAgent)){
+    toast(iOS ? '📲 Safari：分享 → 添加到主屏幕' : '📲 浏览器菜单 → 添加到主屏幕', 'water');
+  } else {
+    toast('📲 浏览器菜单 → 添加到主屏幕 / 安装应用', 'water');
+  }
+}
+/* 已以独立窗口打开则隐藏按钮 */
+if(window.matchMedia('(display-mode: standalone)').matches || navigator.standalone){
+  window.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById('installBtn').hidden = true;
+  });
+}
 function switchView(v){
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.view===v));
   document.querySelectorAll('.view').forEach(s=>s.classList.remove('active'));
