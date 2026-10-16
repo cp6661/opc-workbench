@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#131722">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<title>一人公司工作台</title>
+<style>
+:root{
+  --bg:#f5f6f8;
+  --surface:#ffffff;
+  --surface-2:#fafbfc;
+  --border:#e8eaef;
+  --border-strong:#d8dbe2;
+  --text:#17181c;
+  --text-2:#5a5f6a;
+  --text-3:#9aa0ab;
+  --sidebar:#131722;
+  --sidebar-line:rgba(154,163,181,.14);
+  --sidebar-text:#9aa3b5;
+  --sidebar-active:#ffffff;
+  --accent:#5b5bd6;
+  --accent-soft:#eeedfb;
+  --ai:#7c3aed;
+  --ai-soft:#f3e8ff;
+  --tech:#2563eb;
+  --tech-soft:#e3efff;
+  --word:#d97706;
+  --word-soft:#fef3e2;
+  --water:#0891b2;
+  --water-soft:#e0f7fa;
+  --success:#16a34a;
+  --success-soft:#e8f8ee;
+  --danger:#dc2626;
+  --radius:14px;
+  --shadow-sm:0 1px 2px rgba(19,23,34,.05);
+  --shadow:0 4px 16px rgba(19,23,34,.06);
+  --shadow-lg:0 12px 32px rgba(19,23,34,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  font-size:14px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+button{font-family:inherit}
+.app{display:flex;height:100vh;overflow:hidden}
+
+/* ===== 侧边栏 ===== */
+.sidebar{
+  width:264px;min-width:264px;
+  background:var(--sidebar);
+  color:var(--sidebar-text);
+  display:flex;flex-direction:column;
+  padding:22px 16px;
+  gap:2px;
+}
+.brand{display:flex;align-items:center;gap:11px;padding:4px 10px 20px;border-bottom:1px solid var(--sidebar-line);margin-bottom:16px}
+.brand-logo{
+  width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(135deg,#6d6df2,#8b5cf6);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+  box-shadow:0 4px 12px rgba(109,109,242,.4);
+}
+.brand-name{font-size:15px;font-weight:700;color:#f2f3f7;line-height:1.25}
+.brand-sub{font-size:11px;color:#5f6a80;margin-top:1px}
+.side-date{font-size:11px;color:#5f6a80;padding:0 10px;margin-bottom:4px}
+.nav-label{
+  font-size:10.5px;color:#4b5468;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;padding:16px 10px 6px;
+}
+.nav-item{
+  display:flex;align-items:center;gap:11px;
+  padding:10px 11px;border-radius:9px;
+  cursor:pointer;color:var(--sidebar-text);
+  transition:background .15s,color .15s;
+  user-select:none;position:relative;
+}
+.nav-item:hover{background:rgba(154,163,181,.12);color:#e4e7ee}
+.nav-item.active{background:var(--accent);color:#fff;font-weight:600}
+.nav-item.active .ico{filter:brightness(1)}
+.nav-item .ico{font-size:16px;width:20px;text-align:center}
+.nav-item .txt{flex:1}
+.nav-item .badge{
+  font-size:11px;background:rgba(154,163,181,.18);
+  padding:1px 8px;border-radius:10px;color:#c8ceda;font-weight:600;
+}
+.nav-item.active .badge{background:rgba(255,255,255,.22);color:#fff}
+.sidebar-footer{margin-top:auto;padding:14px 10px 2px;font-size:11px;color:#4b5468;border-top:1px solid var(--sidebar-line)}
+
+/* ===== 主区 ===== */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:17px 30px;background:var(--surface);
+  border-bottom:1px solid var(--border);
+}
+.topbar h1{font-size:19px;font-weight:750;letter-spacing:-.01em}
+.topbar .meta{font-size:12px;color:var(--text-3);display:flex;align-items:center;gap:12px}
+.refresh-btn{
+  font-size:12px;color:var(--accent);background:var(--accent-soft);
+  border:none;padding:6px 14px;border-radius:8px;cursor:pointer;font-weight:600;
+  transition:background .15s;
+}
+.refresh-btn:hover{background:#e0def7}
+.content{flex:1;overflow-y:auto;padding:26px 30px}
+
+.view{display:none}
+.view.active{display:block;animation:fadeUp .35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ===== 卡片 ===== */
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:22px;margin-bottom:16px;
+  box-shadow:var(--shadow-sm);
+}
+.card-title{font-size:15px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-head{font-size:13px;font-weight:700;color:var(--text-2);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+
+/* ===== 打卡通用 ===== */
+.checkin-wrap{display:grid;grid-template-columns:360px 1fr;gap:16px;align-items:start}
+.hero-card{padding:30px 24px;text-align:center}
+.ring{
+  width:160px;height:160px;margin:0 auto 18px;border-radius:50%;
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.ring-word{background:conic-gradient(var(--word) var(--pct,0%),#efe6d8 0)}
+.ring-water{background:conic-gradient(var(--water) var(--pct,0%),#d7eef2 0)}
+.ring::after{content:'';position:absolute;inset:13px;background:#fff;border-radius:50%}
+.ring-inner{position:relative;z-index:1;text-align:center}
+.ring-num{font-size:32px;font-weight:800;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+.ring-word .ring-num{color:var(--word)}
+.ring-water .ring-num{color:var(--water)}
+.ring-unit{font-size:12px;color:var(--text-3);margin-top:5px}
+.btn-main{
+  width:100%;border:none;border-radius:11px;padding:13px;
+  font-size:15px;font-weight:700;cursor:pointer;
+  transition:transform .08s,filter .15s,box-shadow .15s;
+}
+.btn-main:active{transform:scale(.97)}
+.btn-word{background:var(--word);color:#fff;box-shadow:0 6px 16px rgba(217,119,6,.28)}
+.btn-word:hover{filter:brightness(1.06)}
+.btn-water{background:var(--water);color:#fff;box-shadow:0 6px 16px rgba(8,145,178,.28)}
+.btn-water:hover{filter:brightness(1.06)}
+.btn-ghost{
+  width:100%;background:#fff;border:1px solid var(--border-strong);border-radius:11px;
+  padding:9px;font-size:13px;font-weight:600;cursor:pointer;margin-top:10px;
+  color:var(--text-2);transition:background .15s;
+}
+.btn-ghost:hover{background:var(--surface-2)}
+.quick-row{display:flex;gap:8px;margin-top:14px}
+.quick-chip{
+  flex:1;border:1px solid var(--border-strong);background:var(--surface);
+  border-radius:9px;padding:9px 4px;font-size:13px;font-weight:600;cursor:pointer;
+  color:var(--text-2);transition:all .15s;font-variant-numeric:tabular-nums;
+}
+.quick-chip:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.status-line{
+  margin-top:16px;font-size:12.5px;border-radius:9px;padding:11px 14px;text-align:left;
+}
+.status-line b{font-weight:700}
+.status-word{background:var(--word-soft);color:#92400e}
+.status-water{background:var(--water-soft);color:#155e75}
+.streak-box{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:12px;background:var(--surface-2);border:1px solid var(--border);
+  border-radius:9px;padding:12px 14px;
+}
+.streak-box .lbl{font-size:12px;color:var(--text-3)}
+.streak-box .val{font-size:22px;font-weight:800;color:var(--word);font-variant-numeric:tabular-nums}
+.streak-box .val small{font-size:12px;font-weight:600;color:var(--text-3)}
+
+/* 名言 */
+.quote{
+  margin-top:14px;border-left:3px solid var(--word);
+  background:var(--word-soft);border-radius:0 9px 9px 0;
+  padding:12px 14px;text-align:left;
+}
+.quote .en{font-size:13px;font-weight:600;color:#7c4a03;font-style:italic;line-height:1.4}
+.quote .zh{font-size:12px;color:#a16207;margin-top:4px}
+
+/* 时间线 */
+.tl{list-style:none}
+.tl li{
+  display:flex;align-items:center;gap:11px;padding:10px 2px;
+  border-bottom:1px dashed var(--border);font-size:13px;color:var(--text-2);
+}
+.tl li:last-child{border-bottom:none}
+.tl .t{color:var(--text-3);font-size:12px;min-width:54px;font-variant-numeric:tabular-nums}
+.tl .v{font-weight:700;margin-left:auto}
+.tl .v.word{color:var(--word)}
+.tl .v.water{color:var(--water)}
+.empty-state{text-align:center;padding:34px 20px;color:var(--text-3);font-size:13px}
+
+/* ===== 资讯列表 ===== */
+.news-list{display:flex;flex-direction:column}
+.news-item{
+  display:block;text-decoration:none;color:inherit;
+  padding:14px 4px;border-bottom:1px solid var(--border);
+  transition:background .12s;border-radius:6px;
+}
+.news-item:hover{background:var(--surface-2)}
+.news-item:last-child{border-bottom:none}
+.news-top{display:flex;align-items:flex-start;gap:9px;margin-bottom:4px}
+.tag{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:700;flex-shrink:0;margin-top:2px}
+.tag.ai{background:var(--ai-soft);color:var(--ai)}
+.tag.tech{background:var(--tech-soft);color:var(--tech)}
+.news-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.45;flex:1}
+.news-item:hover .news-title{color:var(--accent)}
+.news-summary{font-size:12.5px;color:var(--text-2);margin:3px 0 5px;padding-left:34px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-meta{font-size:11.5px;color:var(--text-3);display:flex;gap:10px;align-items:center;padding-left:34px}
+.news-meta .src{color:var(--text-2);font-weight:600}
+.empty{text-align:center;padding:50px 20px;color:var(--text-3)}
+.empty .big{font-size:40px;margin-bottom:12px}
+
+/* ===== 提示 / 完成态 ===== */
+.toast{
+  position:fixed;top:20px;right:20px;z-index:999;
+  padding:14px 22px;border-radius:11px;
+  font-size:14px;font-weight:600;display:none;
+  animation:slideIn .3s;
+}
+.toast.water{background:var(--water);color:#fff;box-shadow:0 10px 28px rgba(8,145,178,.35)}
+.toast.word{background:var(--word);color:#fff;box-shadow:0 10px 28px rgba(217,119,6,.35)}
+@keyframes slideIn{from{transform:translateY(-14px);opacity:0}to{transform:none;opacity:1}}
+
+/* ===== 添加到主屏幕引导 ===== */
+.install-bar{
+  position:fixed;left:14px;right:14px;bottom:calc(72px + env(safe-area-inset-bottom,0px));
+  z-index:900;display:none;align-items:center;gap:11px;
+  background:var(--sidebar);color:#fff;border-radius:14px;padding:12px 14px;
+  box-shadow:0 12px 32px rgba(19,23,34,.28);animation:fadeUp .4s ease;
+}
+.install-bar .ib-ico{font-size:26px;flex-shrink:0}
+.install-bar .ib-txt{flex:1;font-size:13px;line-height:1.4}
+.install-bar .ib-txt b{display:block;font-size:14px}
+.install-bar .ib-btn{
+  border:none;background:var(--accent);color:#fff;font-size:13px;font-weight:700;
+  padding:9px 14px;border-radius:9px;cursor:pointer;flex-shrink:0;white-space:nowrap;
+}
+.install-bar .ib-close{
+  border:none;background:transparent;color:#8b93a5;font-size:18px;cursor:pointer;padding:2px 4px;flex-shrink:0;
+}
+.install-modal{
+  position:fixed;inset:0;z-index:950;display:none;align-items:center;justify-content:center;
+  background:rgba(19,23,34,.55);padding:24px;backdrop-filter:blur(3px);
+}
+.install-modal.show{display:flex;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.install-modal .im-card{
+  background:#fff;border-radius:18px;padding:24px 22px;width:100%;max-width:340px;text-align:center;
+}
+.install-modal .im-ico{font-size:44px;margin-bottom:10px}
+.install-modal h3{font-size:17px;font-weight:750;margin-bottom:6px}
+.install-modal p{font-size:13px;color:var(--text-2);margin-bottom:16px;line-height:1.6}
+.install-modal .im-step{
+  text-align:left;background:var(--surface-2);border:1px solid var(--border);
+  border-radius:12px;padding:12px 14px;margin-bottom:8px;font-size:13px;color:var(--text);
+  display:flex;align-items:center;gap:10px;
+}
+.install-modal .im-step .n{
+  width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.install-modal .im-done{
+  width:100%;border:none;background:var(--accent);color:#fff;font-size:15px;font-weight:700;
+  padding:13px;border-radius:11px;cursor:pointer;margin-top:6px;
+}
+.done-badge{
+  display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+  color:var(--success);background:var(--success-soft);padding:3px 10px;border-radius:20px;
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ===== 响应式 ===== */
+/* 平板/窄桌面：侧栏收成图标栏 */
+@media(max-width:900px){
+  .sidebar{width:72px;min-width:72px;padding:16px 8px}
+  .brand-name,.brand-sub,.nav-label,.nav-item .txt,.sidebar-footer,.side-date{display:none}
+  .nav-item{justify-content:center;padding:13px 0}
+  .nav-item .badge{display:none}
+  .brand{justify-content:center;border:none;padding:4px 0 14px;margin:0}
+  .checkin-wrap{grid-template-columns:1fr}
+  .content{padding:16px}
+}
+/* 手机：底部 Tab 导航 */
+@media(max-width:768px){
+  .app{flex-direction:column}
+  .sidebar{
+    order:2;width:100%;min-width:100%;flex-direction:row;align-items:stretch;
+    padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));
+    border-top:1px solid var(--sidebar-line);
+  }
+  .brand,.nav-label,.side-date,.sidebar-footer{display:none}
+  .nav-item{
+    flex:1;flex-direction:column;gap:4px;padding:7px 2px;
+    justify-content:center;border-radius:9px;position:relative;
+  }
+  .nav-item .ico{font-size:20px;width:auto}
+  .nav-item .txt{font-size:10.5px;display:block;flex:none}
+  .nav-item .badge{
+    position:absolute;top:0;left:50%;margin-left:12px;
+    font-size:9.5px;padding:0 5px;min-width:16px;text-align:center;line-height:15px;
+  }
+  .main{order:1;flex:1;min-height:0}
+  .topbar{padding:13px 16px}
+  .topbar h1{font-size:17px}
+  .topbar .meta #dataTime{display:none}
+  .content{padding:14px 14px 20px}
+  .checkin-wrap{grid-template-columns:1fr}
+  .hero-card{padding:22px 16px}
+  .ring{width:144px;height:144px}
+  .ring::after{inset:12px}
+  .ring-num{font-size:28px}
+  .quick-chip{padding:11px 4px}
+  .news-title{font-size:13.5px}
+  .btn-main{padding:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- 侧边栏 -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">🏢</div>
+      <div>
+        <div class="brand-name">一人公司工作台</div>
+        <div class="brand-sub">One-Person Company</div>
+      </div>
+    </div>
+    <div class="side-date" id="sideDate"></div>
+
+    <div class="nav-label">情报</div>
+    <div class="nav-item active" data-view="ai">
+      <span class="ico">🤖</span><span class="txt">AI 基础</span><span class="badge" id="aiBadge">0</span>
+    </div>
+    <div class="nav-item" data-view="tech">
+      <span class="ico">💻</span><span class="txt">计算机基础</span><span class="badge" id="techBadge">0</span>
+    </div>
+
+    <div class="nav-label">打卡</div>
+    <div class="nav-item" data-view="word">
+      <span class="ico">📚</span><span class="txt">记单词 · 四级</span><span class="badge" id="wordBadge">0/30</span>
+    </div>
+    <div class="nav-item" data-view="water">
+      <span class="ico">💧</span><span class="txt">喝水打卡</span><span class="badge" id="waterBadge">0ml</span>
+    </div>
+
+    <div class="sidebar-footer">数据本地存储 · 隐私安全</div>
+  </aside>
+
+  <!-- 主区 -->
+  <main class="main">
+    <header class="topbar">
+      <h1 id="viewTitle">AI 基础</h1>
+      <div class="meta">
+        <span id="dataTime"></span>
+        <button class="refresh-btn" onclick="refreshData()">↻ 刷新</button>
+      </div>
+    </header>
+    <div class="content">
+
+      <!-- AI 资讯 -->
+      <section class="view active" id="view-ai">
+        <div class="section-head">🤖 AI 基础 · 每日一学</div>
+        <div class="news-list" id="aiList"></div>
+      </section>
+
+      <!-- 计算机行业资讯 -->
+      <section class="view" id="view-tech">
+        <div class="section-head">💻 计算机基础 · 每日一学</div>
+        <div class="news-list" id="techList"></div>
+      </section>
+
+      <!-- 记单词打卡 -->
+      <section class="view" id="view-word">
+        <div class="checkin-wrap">
+          <div class="card hero-card">
+            <div class="ring ring-word" id="wordRing" style="--pct:0%">
+              <div class="ring-inner">
+                <div class="ring-num" id="wordNum">0</div>
+                <div class="ring-unit">今日 / 30 词</div>
+              </div>
+            </div>
+            <button class="btn-main btn-word" onclick="addWords(10)">📖 背了 10 个单词</button>
+            <div class="quick-row">
+              <button class="quick-chip" onclick="addWords(5)">+5</button>
+              <button class="quick-chip" onclick="addWords(20)">+20</button>
+              <button class="quick-chip" onclick="addWords(30)">完成 30</button>
+            </div>
+            <div class="streak-box">
+              <span class="lbl">连续打卡</span>
+              <span class="val"><span id="wordStreak">0</span> <small>天</small></span>
+            </div>
+            <div class="status-line status-word" id="wordStatus">今日尚未开始，先背 10 个单词吧</div>
+          </div>
+          <div class="card">
+            <div class="card-title">📝 今日背词记录 <span class="done-badge" id="wordDone" style="display:none">今日已达标 ✓</span></div>
+            <ul class="tl" id="wordTimeline"></ul>
+            <div class="quote" id="wordQuote"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 喝水打卡 -->
+      <section class="view" id="view-water">
+        <div class="checkin-wrap">
+          <div class="card hero-card">
+            <div class="ring ring-water" id="waterRing" style="--pct:0%">
+              <div class="ring-inner">
+                <div class="ring-num" id="waterNum">0</div>
+                <div class="ring-unit">今日 / 2300 ml</div>
+              </div>
+            </div>
+            <button class="btn-main btn-water" onclick="drink(250)">💧 喝了一杯 (250ml)</button>
+            <div class="quick-row">
+              <button class="quick-chip" onclick="drink(200)">+200ml</button>
+              <button class="quick-chip" onclick="drink(330)">+330ml</button>
+              <button class="quick-chip" onclick="drink(500)">+500ml</button>
+            </div>
+            <div class="status-line status-water" id="waterStatus">今天还没喝水，先来一杯吧</div>
+            <button class="btn-ghost" onclick="drink(-1)">↩ 撤销上一次记录</button>
+          </div>
+          <div class="card">
+            <div class="card-title">📝 今日喝水记录 <span class="done-badge" id="waterDone" style="display:none">已达 2300ml ✓</span></div>
+            <ul class="tl" id="waterTimeline"></ul>
+            <div class="status-line status-water" id="nextRemind">正在计算提醒时间…</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- 添加到主屏幕：底部引导条 -->
+<div class="install-bar" id="installBar">
+  <span class="ib-ico">📲</span>
+  <span class="ib-txt"><b>把工作台加到主屏幕</b>像 App 一样一键打开</span>
+  <button class="ib-btn" id="installBtn">立即添加</button>
+  <button class="ib-close" id="installClose">✕</button>
+</div>
+
+<!-- 添加到主屏幕：步骤弹窗 -->
+<div class="install-modal" id="installModal">
+  <div class="im-card">
+    <div class="im-ico">📲</div>
+    <h3>添加到主屏幕</h3>
+    <p id="imDesc">按下面步骤操作，即可像 App 一样使用工作台</p>
+    <div id="imSteps"></div>
+    <button class="im-done" onclick="closeInstall()">我知道了</button>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+/* ================= 资讯数据 ================= */
+let HOT = window.HOT_DATA || null;
+
+/* ================= 工具 ================= */
+function relTime(ts){
+  if(!ts) return '';
+  const diff = Math.floor(Date.now()/1000 - ts);
+  if(diff < 60) return '刚刚';
+  if(diff < 3600) return Math.floor(diff/60)+' 分钟前';
+  if(diff < 86400) return Math.floor(diff/3600)+' 小时前';
+  const d = new Date(ts*1000);
+  return (d.getMonth()+1)+'月'+d.getDate()+'日';
+}
+function esc(s){return (s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function todayKey(){return new Date().toDateString()}
+function pad(n){return String(n).padStart(2,'0')}
+function toast(msg, type){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + (type||'water');
+  t.style.display = 'block';
+  clearTimeout(t._h); t._h = setTimeout(()=>t.style.display='none', 2600);
+}
+
+/* ================= 资讯渲染 ================= */
+function renderNews(listId, items, tagClass, tagText){
+  const el = document.getElementById(listId);
+  if(!items || !items.length){
+    el.innerHTML = `<div class="empty"><div class="big">📭</div>暂无数据，请运行 sync_data.py 生成知识</div>`;
+    return;
+  }
+  el.innerHTML = items.map(x=>{
+    const inner = `
+      <div class="news-top">
+        <span class="tag ${tagClass}">${tagText}</span>
+        <span class="news-title">${esc(x.title)}</span>
+      </div>
+      ${x.summary?`<div class="news-summary">${esc(x.summary)}</div>`:''}
+      <div class="news-meta">
+        <span class="src">${esc(x.source)}</span>
+        ${x.ts?`<span>${relTime(x.ts)}</span>`:''}
+      </div>`;
+    return x.url
+      ? `<a class="news-item" href="${esc(x.url)}" target="_blank" rel="noopener">${inner}</a>`
+      : `<div class="news-item">${inner}</div>`;
+  }).join('');
+}
+function renderAllNews(){
+  if(HOT){
+    renderNews('aiList', HOT.ai_news, 'ai', 'AI');
+    renderNews('techList', HOT.tech_news, 'tech', '计算机');
+    document.getElementById('aiBadge').textContent = HOT.ai_news.length;
+    document.getElementById('techBadge').textContent = HOT.tech_news.length;
+    document.getElementById('dataTime').textContent = '更新于 ' + HOT.updateTime;
+  } else {
+    const empty = `<div class="empty"><div class="big">📭</div>未加载到 data.js，请先运行 sync_data.py</div>`;
+    document.getElementById('aiList').innerHTML = empty;
+    document.getElementById('techList').innerHTML = empty;
+  }
+}
+
+/* ================= 记单词打卡 ================= */
+const WORD_GOAL = 30;
+const wordKey = () => 'opc_word_' + todayKey();
+const WORD_DONE_KEY = 'opc_word_done';
+function getWord(){
+  try{return JSON.parse(localStorage.getItem(wordKey()))||{count:0,records:[]};}
+  catch(e){return {count:0,records:[]};}
+}
+function setWord(d){localStorage.setItem(wordKey(), JSON.stringify(d))}
+
+const QUOTES = [
+  {en:"The secret of getting ahead is getting started.", zh:"领先的秘诀，就是立刻开始。"},
+  {en:"Little strokes fell great oaks.", zh:"水滴石穿，绳锯木断。"},
+  {en:"Practice makes perfect.", zh:"熟能生巧。"},
+  {en:"Where there is a will, there is a way.", zh:"有志者，事竟成。"},
+  {en:"Rome was not built in a day.", zh:"罗马不是一天建成的。"},
+  {en:"Knowledge is power.", zh:"知识就是力量。"},
+  {en:"Perseverance is not a long race; it is many short races, one after another.", zh:"坚持不是一场长跑，而是一段又一段的短跑。"},
+  {en:"A journey of a thousand miles begins with a single step.", zh:"千里之行，始于足下。"},
+  {en:"Success is the sum of small efforts, repeated day in and day out.", zh:"成功是日复一日小努力的总和。"},
+  {en:"The more that you read, the more things you will know.", zh:"读得越多，懂得越多。"},
+];
+
+function addWords(n){
+  const d = getWord();
+  if(n > 0){
+    d.count += n;
+    d.records.push({time:Date.now(), n:n});
+  }
+  setWord(d);
+  renderWord();
+  if(n > 0) toast('📚 已记 ' + n + ' 个单词，今日共 ' + d.count + ' 个', 'word');
+}
+
+function computeStreak(){
+  const done = JSON.parse(localStorage.getItem(WORD_DONE_KEY)||'{}');
+  let streak = 0;
+  const d = new Date();
+  if(!done[fmtDate(d)]) d.setDate(d.getDate()-1);
+  while(done[fmtDate(d)]){ streak++; d.setDate(d.getDate()-1); }
+  return streak;
+}
+function fmtDate(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+
+function renderWord(){
+  const d = getWord();
+  const num = document.getElementById('wordNum');
+  num.textContent = d.count;
+  const pct = Math.min(100, d.count/WORD_GOAL*100);
+  document.getElementById('wordRing').style.setProperty('--pct', pct+'%');
+  document.getElementById('wordBadge').textContent = d.count+'/'+WORD_GOAL;
+
+  const done = d.count >= WORD_GOAL;
+  document.getElementById('wordDone').style.display = done?'':'none';
+  document.getElementById('wordStatus').innerHTML = done
+    ? '<b>今日已达标 ✓</b> 坚持就是胜利，明天继续！'
+    : '今日还差 <b>' + (WORD_GOAL - d.count) + '</b> 个单词，继续加油';
+
+  // 达标时记录完成日期（用于 streak）
+  const doneMap = JSON.parse(localStorage.getItem(WORD_DONE_KEY)||'{}');
+  if(done && !doneMap[fmtDate(new Date())]){
+    doneMap[fmtDate(new Date())] = true;
+    localStorage.setItem(WORD_DONE_KEY, JSON.stringify(doneMap));
+  }
+  document.getElementById('wordStreak').textContent = computeStreak();
+
+  // 时间线
+  const tl = document.getElementById('wordTimeline');
+  if(!d.records.length){
+    tl.innerHTML = `<li><span class="t" style="color:#9aa0ab">今天还没背单词，点上面的按钮开始</span></li>`;
+  } else {
+    tl.innerHTML = [...d.records].reverse().map(r=>{
+      const t = new Date(r.time);
+      return `<li><span class="t">${pad(t.getHours())}:${pad(t.getMinutes())}</span><span>背了单词</span><span class="v word">+${r.n} 个</span></li>`;
+    }).join('');
+  }
+
+  // 每日名言（按日期轮换）
+  const doy = Math.floor((Date.now() - new Date(new Date().getFullYear(),0,0).getTime())/86400000);
+  const q = QUOTES[doy % QUOTES.length];
+  document.getElementById('wordQuote').innerHTML =
+    `<div class="en">“${esc(q.en)}”</div><div class="zh">${esc(q.zh)}</div>`;
+}
+
+/* ================= 喝水打卡 ================= */
+const WATER_GOAL = 2300;
+const REMIND_INTERVAL = 60*60*1000; // 1 小时
+const waterKey = () => 'opc_water_' + todayKey();
+function getWater(){
+  try{return JSON.parse(localStorage.getItem(waterKey()))||{ml:0,records:[]};}
+  catch(e){return {ml:0,records:[]};}
+}
+function setWater(d){localStorage.setItem(waterKey(), JSON.stringify(d))}
+let lastRemindTs = Number(localStorage.getItem('opc_last_remind')||0);
+
+function drink(ml){
+  const d = getWater();
+  if(ml > 0){
+    d.ml += ml;
+    d.records.push({time:Date.now(), ml:ml});
+  } else if(ml < 0 && d.records.length){
+    const last = d.records.pop();
+    d.ml = Math.max(0, d.ml - last.ml);
+  }
+  setWater(d);
+  renderWater();
+  if(ml > 0) toast('💧 已记录 ' + ml + 'ml，今日共 ' + d.ml + 'ml', 'water');
+}
+
+function renderWater(){
+  const d = getWater();
+  document.getElementById('waterNum').textContent = d.ml;
+  const pct = Math.min(100, d.ml/WATER_GOAL*100);
+  document.getElementById('waterRing').style.setProperty('--pct', pct+'%');
+  document.getElementById('waterBadge').textContent = d.ml+'ml';
+
+  const done = d.ml >= WATER_GOAL;
+  document.getElementById('waterDone').style.display = done?'':'none';
+  document.getElementById('waterStatus').innerHTML = done
+    ? '<b>已达 2300ml ✓</b> 今日喝水目标完成！'
+    : '今日还需 <b>' + (WATER_GOAL - d.ml) + 'ml</b> 水';
+
+  const tl = document.getElementById('waterTimeline');
+  if(!d.records.length){
+    tl.innerHTML = `<li><span class="t" style="color:#9aa0ab">今天还没喝水，点上面的按钮开始</span></li>`;
+  } else {
+    tl.innerHTML = [...d.records].reverse().map(r=>{
+      const t = new Date(r.time);
+      return `<li><span class="t">${pad(t.getHours())}:${pad(t.getMinutes())}</span><span>喝水</span><span class="v water">+${r.ml}ml</span></li>`;
+    }).join('');
+  }
+  updateRemind();
+}
+
+function updateRemind(){
+  const el = document.getElementById('nextRemind');
+  const now = Date.now();
+  const remain = Math.max(0, lastRemindTs + REMIND_INTERVAL - now);
+  if(remain <= 0){
+    el.innerHTML = '🔔 该喝水了！点上面的按钮记录';
+  } else {
+    const m = Math.floor(remain/60000), s = Math.floor((remain%60000)/1000);
+    el.innerHTML = `⏱ 下次喝水提醒：<b>${m} 分 ${pad(s)} 秒</b> 后`;
+  }
+}
+function checkRemind(){
+  const now = Date.now();
+  if(now - lastRemindTs >= REMIND_INTERVAL){
+    lastRemindTs = now;
+    localStorage.setItem('opc_last_remind', String(now));
+    toast('💧 起来喝水啦！', 'water');
+    if('Notification' in window && Notification.permission === 'granted'){
+      new Notification('喝水提醒 💧', {body:'已经 1 小时啦，起来喝杯水吧', silent:true});
+    }
+  }
+  updateRemind();
+}
+function requestNotify(){
+  if('Notification' in window && Notification.permission === 'default') Notification.requestPermission();
+}
+
+/* ================= 导航 ================= */
+const VIEW_TITLES = {ai:'AI 基础', tech:'计算机基础', word:'记单词 · 四级', water:'喝水打卡'};
+function switchView(v){
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.view===v));
+  document.querySelectorAll('.view').forEach(s=>s.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  document.getElementById('viewTitle').textContent = VIEW_TITLES[v];
+  if(v==='word') renderWord();
+  if(v==='water') renderWater();
+}
+document.querySelectorAll('.nav-item').forEach(n=>n.addEventListener('click', ()=>switchView(n.dataset.view)));
+
+/* 刷新资讯：强制从云端拉取最新 data.js（绕过缓存），手机/电脑均可用 */
+function refreshData(){
+  const tip = toast('🔄 正在获取最新资讯…', 'water');
+  fetch('./data.js?nocache=1&t=' + Date.now(), {cache: 'no-store'})
+    .then(r => { if(!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+    .then(txt => {
+      try { (new Function(txt))(); } catch(e){ throw new Error('数据格式错误'); }
+      if(!window.HOT_DATA) throw new Error('数据为空');
+      HOT = window.HOT_DATA;
+      renderAllNews();
+      toast('✅ 已更新 · ' + HOT.updateTime, 'water');
+    })
+    .catch(err => {
+      toast('❌ 刷新失败（云端数据未更新或网络不可用）', 'word');
+    });
+}
+
+/* ================= 添加到主屏幕（PWA 安装引导） ================= */
+let deferredPrompt = null;
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+const isAndroid = /Android/i.test(navigator.userAgent);
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if(!isStandalone && !localStorage.getItem('opc_install_dismiss')) showInstallBar();
+});
+window.addEventListener('appinstalled', () => { deferredPrompt = null; hideInstallBar(); });
+
+function showInstallBar(){
+  const el = document.getElementById('installBar');
+  if(el) el.style.display = 'flex';
+}
+function hideInstallBar(){
+  const el = document.getElementById('installBar');
+  if(el) el.style.display = 'none';
+}
+function openInstallGuide(){
+  const steps = document.getElementById('imSteps');
+  const desc = document.getElementById('imDesc');
+  if(isIOS){
+    desc.textContent = 'iPhone/iPad 请按以下步骤操作';
+    steps.innerHTML = `
+      <div class="im-step"><span class="n">1</span>点击 Safari 底部（或右上角）的<b>分享</b>按钮</div>
+      <div class="im-step"><span class="n">2</span>向下滑动，选择<b>「添加到主屏幕」</b></div>
+      <div class="im-step"><span class="n">3</span>点右上角<b>「添加」</b>完成</div>`;
+  } else if(isAndroid){
+    desc.textContent = '安卓手机请按以下步骤操作';
+    steps.innerHTML = `
+      <div class="im-step"><span class="n">1</span>点浏览器右上角<b>⋮ 菜单</b></div>
+      <div class="im-step"><span class="n">2</span>选<b>「安装应用」</b>或<b>「添加到主屏幕」</b></div>
+      <div class="im-step"><span class="n">3</span>确认<b>「安装」</b>完成</div>`;
+  } else {
+    desc.textContent = '电脑端请按以下步骤操作';
+    steps.innerHTML = `
+      <div class="im-step"><span class="n">1</span>点地址栏右侧的<b>安装图标</b></div>
+      <div class="im-step"><span class="n">2</span>或按快捷键 <b>Ctrl/Cmd + Shift + S</b></div>`;
+  }
+  document.getElementById('installModal').classList.add('show');
+}
+function closeInstall(){
+  document.getElementById('installModal').classList.remove('show');
+  hideInstallBar();
+  localStorage.setItem('opc_install_dismiss', '1');
+}
+
+document.getElementById('installClose').addEventListener('click', () => {
+  hideInstallBar();
+  localStorage.setItem('opc_install_dismiss', '1');
+});
+document.getElementById('installBtn').addEventListener('click', () => {
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => { deferredPrompt = null; hideInstallBar(); });
+  } else {
+    openInstallGuide();
+  }
+});
+
+/* ================= 初始化 ================= */
+(function init(){
+  const d = new Date();
+  const week = ['日','一','二','三','四','五','六'][d.getDay()];
+  document.getElementById('sideDate').textContent = d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日 周'+week;
+  renderAllNews();
+  renderWord();
+  renderWater();
+  requestNotify();
+  setInterval(checkRemind, 1000);
+  // 注册 Service Worker（PWA 离线缓存）
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+  }
+  // iOS Safari 无 beforeinstallprompt，主动弹引导条
+  if(!isStandalone && isIOS && !localStorage.getItem('opc_install_dismiss')){
+    setTimeout(showInstallBar, 2500);
+  }
+})();
+</script>
+</body>
+</html>
