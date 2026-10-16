@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#131722">
+<title>一人公司工作台 · 每日知识</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--txt:#1a1e29;--txt2:#6b7280;--line:#eceef2;--ai:#4f6bff;--tech:#00b578;--dark:#131722}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+.header{background:linear-gradient(135deg,#131722,#2a3550);color:#fff;padding:26px 18px 58px}
+.header .hd-top{display:flex;align-items:center;justify-content:space-between}
+.header .logo{font-size:19px;font-weight:800}
+.header .date{font-size:12px;color:#aab2c5;margin-top:4px}
+.header .big{font-size:26px;font-weight:800;margin-top:14px}
+.header .sub{font-size:13px;color:#aab2c5;margin-top:5px}
+.tabs{display:flex;gap:8px;margin:-34px 18px 0;position:relative;z-index:2}
+.tab{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 0;text-align:center;font-size:14px;font-weight:700;color:var(--txt2);cursor:pointer;box-shadow:0 4px 14px rgba(19,23,34,.06)}
+.tab.on{color:#fff}
+.tab.on.ai{background:var(--ai);border-color:var(--ai)}
+.tab.on.tech{background:var(--tech);border-color:var(--tech)}
+.tab small{display:block;font-size:11px;font-weight:400;opacity:.75;margin-top:2px}
+.list{padding:14px 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;margin-bottom:11px;display:flex;gap:12px;align-items:flex-start;animation:up .35s ease}
+@keyframes up{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+.card .idx{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;flex-shrink:0}
+.card.ai .idx{background:var(--ai)}
+.card.tech .idx{background:var(--tech)}
+.card .body{flex:1}
+.card .t{font-size:15px;font-weight:750;margin-bottom:4px}
+.card .s{font-size:13px;color:var(--txt2);line-height:1.6}
+.foot{text-align:center;color:#b0b6c2;font-size:12px;padding:8px 16px 4px}
+.tip{margin:0 16px;background:#fff7e6;border:1px solid #ffd591;color:#8a5a00;border-radius:12px;padding:12px 14px;font-size:12.5px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="hd-top">
+    <div>
+      <div class="logo">一人公司工作台</div>
+      <div class="date">2026-10-15</div>
+    </div>
+  </div>
+  <div class="big">每日基础知识</div>
+  <div class="sub">AI 基础 + 计算机基础 · 每天轮换新内容</div>
+</div>
+
+<div class="tabs">
+  <div class="tab on ai" data-tab="ai">AI 基础<small>15 条</small></div>
+  <div class="tab tech" data-tab="tech">计算机基础<small>20 条</small></div>
+</div>
+
+<div class="list" id="list"></div>
+
+<div class="tip">💡 <b>添加到主屏幕</b>：iPhone 用 Safari 打开，点分享 →「添加到主屏幕」；安卓用 Chrome，点 ⋮ 菜单 →「安装应用」。之后像 App 一样一键打开，无需联网加载页面。</div>
+<div class="foot">一人公司工作台 · 每日自动更新</div>
+
+<script>
+var DATA = {"updateTime": "2026-10-15 09:45:39", "updateTs": 1792028739, "date": "2026-10-15", "total": 35, "ai_news": [{"title": "生成式 AI", "summary": "能自动生成文字、图片、代码等内容的人工智能，也叫 AIGC。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "预训练", "summary": "模型先在通用海量数据上大规模学习，打下基础能力。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "微调 Fine-tuning", "summary": "在预训练模型基础上用特定数据再训练，适配专门任务。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "参数", "summary": "模型内部可调节的权重数量，参数越多通常能力越强、越吃资源。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "幻觉", "summary": "模型一本正经地编造不存在的事实，是当前大模型的常见缺陷。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "温度 Temperature", "summary": "控制输出随机性的参数，越高越有创意，越低越稳定。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "嵌入 Embedding", "summary": "把文字/图片转成向量数字，方便计算相似度。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "向量数据库", "summary": "专门存储和检索向量数据的库，是 RAG 的常用组件。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "Transformer", "summary": "当前主流大模型的底层架构，靠注意力机制处理序列。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "注意力机制", "summary": "让模型在处理时聚焦重要部分，是 Transformer 的核心。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "强化学习", "summary": "让模型通过试错和奖励学习决策，常用于训练对齐。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "文生图", "summary": "根据文字描述生成图片，如 Midjourney、Stable Diffusion。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "文生视频", "summary": "根据文字生成视频，如 Sora、可灵、即梦。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "具身智能", "summary": "让 AI 拥有「身体」，与物理世界交互，如机器人。", "url": "", "source": "AI 基础", "ts": 0}, {"title": "Copilot", "summary": "智能编程助手，帮你补全代码、写函数、查错误。", "url": "", "source": "AI 基础", "ts": 0}], "tech_news": [{"title": "编译", "summary": "把源代码整体翻译成机器码的过程，如 C/C++。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "解释", "summary": "逐行执行源代码，如 Python、JavaScript。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "编程语言", "summary": "人与计算机沟通的语言，如 Python、JS、Go。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "数据库", "summary": "有组织地存储和管理数据的系统，如 MySQL、PostgreSQL。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "缓存", "summary": "临时存储常用数据以加速访问的机制。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "前端", "summary": "用户直接看到和交互的部分，即 HTML/CSS/JS。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "后端", "summary": "服务器端逻辑，处理数据、接口、权限。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "全栈", "summary": "同时掌握前端和后端开发。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "Git", "summary": "版本控制工具，记录代码改动、支持协作。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "开源", "summary": "源代码公开，允许自由使用和修改。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "云计算", "summary": "通过网络按需租用计算资源，而非自购服务器。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "环境变量", "summary": "存系统/程序配置的变量，如路径、密钥。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "终端", "summary": "命令行界面，用文本命令操作电脑。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "端口", "summary": "网络服务的入口编号，如网页常用 80、443。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "请求/响应", "summary": "客户端发请求、服务器返回响应的完整交互。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "数据序列化", "summary": "把数据转成可存储/传输的格式，如 JSON 文本。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "CPU", "summary": "中央处理器，计算机的「大脑」，负责执行指令和运算。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "内存 RAM", "summary": "临时存储正在运行的数据，断电即清空，速度快。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "硬盘", "summary": "长期存储数据的设备，断电不丢失，速度比内存慢。", "url": "", "source": "计算机基础", "ts": 0}, {"title": "二进制", "summary": "只用 0 和 1 表示所有数据，是计算机的底层语言。", "url": "", "source": "计算机基础", "ts": 0}]};
+var cur = 'ai';
+function render(tab){
+  var arr = tab === 'ai' ? DATA.ai_news : DATA.tech_news;
+  var cls = tab === 'ai' ? 'ai' : 'tech';
+  var html = '';
+  for(var i=0;i<arr.length;i++){
+    var it = arr[i];
+    html += '<div class="card '+cls+'" style="animation-delay:'+(i*0.03)+'s">'
+      + '<div class="idx">'+(i+1)+'</div>'
+      + '<div class="body"><div class="t">'+it.title+'</div><div class="s">'+it.summary+'</div></div>'
+      + '</div>';
+  }
+  document.getElementById('list').innerHTML = html;
+}
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click', function(){
+    cur = t.getAttribute('data-tab');
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});
+    t.classList.add('on');
+    render(cur);
+  });
+});
+render('ai');
+</script>
+</body>
+</html>
