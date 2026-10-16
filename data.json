@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-10-16 19:30:17",
-  "updateTs": 1792150217,
+  "updateTime": "2026-10-16 11:32:05",
+  "updateTs": 1792150325,
   "date": "2026-10-16",
   "total": 30,
   "ai_news": [
@@ -113,58 +113,58 @@
   "tech_news": [
     {
       "title": "特斯拉都“飞”了还要自动驾驶吗",
-      "summary": "热度 4820521",
-      "url": "https://www.toutiao.com/trending/7697204221717151763/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697204221717151763%22%2C%22hot_board_impr_id%22%3A%222026101619301610609B8C1FA038BFC9ED%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%96%AF%E6%8B%89%E9%83%BD%E2%80%9C%E9%A3%9E%E2%80%9D%E4%BA%86%E8%BF%98%E8%A6%81%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%90%97%22%7D&rank=&style_id=40132&topic_id=7697204221717151763",
-      "ts": 1792150217,
+      "summary": "热度 4832504",
+      "url": "https://www.toutiao.com/trending/7697204221717151763/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697204221717151763%22%2C%22hot_board_impr_id%22%3A%222026101619320599BF5813AB8D6F0BFA4E%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%96%AF%E6%8B%89%E9%83%BD%E2%80%9C%E9%A3%9E%E2%80%9D%E4%BA%86%E8%BF%98%E8%A6%81%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%90%97%22%7D&rank=&style_id=40132&topic_id=7697204221717151763",
+      "ts": 1792150325,
       "source": "今日热榜"
     },
     {
       "title": "捷众科技“30cm”涨停",
-      "summary": "热度 3231292",
-      "url": "https://www.toutiao.com/trending/7697181562491896347/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697181562491896347%22%2C%22hot_board_impr_id%22%3A%222026101619301610609B8C1FA038BFC9ED%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%8D%B7%E4%BC%97%E7%A7%91%E6%8A%80%E2%80%9C30cm%E2%80%9D%E6%B6%A8%E5%81%9C%22%7D&rank=&style_id=40132&topic_id=7697181562491896347",
-      "ts": 1792150217,
+      "summary": "热度 3239324",
+      "url": "https://www.toutiao.com/trending/7697181562491896347/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697181562491896347%22%2C%22hot_board_impr_id%22%3A%222026101619320599BF5813AB8D6F0BFA4E%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%8D%B7%E4%BC%97%E7%A7%91%E6%8A%80%E2%80%9C30cm%E2%80%9D%E6%B6%A8%E5%81%9C%22%7D&rank=&style_id=40132&topic_id=7697181562491896347",
+      "ts": 1792150325,
       "source": "今日热榜"
     },
     {
       "title": "多个手机品牌集体宣布降价",
-      "summary": "热度 973246",
-      "url": "https://www.toutiao.com/trending/7697064393934848019/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697064393934848019%22%2C%22hot_board_impr_id%22%3A%222026101619301610609B8C1FA038BFC9ED%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A4%9A%E4%B8%AA%E6%89%8B%E6%9C%BA%E5%93%81%E7%89%8C%E9%9B%86%E4%BD%93%E5%AE%A3%E5%B8%83%E9%99%8D%E4%BB%B7%22%7D&rank=&style_id=40132&topic_id=7697064393934848019",
-      "ts": 1792150217,
+      "summary": "热度 975665",
+      "url": "https://www.toutiao.com/trending/7697064393934848019/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697064393934848019%22%2C%22hot_board_impr_id%22%3A%222026101619320599BF5813AB8D6F0BFA4E%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A4%9A%E4%B8%AA%E6%89%8B%E6%9C%BA%E5%93%81%E7%89%8C%E9%9B%86%E4%BD%93%E5%AE%A3%E5%B8%83%E9%99%8D%E4%BB%B7%22%7D&rank=&style_id=40132&topic_id=7697064393934848019",
+      "ts": 1792150325,
       "source": "今日热榜"
     },
     {
       "title": "天水幼儿血铅案一审宣判",
-      "summary": "热度 13103536",
-      "url": "https://www.toutiao.com/trending/7697203564573736996/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697203564573736996%22%2C%22hot_board_impr_id%22%3A%222026101619301610609B8C1FA038BFC9ED%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A4%A9%E6%B0%B4%E5%B9%BC%E5%84%BF%E8%A1%80%E9%93%85%E6%A1%88%E4%B8%80%E5%AE%A1%E5%AE%A3%E5%88%A4%22%7D&rank=&style_id=40132&topic_id=7697203564573736996",
-      "ts": 1792150217,
+      "summary": "热度 13136109",
+      "url": "https://www.toutiao.com/trending/7697203564573736996/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697203564573736996%22%2C%22hot_board_impr_id%22%3A%222026101619320599BF5813AB8D6F0BFA4E%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A4%A9%E6%B0%B4%E5%B9%BC%E5%84%BF%E8%A1%80%E9%93%85%E6%A1%88%E4%B8%80%E5%AE%A1%E5%AE%A3%E5%88%A4%22%7D&rank=&style_id=40132&topic_id=7697203564573736996",
+      "ts": 1792150325,
       "source": "今日热榜"
     },
     {
       "title": "特斯拉是如何造出“飞行汽车”的",
-      "summary": "热度 11856570",
-      "url": "https://www.toutiao.com/trending/7697195766959312403/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697195766959312403%22%2C%22hot_board_impr_id%22%3A%222026101619301610609B8C1FA038BFC9ED%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%96%AF%E6%8B%89%E6%98%AF%E5%A6%82%E4%BD%95%E9%80%A0%E5%87%BA%E2%80%9C%E9%A3%9E%E8%A1%8C%E6%B1%BD%E8%BD%A6%E2%80%9D%E7%9A%84%22%7D&rank=&style_id=40132&topic_id=7697195766959312403",
-      "ts": 1792150217,
+      "summary": "热度 11886043",
+      "url": "https://www.toutiao.com/trending/7697195766959312403/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697195766959312403%22%2C%22hot_board_impr_id%22%3A%222026101619320599BF5813AB8D6F0BFA4E%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%96%AF%E6%8B%89%E6%98%AF%E5%A6%82%E4%BD%95%E9%80%A0%E5%87%BA%E2%80%9C%E9%A3%9E%E8%A1%8C%E6%B1%BD%E8%BD%A6%E2%80%9D%E7%9A%84%22%7D&rank=&style_id=40132&topic_id=7697195766959312403",
+      "ts": 1792150325,
       "source": "今日热榜"
     },
     {
       "title": "全国粮食标准仓仓容达7.3亿吨",
-      "summary": "热度 10728268",
-      "url": "https://www.toutiao.com/trending/7696782550324432447/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227696782550324432447%22%2C%22hot_board_impr_id%22%3A%222026101619301610609B8C1FA038BFC9ED%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%85%A8%E5%9B%BD%E7%B2%AE%E9%A3%9F%E6%A0%87%E5%87%86%E4%BB%93%E4%BB%93%E5%AE%B9%E8%BE%BE7.3%E4%BA%BF%E5%90%A8%22%7D&rank=&style_id=40132&topic_id=7696782550324432447",
-      "ts": 1792150217,
+      "summary": "热度 10754936",
+      "url": "https://www.toutiao.com/trending/7696782550324432447/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227696782550324432447%22%2C%22hot_board_impr_id%22%3A%222026101619320599BF5813AB8D6F0BFA4E%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%85%A8%E5%9B%BD%E7%B2%AE%E9%A3%9F%E6%A0%87%E5%87%86%E4%BB%93%E4%BB%93%E5%AE%B9%E8%BE%BE7.3%E4%BA%BF%E5%90%A8%22%7D&rank=&style_id=40132&topic_id=7696782550324432447",
+      "ts": 1792150325,
       "source": "今日热榜"
     },
     {
       "title": "中方：中国核力量与美俄不在一个量级",
-      "summary": "热度 9707338",
-      "url": "https://www.toutiao.com/trending/7697036912935354378/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697036912935354378%22%2C%22hot_board_impr_id%22%3A%222026101619301610609B8C1FA038BFC9ED%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E6%96%B9%EF%BC%9A%E4%B8%AD%E5%9B%BD%E6%A0%B8%E5%8A%9B%E9%87%8F%E4%B8%8E%E7%BE%8E%E4%BF%84%E4%B8%8D%E5%9C%A8%E4%B8%80%E4%B8%AA%E9%87%8F%E7%BA%A7%22%7D&rank=&style_id=40132&topic_id=7697036912935354378",
-      "ts": 1792150217,
+      "summary": "热度 9731469",
+      "url": "https://www.toutiao.com/trending/7697036912935354378/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697036912935354378%22%2C%22hot_board_impr_id%22%3A%222026101619320599BF5813AB8D6F0BFA4E%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E6%96%B9%EF%BC%9A%E4%B8%AD%E5%9B%BD%E6%A0%B8%E5%8A%9B%E9%87%8F%E4%B8%8E%E7%BE%8E%E4%BF%84%E4%B8%8D%E5%9C%A8%E4%B8%80%E4%B8%AA%E9%87%8F%E7%BA%A7%22%7D&rank=&style_id=40132&topic_id=7697036912935354378",
+      "ts": 1792150325,
       "source": "今日热榜"
     },
     {
       "title": "《新闻联播》正在直播",
-      "summary": "热度 8783563",
+      "summary": "热度 8805397",
       "url": "https://webcast-open.douyin.com/open/media_live/330698468897",
-      "ts": 1792150217,
+      "ts": 1792150325,
       "source": "今日热榜"
     },
     {
