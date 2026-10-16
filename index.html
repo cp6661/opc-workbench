@@ -459,7 +459,7 @@ button{font-family:inherit}
 <div class="install-bar" id="installBar">
   <span class="ib-ico">📲</span>
   <span class="ib-txt"><b>把工作台加到主屏幕</b>像 App 一样一键打开</span>
-  <button class="ib-btn" id="installBtn">立即添加</button>
+  <button class="ib-btn" id="installBarAdd">立即添加</button>
   <button class="ib-close" id="installClose">✕</button>
 </div>
 
@@ -701,55 +701,30 @@ function requestNotify(){
 /* ================= 导航 ================= */
 const VIEW_TITLES = {ai:'AI 情报', tech:'计算机情报', word:'记单词 · 四级', water:'喝水打卡'};
 
-/* ================= 添加到桌面（PWA） ================= */
-let deferredPrompt = null;
-window.addEventListener('beforeinstallprompt', (e)=>{
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById('installBtn').hidden = false;
-});
-window.addEventListener('appinstalled', ()=>{
-  deferredPrompt = null;
-  document.getElementById('installBtn').hidden = true;
-  toast('🎉 已添加到桌面', 'word');
-});
+/* ================= 添加到桌面（PWA 安装引导） ================= */
+function copyLink(){
+  const url = location.href;
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(
+      ()=>toast('✅ 网址已复制，用 Chrome / Edge 粘贴打开', 'water'),
+      ()=>prompt('复制网址，用 Chrome 打开：', url)
+    );
+  } else {
+    prompt('复制网址，用 Chrome 打开：', url);
+  }
+}
 function installApp(){
-  const btn = document.getElementById('installBtn');
   if(deferredPrompt){
     deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(r=>{
-      if(r.outcome === 'accepted') toast('🎉 正在添加到桌面…', 'word');
-      deferredPrompt = null; btn.hidden = true;
-    });
-    return;
-  }
-  const iOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  if(iOS){
-    toast('📲 Safari：底部分享 → 添加到主屏幕', 'water');
+    deferredPrompt.userChoice.then(()=>{ deferredPrompt = null; hideInstallBar(); });
     return;
   }
   if(/MicroMessenger/i.test(navigator.userAgent) || /QQ\//i.test(navigator.userAgent)){
     toast('⚠️ 微信/QQ 内不能安装 → 点右上角「…」→ 用浏览器打开', 'word');
     return;
   }
-  toast('📲 菜单 → 添加到主屏幕（灰色就换 Chrome/Edge 打开）', 'water');
-  setTimeout(()=>{
-    const url = location.href;
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(url).then(
-        ()=>toast('✅ 网址已复制 → Chrome 粘贴打开', 'water'),
-        ()=>prompt('复制网址，用 Chrome 打开：', url)
-      );
-    } else {
-      prompt('复制网址，用 Chrome 打开：', url);
-    }
-  }, 1200);
-}
-/* 已以独立窗口打开则隐藏按钮 */
-if(window.matchMedia('(display-mode: standalone)').matches || navigator.standalone){
-  window.addEventListener('DOMContentLoaded', ()=>{
-    document.getElementById('installBtn').hidden = true;
-  });
+  openInstallGuide();
+  if(!/iphone|ipad|ipod/i.test(navigator.userAgent)) setTimeout(copyLink, 900);
 }
 function switchView(v){
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.view===v));
@@ -832,14 +807,7 @@ document.getElementById('installClose').addEventListener('click', () => {
   hideInstallBar();
   localStorage.setItem('opc_install_dismiss', '1');
 });
-document.getElementById('installBtn').addEventListener('click', () => {
-  if(deferredPrompt){
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(() => { deferredPrompt = null; hideInstallBar(); });
-  } else {
-    openInstallGuide();
-  }
-});
+document.getElementById('installBarAdd').addEventListener('click', installApp);
 
 /* ================= 初始化 ================= */
 (function init(){
