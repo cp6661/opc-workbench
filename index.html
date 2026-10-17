@@ -513,14 +513,16 @@ function toast(msg, type){
 let HOT = window.HOT_DATA || null;
 
 /* 远端最新数据源（GitHub Actions 每天 08:00 生成并提交，CDN 兜底同步） */
-const REPO_PATH = 'cp6661/opc-workbench@main/data.js';
+const RAW = 'https://raw.githubusercontent.com/cp6661/opc-workbench/main/data.js';
+/* 实时代理（无缓存）优先；jsDelivr 会缓存最长 24h，放最后兜底 */
 const REMOTE_SOURCES = [
-  'https://fastly.jsdelivr.net/gh/' + REPO_PATH + '?t=' + Date.now(),
-  'https://testingcf.jsdelivr.net/gh/' + REPO_PATH + '?t=' + Date.now(),
-  'https://cdn.jsdelivr.net/gh/' + REPO_PATH + '?t=' + Date.now(),
-  'https://ghproxy.net/https://raw.githubusercontent.com/cp6661/opc-workbench/main/data.js?t=' + Date.now(),
-  'https://raw.githubusercontent.com/cp6661/opc-workbench/main/data.js?t=' + Date.now(),
-  'https://cp6661.github.io/opc-workbench/data.js?t=' + Date.now()
+  'https://gh-proxy.com/' + RAW,
+  'https://ghfast.top/' + RAW,
+  'https://gh.idayer.com/' + RAW,
+  'https://ghproxy.net/' + RAW,
+  RAW,
+  'https://cp6661.github.io/opc-workbench/data.js',
+  'https://fastly.jsdelivr.net/gh/cp6661/opc-workbench@main/data.js'
 ];
 function parseData(txt){
   const w = {};
@@ -557,31 +559,43 @@ function fetchWithTimeout(url, ms){
 function hostOf(u){
   try{ return new URL(u).hostname.replace(/^www\./,''); }catch(e){ return u.slice(0,24); }
 }
+/* 并发请求所有数据源，谁快用谁；持续取 updateTs 最大的那份，避免拿到代理缓存的旧数据 */
 function autoUpdate(silent){
-  sources(0);
-  function sources(i){
-    if(i >= REMOTE_SOURCES.length){
-      lastSrcLabel = '本地快照';
-      updateDataTime();
-      if(!silent) toast('❌ 全部数据源不可达，显示的是本地缓存', 0);
-      return;
-    }
-    const host = hostOf(REMOTE_SOURCES[i]);
-    fetchWithTimeout(REMOTE_SOURCES[i])
-      .then(txt=>{
+  const total = REMOTE_SOURCES.length;
+  let finished = 0, okCount = 0, applied = false;
+  let bestTs = (HOT && HOT.updateTs) || 0;
+
+  REMOTE_SOURCES.forEach(function(u){
+    const host = hostOf(u);
+    const url = u + (u.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
+    fetchWithTimeout(url, 8000)
+      .then(function(txt){
         const d = parseData(txt);
-        if(!d) return Promise.reject(new Error('bad data'));
-        lastSrcLabel = host;
-        if(!HOT || (d.updateTs||0) > (HOT.updateTs||0)){
+        if(!d) throw new Error('bad data');
+        okCount++;
+        if((d.updateTs || 0) > bestTs){
+          bestTs = d.updateTs;
           applyData(d, host);
-          toast('✅ 已更新到 ' + d.date + ' 的最新内容', 0);
-        } else {
-          applyData(HOT, host);
-          if(!silent) toast('✅ 已是最新（' + HOT.date + '）', 0);
+          applied = true;
+          if(!silent) toast('✅ 已更新 · ' + d.updateTime.slice(5, 16), 0);
+        } else if(!applied){
+          lastSrcLabel = host;
+          updateDataTime();
         }
       })
-      .catch(()=>sources(i+1));
-  }
+      .catch(function(){})
+      .then(function(){
+        finished++;
+        if(finished < total) return;
+        if(okCount === 0){
+          lastSrcLabel = '本地快照';
+          updateDataTime();
+          if(!silent) toast('❌ 数据源不可达，显示的是本地快照', 0);
+        } else if(!applied && !silent){
+          toast('✅ 已是最新内容（' + HOT.date + '）', 0);
+        }
+      });
+  });
 }
 function refreshData(){
   toast('🔄 正在获取最新内容…', 0);
