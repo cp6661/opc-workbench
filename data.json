@@ -1,7 +1,7 @@
 {
-  "updateTime": "2026-10-16 11:43:46",
-  "updateTs": 1792151026,
-  "date": "2026-10-16",
+  "updateTime": "2026-10-17 00:16:25",
+  "updateTs": 1792196185,
+  "date": "2026-10-17",
   "total": 30,
   "ai_news": [
     {
@@ -9,13 +9,6 @@
       "summary": "--- | --- | --- | --- | | 1 | 每站填报表+会计录入 | 站长每天1小时填Excel，会计再1小时录财务软件，5个会计专职干这个 | 5个会计的工资，一年几十万 | 表格现",
       "url": "https://juejin.cn/post/7696118815167807539",
       "ts": 1791950359,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "2028编程圈很火的10个Skills",
-      "summary": "两年前我们聊 Skills，很多人还在问\"这是啥\"。 到了 2028 年，Skills 已经不是什么新概念，而是 AI 编程的\"水电煤\"。 不装 Skill 的 AI 编程助手，就像没装插件的浏览器—",
-      "url": "https://juejin.cn/post/7695999629460029466",
-      "ts": 1791901817,
       "source": "掘金·AI热文"
     },
     {
@@ -40,10 +33,10 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "开源项目第235期：REA — 让 AI Agent 逆向任何东西，从网站/Electron 应用一路分析到二进制层",
-      "summary": "这是「每日一个开源项目」系列的第 235 篇。今天的项目是 REA（Reverse Engineer Anything） —— 一个把 AI Agent 和逆向工程工具连接起来的 MCP 服务器",
-      "url": "https://juejin.cn/post/7695985750949494818",
-      "ts": 1791896646,
+      "title": "戒断Claude之后，被GLM5.3蠢哭了！",
+      "summary": "Claude 被迫戒断之后，我认真地在思考一个问题： 如果所有国外的模型不能用了，那么我应该怎么应对？ 我常常听到这样的论调：时至今日，没必要去搞什么 Claude，国产模型也不差。 这句话有一定道理",
+      "url": "https://juejin.cn/post/7696542671834742822",
+      "ts": 1792047319,
       "source": "掘金·AI热文"
     },
     {
@@ -61,11 +54,11 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "预训练",
-      "summary": "模型先在通用海量数据上大规模学习，打下基础能力。",
-      "url": "",
-      "source": "AI 基础",
-      "ts": 0
+      "title": "我让 Gemini 4 当高管、DeepSeek 当员工，开了一家软件公司（Day 1）",
+      "summary": "今天 Gemini-4-Argon 正式发布了，实测它的长程规划和调度决策能力强得让人后背发凉。 既然模型大脑已经到了这个水位，再拿它当「聊天框里的个人助理」就太浪费了。 我决定做一个为期 7 天 的",
+      "url": "https://juejin.cn/post/7696083307454038026",
+      "ts": 1791951173,
+      "source": "掘金·AI热文"
     },
     {
       "title": "微调 Fine-tuning",
@@ -108,110 +101,117 @@
       "url": "",
       "source": "AI 基础",
       "ts": 0
+    },
+    {
+      "title": "Transformer",
+      "summary": "当前主流大模型的底层架构，靠注意力机制处理序列。",
+      "url": "",
+      "source": "AI 基础",
+      "ts": 0
     }
   ],
   "tech_news": [
     {
-      "title": "捷众科技“30cm”涨停",
-      "summary": "热度 6056325",
-      "url": "https://www.toutiao.com/trending/7697181562491896347/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697181562491896347%22%2C%22hot_board_impr_id%22%3A%22202610161943468844C0E52D2607926093%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%8D%B7%E4%BC%97%E7%A7%91%E6%8A%80%E2%80%9C30cm%E2%80%9D%E6%B6%A8%E5%81%9C%22%7D&rank=&style_id=40132&topic_id=7697181562491896347",
-      "ts": 1792151026,
-      "source": "今日热榜"
-    },
-    {
-      "title": "特斯拉都“飞”了还要自动驾驶吗",
-      "summary": "热度 4486636",
-      "url": "https://www.toutiao.com/trending/7697204221717151763/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697204221717151763%22%2C%22hot_board_impr_id%22%3A%22202610161943468844C0E52D2607926093%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%96%AF%E6%8B%89%E9%83%BD%E2%80%9C%E9%A3%9E%E2%80%9D%E4%BA%86%E8%BF%98%E8%A6%81%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%90%97%22%7D&rank=&style_id=40132&topic_id=7697204221717151763",
-      "ts": 1792151026,
-      "source": "今日热榜"
-    },
-    {
       "title": "多个手机品牌集体宣布降价",
-      "summary": "热度 3323781",
-      "url": "https://www.toutiao.com/trending/7697064393934848019/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697064393934848019%22%2C%22hot_board_impr_id%22%3A%22202610161943468844C0E52D2607926093%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A4%9A%E4%B8%AA%E6%89%8B%E6%9C%BA%E5%93%81%E7%89%8C%E9%9B%86%E4%BD%93%E5%AE%A3%E5%B8%83%E9%99%8D%E4%BB%B7%22%7D&rank=&style_id=40132&topic_id=7697064393934848019",
-      "ts": 1792151026,
+      "summary": "热度 4046989",
+      "url": "https://www.toutiao.com/trending/7697064393934848019/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697064393934848019%22%2C%22hot_board_impr_id%22%3A%2220261017081625A7F57BC4BED8D4EEE244%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A4%9A%E4%B8%AA%E6%89%8B%E6%9C%BA%E5%93%81%E7%89%8C%E9%9B%86%E4%BD%93%E5%AE%A3%E5%B8%83%E9%99%8D%E4%BB%B7%22%7D&rank=&style_id=40132&topic_id=7697064393934848019",
+      "ts": 1792196185,
       "source": "今日热榜"
     },
     {
-      "title": "河南发布暴雨蓝色预警",
-      "summary": "热度 333238",
-      "url": "https://www.toutiao.com/trending/7697177321324790310/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697177321324790310%22%2C%22hot_board_impr_id%22%3A%22202610161943468844C0E52D2607926093%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%B2%B3%E5%8D%97%E5%8F%91%E5%B8%83%E6%9A%B4%E9%9B%A8%E8%93%9D%E8%89%B2%E9%A2%84%E8%AD%A6%22%7D&rank=&style_id=40132&topic_id=7697177321324790310",
-      "ts": 1792151026,
+      "title": "手机为何越卖越少却越卖越贵",
+      "summary": "热度 817073",
+      "url": "https://www.toutiao.com/trending/7697199666529976339/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697199666529976339%22%2C%22hot_board_impr_id%22%3A%2220261017081625A7F57BC4BED8D4EEE244%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%89%8B%E6%9C%BA%E4%B8%BA%E4%BD%95%E8%B6%8A%E5%8D%96%E8%B6%8A%E5%B0%91%E5%8D%B4%E8%B6%8A%E5%8D%96%E8%B6%8A%E8%B4%B5%22%7D&rank=&style_id=40132&topic_id=7697199666529976339",
+      "ts": 1792196185,
       "source": "今日热榜"
     },
     {
-      "title": "天水幼儿血铅案一审宣判",
-      "summary": "热度 13478599",
-      "url": "https://www.toutiao.com/trending/7697203564573736996/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697203564573736996%22%2C%22hot_board_impr_id%22%3A%22202610161943468844C0E52D2607926093%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A4%A9%E6%B0%B4%E5%B9%BC%E5%84%BF%E8%A1%80%E9%93%85%E6%A1%88%E4%B8%80%E5%AE%A1%E5%AE%A3%E5%88%A4%22%7D&rank=&style_id=40132&topic_id=7697203564573736996",
-      "ts": 1792151026,
+      "title": "驻菲大使：菲方该庆幸中国热爱和平",
+      "summary": "热度 24482861",
+      "url": "https://www.toutiao.com/trending/7696536389996118058/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227696536389996118058%22%2C%22hot_board_impr_id%22%3A%2220261017081625A7F57BC4BED8D4EEE244%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%A9%BB%E8%8F%B2%E5%A4%A7%E4%BD%BF%EF%BC%9A%E8%8F%B2%E6%96%B9%E8%AF%A5%E5%BA%86%E5%B9%B8%E4%B8%AD%E5%9B%BD%E7%83%AD%E7%88%B1%E5%92%8C%E5%B9%B3%22%7D&rank=&style_id=40132&topic_id=7696536389996118058",
+      "ts": 1792196185,
       "source": "今日热榜"
     },
     {
-      "title": "中方：中国核力量与美俄不在一个量级",
-      "summary": "热度 12195941",
-      "url": "https://www.toutiao.com/trending/7697036912935354378/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697036912935354378%22%2C%22hot_board_impr_id%22%3A%22202610161943468844C0E52D2607926093%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E6%96%B9%EF%BC%9A%E4%B8%AD%E5%9B%BD%E6%A0%B8%E5%8A%9B%E9%87%8F%E4%B8%8E%E7%BE%8E%E4%BF%84%E4%B8%8D%E5%9C%A8%E4%B8%80%E4%B8%AA%E9%87%8F%E7%BA%A7%22%7D&rank=&style_id=40132&topic_id=7697036912935354378",
-      "ts": 1792151026,
+      "title": "妈妈将大一儿子生活费从4000降至2000",
+      "summary": "热度 22153009",
+      "url": "https://www.toutiao.com/trending/7696880212247887935/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227696880212247887935%22%2C%22hot_board_impr_id%22%3A%2220261017081625A7F57BC4BED8D4EEE244%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A6%88%E5%A6%88%E5%B0%86%E5%A4%A7%E4%B8%80%E5%84%BF%E5%AD%90%E7%94%9F%E6%B4%BB%E8%B4%B9%E4%BB%8E4000%E9%99%8D%E8%87%B32000%22%7D&rank=&style_id=40132&topic_id=7696880212247887935",
+      "ts": 1792196185,
       "source": "今日热榜"
     },
     {
-      "title": "全国粮食标准仓仓容达7.3亿吨",
-      "summary": "热度 11035343",
-      "url": "https://www.toutiao.com/trending/7696782550324432447/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227696782550324432447%22%2C%22hot_board_impr_id%22%3A%22202610161943468844C0E52D2607926093%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%85%A8%E5%9B%BD%E7%B2%AE%E9%A3%9F%E6%A0%87%E5%87%86%E4%BB%93%E4%BB%93%E5%AE%B9%E8%BE%BE7.3%E4%BA%BF%E5%90%A8%22%7D&rank=&style_id=40132&topic_id=7696782550324432447",
-      "ts": 1792151026,
+      "title": "读懂中国粮的丰收密码",
+      "summary": "热度 20044871",
+      "url": "https://www.toutiao.com/trending/7697242262857829926/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227697242262857829926%22%2C%22hot_board_impr_id%22%3A%2220261017081625A7F57BC4BED8D4EEE244%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%AF%BB%E6%87%82%E4%B8%AD%E5%9B%BD%E7%B2%AE%E7%9A%84%E4%B8%B0%E6%94%B6%E5%AF%86%E7%A0%81%22%7D&rank=&style_id=40132&topic_id=7697242262857829926",
+      "ts": 1792196185,
       "source": "今日热榜"
     },
     {
-      "title": "男子中1000万不到一月花到仅剩28元",
-      "summary": "热度 9985192",
-      "url": "https://www.toutiao.com/trending/7696707174784909353/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%220%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227696707174784909353%22%2C%22hot_board_impr_id%22%3A%22202610161943468844C0E52D2607926093%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%94%B7%E5%AD%90%E4%B8%AD1000%E4%B8%87%E4%B8%8D%E5%88%B0%E4%B8%80%E6%9C%88%E8%8A%B1%E5%88%B0%E4%BB%85%E5%89%A928%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7696707174784909353",
-      "ts": 1792151026,
+      "title": "高市早苗向靖国神社献祭品",
+      "summary": "热度 18137350",
+      "url": "https://www.toutiao.com/trending/7696771687064731690/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227696771687064731690%22%2C%22hot_board_impr_id%22%3A%2220261017081625A7F57BC4BED8D4EEE244%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%AB%98%E5%B8%82%E6%97%A9%E8%8B%97%E5%90%91%E9%9D%96%E5%9B%BD%E7%A5%9E%E7%A4%BE%E7%8C%AE%E7%A5%AD%E5%93%81%22%7D&rank=&style_id=40132&topic_id=7696771687064731690",
+      "ts": 1792196185,
       "source": "今日热榜"
     },
     {
-      "title": "栈",
-      "summary": "后进先出（LIFO）的结构，像一摞盘子。",
+      "title": "费德勒和李娜双打却无球可接",
+      "summary": "热度 16411352",
+      "url": "https://www.toutiao.com/trending/7696760466496995379/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227696760466496995379%22%2C%22hot_board_impr_id%22%3A%2220261017081625A7F57BC4BED8D4EEE244%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%B4%B9%E5%BE%B7%E5%8B%92%E5%92%8C%E6%9D%8E%E5%A8%9C%E5%8F%8C%E6%89%93%E5%8D%B4%E6%97%A0%E7%90%83%E5%8F%AF%E6%8E%A5%22%7D&rank=&style_id=40132&topic_id=7696760466496995379",
+      "ts": 1792196185,
+      "source": "今日热榜"
+    },
+    {
+      "title": "孙颖莎和11岁河北省冠军担任火炬手",
+      "summary": "热度 14849606",
+      "url": "https://www.toutiao.com/trending/7696347600661938218/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227696347600661938218%22%2C%22hot_board_impr_id%22%3A%2220261017081625A7F57BC4BED8D4EEE244%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%AD%99%E9%A2%96%E8%8E%8E%E5%92%8C11%E5%B2%81%E6%B2%B3%E5%8C%97%E7%9C%81%E5%86%A0%E5%86%9B%E6%8B%85%E4%BB%BB%E7%81%AB%E7%82%AC%E6%89%8B%22%7D&rank=&style_id=40132&topic_id=7696347600661938218",
+      "ts": 1792196185,
+      "source": "今日热榜"
+    },
+    {
+      "title": "解释",
+      "summary": "逐行执行源代码，如 Python、JavaScript。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "队列",
-      "summary": "先进先出（FIFO）的结构，像排队。",
+      "title": "编程语言",
+      "summary": "人与计算机沟通的语言，如 Python、JS、Go。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "哈希表",
-      "summary": "键值对存储，查找速度快，是字典的实现基础。",
+      "title": "数据库",
+      "summary": "有组织地存储和管理数据的系统，如 MySQL、PostgreSQL。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "算法复杂度",
-      "summary": "衡量算法耗时/占内存随数据量增长的速度（大 O）。",
+      "title": "缓存",
+      "summary": "临时存储常用数据以加速访问的机制。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "排序算法",
-      "summary": "把数据按顺序排列的方法，如快排、冒泡。",
+      "title": "前端",
+      "summary": "用户直接看到和交互的部分，即 HTML/CSS/JS。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "查找算法",
-      "summary": "在数据中找目标的方法，如二分查找、顺序查找。",
+      "title": "后端",
+      "summary": "服务器端逻辑，处理数据、接口、权限。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "编译",
-      "summary": "把源代码整体翻译成机器码的过程，如 C/C++。",
+      "title": "全栈",
+      "summary": "同时掌握前端和后端开发。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
