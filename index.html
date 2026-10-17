@@ -496,9 +496,14 @@ function toast(msg, type){
 let HOT = window.HOT_DATA || null;
 
 /* 远端最新数据源（GitHub Actions 每天 08:00 生成并提交，CDN 兜底同步） */
+const REPO_PATH = 'cp6661/opc-workbench@main/data.js';
 const REMOTE_SOURCES = [
-  'https://fastly.jsdelivr.net/gh/cp6661/opc-workbench@main/data.js?t=' + Date.now(),
-  'https://cdn.jsdelivr.net/gh/cp6661/opc-workbench@main/data.js?t=' + Date.now()
+  'https://fastly.jsdelivr.net/gh/' + REPO_PATH + '?t=' + Date.now(),
+  'https://testingcf.jsdelivr.net/gh/' + REPO_PATH + '?t=' + Date.now(),
+  'https://cdn.jsdelivr.net/gh/' + REPO_PATH + '?t=' + Date.now(),
+  'https://ghproxy.net/https://raw.githubusercontent.com/cp6661/opc-workbench/main/data.js?t=' + Date.now(),
+  'https://raw.githubusercontent.com/cp6661/opc-workbench/main/data.js?t=' + Date.now(),
+  'https://cp6661.github.io/opc-workbench/data.js?t=' + Date.now()
 ];
 function parseData(txt){
   const w = {};
@@ -511,6 +516,18 @@ function applyData(d){
   renderAllNews();
   document.getElementById('dataTime').textContent = '更新于 ' + d.updateTime;
 }
+/* 带超时的文本拉取（镜像不可达时快速跳过下一个） */
+function fetchWithTimeout(url, ms){
+  ms = ms || 8000;
+  return new Promise((resolve, reject) => {
+    const ctl = ('AbortController' in window) ? new AbortController() : null;
+    const timer = setTimeout(() => { if(ctl) ctl.abort(); reject(new Error('timeout')); }, ms);
+    fetch(url, {cache:'no-store', signal: ctl ? ctl.signal : undefined})
+      .then(r => r.ok ? r.text() : Promise.reject(new Error('HTTP ' + r.status)))
+      .then(t => { clearTimeout(timer); resolve(t); })
+      .catch(e => { clearTimeout(timer); reject(e); });
+  });
+}
 function autoUpdate(silent){
   sources(0);
   function sources(i){
@@ -518,8 +535,7 @@ function autoUpdate(silent){
       if(!silent) toast('❌ 刷新失败，显示的是本地缓存数据', 0);
       return;
     }
-    fetch(REMOTE_SOURCES[i], {cache:'no-store'})
-      .then(r=>r.ok ? r.text() : Promise.reject())
+    fetchWithTimeout(REMOTE_SOURCES[i])
       .then(txt=>{
         const d = parseData(txt);
         if(!d) return Promise.reject();
