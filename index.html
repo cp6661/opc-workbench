@@ -510,11 +510,20 @@ function parseData(txt){
   (new Function('window', txt))(w);
   return w.HOT_DATA || null;
 }
-function applyData(d){
+function applyData(d, srcLabel){
   HOT = d;
   window.HOT_DATA = d;
   renderAllNews();
-  document.getElementById('dataTime').textContent = '更新于 ' + d.updateTime;
+  lastSrcLabel = srcLabel || '本地快照';
+  updateDataTime();
+}
+let lastSrcLabel = '本地快照';
+function updateDataTime(){
+  const el = document.getElementById('dataTime');
+  if(!el) return;
+  el.textContent = HOT
+    ? '更新于 ' + HOT.updateTime + ' · 来源 ' + lastSrcLabel
+    : '未加载到数据';
 }
 /* 带超时的文本拉取（镜像不可达时快速跳过下一个） */
 function fetchWithTimeout(url, ms){
@@ -528,22 +537,30 @@ function fetchWithTimeout(url, ms){
       .catch(e => { clearTimeout(timer); reject(e); });
   });
 }
+function hostOf(u){
+  try{ return new URL(u).hostname.replace(/^www\./,''); }catch(e){ return u.slice(0,24); }
+}
 function autoUpdate(silent){
   sources(0);
   function sources(i){
     if(i >= REMOTE_SOURCES.length){
-      if(!silent) toast('❌ 刷新失败，显示的是本地缓存数据', 0);
+      lastSrcLabel = '本地快照';
+      updateDataTime();
+      if(!silent) toast('❌ 全部数据源不可达，显示的是本地缓存', 0);
       return;
     }
+    const host = hostOf(REMOTE_SOURCES[i]);
     fetchWithTimeout(REMOTE_SOURCES[i])
       .then(txt=>{
         const d = parseData(txt);
-        if(!d) return Promise.reject();
+        if(!d) return Promise.reject(new Error('bad data'));
+        lastSrcLabel = host;
         if(!HOT || (d.updateTs||0) > (HOT.updateTs||0)){
-          applyData(d);
+          applyData(d, host);
           toast('✅ 已更新到 ' + d.date + ' 的最新内容', 0);
-        } else if(!silent){
-          toast('✅ 已是最新（' + HOT.date + '）', 0);
+        } else {
+          applyData(HOT, host);
+          if(!silent) toast('✅ 已是最新（' + HOT.date + '）', 0);
         }
       })
       .catch(()=>sources(i+1));
@@ -586,7 +603,7 @@ function renderAllNews(){
   renderNews('techList', HOT.tech_news, 'tag-tech', '计算机');
   document.getElementById('aiBadge').textContent = HOT.ai_news.length;
   document.getElementById('techBadge').textContent = HOT.tech_news.length;
-  document.getElementById('dataTime').textContent = '更新于 ' + HOT.updateTime;
+  updateDataTime();
 }
 
 /* ================= 日程：每日安排 ================= */
@@ -940,6 +957,7 @@ function installApp(){
   renderReview();
   bindReview();
   renderAllNews();
+  updateDataTime();
   renderWord();
   renderWater();
 
