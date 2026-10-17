@@ -1,356 +1,299 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#131722">
+<meta name="theme-color" content="#2563eb">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="description" content="一人公司工作台 · AI/计算机情报 + 日程 + 打卡">
+<title>一人公司工作台</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="icon" type="image/png" href="icon-192.png">
-<title>一人公司工作台</title>
 <style>
+*{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f5f6f8;
-  --surface:#ffffff;
-  --surface-2:#fafbfc;
-  --border:#e8eaef;
-  --border-strong:#d8dbe2;
-  --text:#17181c;
-  --text-2:#5a5f6a;
-  --text-3:#9aa0ab;
-  --sidebar:#131722;
-  --sidebar-line:rgba(154,163,181,.14);
-  --sidebar-text:#9aa3b5;
-  --sidebar-active:#ffffff;
-  --accent:#5b5bd6;
-  --accent-soft:#eeedfb;
-  --ai:#7c3aed;
-  --ai-soft:#f3e8ff;
-  --tech:#2563eb;
-  --tech-soft:#e3efff;
-  --word:#d97706;
-  --word-soft:#fef3e2;
-  --water:#0891b2;
-  --water-soft:#e0f7fa;
-  --success:#16a34a;
-  --success-soft:#e8f8ee;
-  --danger:#dc2626;
+  --blue-700:#1d4ed8; --blue-600:#2563eb; --blue-500:#3b82f6; --blue-400:#60a5fa;
+  --blue-100:#dbeafe; --blue-50:#eff6ff;
+  --cyan:#06b6d4; --cyan-50:#ecfeff;
+  --ink:#0f172a; --ink-2:#475569; --ink-3:#94a3b8;
+  --line:#e6ecf5; --bg:#f4f7fd; --card:#fff;
   --radius:14px;
-  --shadow-sm:0 1px 2px rgba(19,23,34,.05);
-  --shadow:0 4px 16px rgba(19,23,34,.06);
-  --shadow-lg:0 12px 32px rgba(19,23,34,.10);
+  --shadow:0 1px 2px rgba(15,23,42,.04),0 6px 20px rgba(15,23,42,.05);
 }
-*{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%}
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  font-size:14px;
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg); color:var(--ink);
+  -webkit-font-smoothing:antialiased; font-size:15px; line-height:1.6;
 }
-button{font-family:inherit}
-.app{display:flex;height:100vh;overflow:hidden}
+.num{font-variant-numeric:tabular-nums}
 
-/* ===== 侧边栏 ===== */
+/* ---------- 布局 ---------- */
+.app{display:flex;height:100dvh;overflow:hidden}
 .sidebar{
-  width:264px;min-width:264px;
-  background:var(--sidebar);
-  color:var(--sidebar-text);
-  display:flex;flex-direction:column;
-  padding:22px 16px;
-  gap:2px;
+  width:212px;flex-shrink:0;background:#fff;border-right:1px solid var(--line);
+  padding:20px 12px calc(12px + env(safe-area-inset-bottom,0px));
+  display:flex;flex-direction:column;gap:4px;
 }
-.brand{display:flex;align-items:center;gap:11px;padding:4px 10px 20px;border-bottom:1px solid var(--sidebar-line);margin-bottom:16px}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 14px}
 .brand-logo{
-  width:38px;height:38px;border-radius:10px;
-  background:linear-gradient(135deg,#6d6df2,#8b5cf6);
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;flex-shrink:0;
-  box-shadow:0 4px 12px rgba(109,109,242,.4);
+  width:38px;height:38px;border-radius:11px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+  display:grid;place-items:center;font-size:19px;
+  box-shadow:0 4px 12px rgba(37,99,235,.25);
 }
-.brand-name{font-size:15px;font-weight:700;color:#f2f3f7;line-height:1.25}
-.brand-sub{font-size:11px;color:#5f6a80;margin-top:1px}
-.side-date{font-size:11px;color:#5f6a80;padding:0 10px;margin-bottom:4px}
-.nav-label{
-  font-size:10.5px;color:#4b5468;font-weight:600;letter-spacing:.12em;
-  text-transform:uppercase;padding:16px 10px 6px;
-}
+.brand-name{font-size:15px;font-weight:700;letter-spacing:.2px}
+.brand-sub{font-size:10.5px;color:var(--ink-3);letter-spacing:.6px}
+.side-date{font-size:12px;color:var(--ink-2);padding:0 8px 10px}
+.nav-label{font-size:11px;color:var(--ink-3);font-weight:600;letter-spacing:1px;padding:10px 10px 4px}
 .nav-item{
-  display:flex;align-items:center;gap:11px;
-  padding:10px 11px;border-radius:9px;
-  cursor:pointer;color:var(--sidebar-text);
-  transition:background .15s,color .15s;
-  user-select:none;position:relative;
+  display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:10px;
+  cursor:pointer;color:var(--ink-2);font-size:14px;transition:.16s;user-select:none;
 }
-.nav-item:hover{background:rgba(154,163,181,.12);color:#e4e7ee}
-.nav-item.active{background:var(--accent);color:#fff;font-weight:600}
-.nav-item.active .ico{filter:brightness(1)}
+.nav-item:hover{background:var(--blue-50);color:var(--blue-700)}
+.nav-item.active{background:var(--blue-600);color:#fff;font-weight:600;box-shadow:0 3px 10px rgba(37,99,235,.28)}
 .nav-item .ico{font-size:16px;width:20px;text-align:center}
-.nav-item .txt{flex:1}
-.nav-item .badge{
-  font-size:11px;background:rgba(154,163,181,.18);
-  padding:1px 8px;border-radius:10px;color:#c8ceda;font-weight:600;
-}
+.nav-item .txt{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav-item .badge{font-size:11px;background:var(--blue-50);color:var(--blue-700);padding:1px 7px;border-radius:20px;font-weight:600}
 .nav-item.active .badge{background:rgba(255,255,255,.22);color:#fff}
-.sidebar-footer{margin-top:auto;padding:14px 10px 2px;font-size:11px;color:#4b5468;border-top:1px solid var(--sidebar-line)}
+.sidebar-footer{margin-top:auto;font-size:11px;color:var(--ink-3);padding:10px 8px 0;border-top:1px solid var(--line)}
 
-/* ===== 主区 ===== */
-.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
 .topbar{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:17px 30px;background:var(--surface);
-  border-bottom:1px solid var(--border);
+  height:60px;flex-shrink:0;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;gap:12px;
 }
-.topbar h1{font-size:19px;font-weight:750;letter-spacing:-.01em}
-.topbar .meta{font-size:12px;color:var(--text-3);display:flex;align-items:center;gap:12px}
-.refresh-btn{
-  font-size:12px;color:var(--accent);background:var(--accent-soft);
-  border:none;padding:6px 14px;border-radius:8px;cursor:pointer;font-weight:600;
-  transition:background .15s;
+.topbar h1{font-size:17px;font-weight:700;letter-spacing:.2px}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-3)}
+.btn{
+  border:1px solid var(--line);background:#fff;color:var(--ink-2);
+  padding:6px 12px;border-radius:9px;font-size:12.5px;cursor:pointer;transition:.16s;white-space:nowrap;
 }
-.refresh-btn:hover{background:#e0def7}
-.install-btn{background:#eef2ff;color:#4338ca}
-.install-btn:hover{background:#e0e7ff}
-.install-btn[hidden]{display:none}
-@media(max-width:768px){.install-btn{font-size:12px;padding:6px 10px}}
-.content{flex:1;overflow-y:auto;padding:26px 30px}
+.btn:hover{border-color:var(--blue-400);color:var(--blue-600);background:var(--blue-50)}
+.btn-primary{background:var(--blue-600);border-color:var(--blue-600);color:#fff}
+.btn-primary:hover{background:var(--blue-700);color:#fff}
 
-.view{display:none}
-.view.active{display:block;animation:fadeUp .35s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.content{flex:1;overflow-y:auto;padding:20px;-webkit-overflow-scrolling:touch}
+.view{display:none;animation:fadeUp .28s ease}
+.view.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* ===== 卡片 ===== */
-.card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius);padding:22px;margin-bottom:16px;
-  box-shadow:var(--shadow-sm);
+/* ---------- 通用卡片 ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-bottom:14px}
+.card-title{font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.card-title .hint{font-weight:400;font-size:11.5px;color:var(--ink-3)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+.section-head-title{
+  font-size:13px;font-weight:700;color:var(--ink-2);margin-bottom:10px;
+  display:flex;align-items:center;gap:7px;
 }
-.card-title{font-size:15px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.section-head{font-size:13px;font-weight:700;color:var(--text-2);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
 
-/* ===== 打卡通用 ===== */
-.checkin-wrap{display:grid;grid-template-columns:360px 1fr;gap:16px;align-items:start}
-.hero-card{padding:30px 24px;text-align:center}
-.ring{
-  width:160px;height:160px;margin:0 auto 18px;border-radius:50%;
-  position:relative;display:flex;align-items:center;justify-content:center;
-}
-.ring-word{background:conic-gradient(var(--word) var(--pct,0%),#efe6d8 0)}
-.ring-water{background:conic-gradient(var(--water) var(--pct,0%),#d7eef2 0)}
-.ring::after{content:'';position:absolute;inset:13px;background:#fff;border-radius:50%}
-.ring-inner{position:relative;z-index:1;text-align:center}
-.ring-num{font-size:32px;font-weight:800;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
-.ring-word .ring-num{color:var(--word)}
-.ring-water .ring-num{color:var(--water)}
-.ring-unit{font-size:12px;color:var(--text-3);margin-top:5px}
-.btn-main{
-  width:100%;border:none;border-radius:11px;padding:13px;
-  font-size:15px;font-weight:700;cursor:pointer;
-  transition:transform .08s,filter .15s,box-shadow .15s;
-}
-.btn-main:active{transform:scale(.97)}
-.btn-word{background:var(--word);color:#fff;box-shadow:0 6px 16px rgba(217,119,6,.28)}
-.btn-word:hover{filter:brightness(1.06)}
-.btn-water{background:var(--water);color:#fff;box-shadow:0 6px 16px rgba(8,145,178,.28)}
-.btn-water:hover{filter:brightness(1.06)}
-.btn-ghost{
-  width:100%;background:#fff;border:1px solid var(--border-strong);border-radius:11px;
-  padding:9px;font-size:13px;font-weight:600;cursor:pointer;margin-top:10px;
-  color:var(--text-2);transition:background .15s;
-}
-.btn-ghost:hover{background:var(--surface-2)}
-.quick-row{display:flex;gap:8px;margin-top:14px}
-.quick-chip{
-  flex:1;border:1px solid var(--border-strong);background:var(--surface);
-  border-radius:9px;padding:9px 4px;font-size:13px;font-weight:600;cursor:pointer;
-  color:var(--text-2);transition:all .15s;font-variant-numeric:tabular-nums;
-}
-.quick-chip:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
-.status-line{
-  margin-top:16px;font-size:12.5px;border-radius:9px;padding:11px 14px;text-align:left;
-}
-.status-line b{font-weight:700}
-.status-word{background:var(--word-soft);color:#92400e}
-.status-water{background:var(--water-soft);color:#155e75}
-.streak-box{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-top:12px;background:var(--surface-2);border:1px solid var(--border);
-  border-radius:9px;padding:12px 14px;
-}
-.streak-box .lbl{font-size:12px;color:var(--text-3)}
-.streak-box .val{font-size:22px;font-weight:800;color:var(--word);font-variant-numeric:tabular-nums}
-.streak-box .val small{font-size:12px;font-weight:600;color:var(--text-3)}
-
-/* 名言 */
-.quote{
-  margin-top:14px;border-left:3px solid var(--word);
-  background:var(--word-soft);border-radius:0 9px 9px 0;
-  padding:12px 14px;text-align:left;
-}
-.quote .en{font-size:13px;font-weight:600;color:#7c4a03;font-style:italic;line-height:1.4}
-.quote .zh{font-size:12px;color:#a16207;margin-top:4px}
-
-/* 时间线 */
-.tl{list-style:none}
-.tl li{
-  display:flex;align-items:center;gap:11px;padding:10px 2px;
-  border-bottom:1px dashed var(--border);font-size:13px;color:var(--text-2);
-}
-.tl li:last-child{border-bottom:none}
-.tl .t{color:var(--text-3);font-size:12px;min-width:54px;font-variant-numeric:tabular-nums}
-.tl .v{font-weight:700;margin-left:auto}
-.tl .v.word{color:var(--word)}
-.tl .v.water{color:var(--water)}
-.empty-state{text-align:center;padding:34px 20px;color:var(--text-3);font-size:13px}
-
-/* ===== 资讯列表 ===== */
-.news-list{display:flex;flex-direction:column}
+/* ---------- 资讯 ---------- */
+.news-list{display:flex;flex-direction:column;gap:9px}
 .news-item{
-  display:block;text-decoration:none;color:inherit;
-  padding:14px 4px;border-bottom:1px solid var(--border);
-  transition:background .12s;border-radius:6px;
+  display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:12px 14px;transition:.16s;
 }
-.news-item:hover{background:var(--surface-2)}
-.news-item:last-child{border-bottom:none}
-.news-top{display:flex;align-items:flex-start;gap:9px;margin-bottom:4px}
-.tag{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:700;flex-shrink:0;margin-top:2px}
-.tag.ai{background:var(--ai-soft);color:var(--ai)}
-.tag.tech{background:var(--tech-soft);color:var(--tech)}
-.news-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.45;flex:1}
-.news-item:hover .news-title{color:var(--accent)}
-.news-summary{font-size:12.5px;color:var(--text-2);margin:3px 0 5px;padding-left:34px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.news-meta{font-size:11.5px;color:var(--text-3);display:flex;gap:10px;align-items:center;padding-left:34px}
-.news-meta .src{color:var(--text-2);font-weight:600}
-.empty{text-align:center;padding:50px 20px;color:var(--text-3)}
-.empty .big{font-size:40px;margin-bottom:12px}
+.news-item:hover{border-color:var(--blue-400);transform:translateY(-1px);box-shadow:0 6px 18px rgba(37,99,235,.1)}
+.news-top{display:flex;align-items:flex-start;gap:8px}
+.news-title{font-size:14px;font-weight:600;line-height:1.5}
+.news-summary{font-size:12.5px;color:var(--ink-2);margin-top:5px;line-height:1.6;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-meta{display:flex;gap:10px;font-size:11.5px;color:var(--ink-3);margin-top:8px;align-items:center}
+.tag{font-size:10.5px;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0;margin-top:2px}
+.tag-ai{background:var(--blue-100);color:var(--blue-700)}
+.tag-tech{background:#cffafe;color:#0e7490}
+.tag-hot{background:#fff1f2;color:#be123c}
+.tag-base{background:#f1f5f9;color:#475569}
+.src-badge{background:var(--blue-50);color:var(--blue-600);padding:1px 7px;border-radius:6px;font-weight:600}
+.empty{text-align:center;color:var(--ink-3);padding:40px 10px;font-size:13px}
+.empty .big{font-size:34px;margin-bottom:8px}
 
-/* ===== 提示 / 完成态 ===== */
+/* ---------- 打卡 ---------- */
+.checkin-wrap{max-width:640px;margin:0 auto}
+.hero-card{text-align:center;padding:22px 18px}
+.ring{
+  width:158px;height:158px;margin:0 auto 16px;border-radius:50%;position:relative;
+  background:conic-gradient(var(--ring-c,var(--blue-500)) var(--pct,0%), var(--blue-50) 0);
+  display:grid;place-items:center;transition:background .5s ease;
+}
+.ring-inner{
+  width:126px;height:126px;border-radius:50%;background:#fff;display:flex;
+  flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:inset 0 0 0 1px var(--line);
+}
+.ring-num{font-size:38px;font-weight:800;letter-spacing:-1px;color:var(--ink);line-height:1}
+.ring-unit{font-size:11.5px;color:var(--ink-3);margin-top:5px}
+.btn-main{
+  width:100%;border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:700;
+  color:#fff;cursor:pointer;transition:.16s;font-family:inherit;
+}
+.btn-word{background:linear-gradient(135deg,var(--blue-500),var(--blue-700));box-shadow:0 6px 18px rgba(37,99,235,.3)}
+.btn-water{background:linear-gradient(135deg,#22d3ee,var(--cyan));box-shadow:0 6px 18px rgba(6,182,212,.28)}
+.btn-main:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn-main:active{transform:scale(.99)}
+.quick-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.quick-chip{
+  border:1px solid var(--line);background:#fff;color:var(--ink-2);border-radius:9px;
+  padding:8px 13px;font-size:13px;cursor:pointer;transition:.16s;font-family:inherit;
+}
+.quick-chip:hover{border-color:var(--blue-400);color:var(--blue-600);background:var(--blue-50)}
+.input-row{display:flex;gap:8px;margin-top:12px;justify-content:center}
+.input-row input{
+  width:110px;border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:14px;
+  font-family:inherit;color:var(--ink);text-align:center;outline:none;transition:.16s;
+}
+.input-row input:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
+.status-line{font-size:12.5px;color:var(--ink-2);margin-top:12px}
+.status-line b{color:var(--blue-600)}
+.streak-box{
+  display:flex;justify-content:space-between;align-items:center;margin-top:14px;
+  background:var(--blue-50);border-radius:10px;padding:10px 14px;
+}
+.streak-box .lbl{font-size:12px;color:var(--ink-2)}
+.streak-box .val{font-size:19px;font-weight:800;color:var(--blue-600)}
+.streak-box .val small{font-size:11px;color:var(--ink-3);font-weight:600}
+.tl{list-style:none;display:flex;flex-direction:column;gap:2px}
+.tl li{display:flex;align-items:center;gap:10px;font-size:13px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.tl li:last-child{border-bottom:none}
+.tl .t{color:var(--ink-3);font-size:12px;width:42px;flex-shrink:0}
+.tl .v{margin-left:auto;font-weight:700}
+.tl .v.word{color:var(--blue-600)}
+.tl .v.water{color:var(--cyan)}
+.done-badge{font-size:11px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:20px;font-weight:700}
+.quote{margin-top:12px;background:var(--blue-50);border-radius:10px;padding:12px 14px}
+.quote .en{font-size:13px;color:var(--blue-700);font-style:italic;line-height:1.6}
+.quote .zh{font-size:12px;color:var(--ink-2);margin-top:4px}
+
+/* ---------- 日程 ---------- */
+.plan-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.plan-row:last-of-type{border-bottom:none}
+.plan-time{font-size:12px;color:var(--ink-3);width:46px;flex-shrink:0}
+.plan-box{
+  width:19px;height:19px;border:2px solid var(--blue-400);border-radius:6px;cursor:pointer;
+  flex-shrink:0;display:grid;place-items:center;transition:.16s;background:#fff;
+}
+.plan-box.on{background:var(--blue-600);border-color:var(--blue-600)}
+.plan-box.on::after{content:"✓";color:#fff;font-size:12px;font-weight:800}
+.plan-text{flex:1;font-size:13.5px}
+.plan-row.done .plan-text{color:var(--ink-3);text-decoration:line-through}
+.plan-del{border:none;background:none;color:var(--ink-3);cursor:pointer;font-size:15px;padding:2px 6px;border-radius:6px}
+.plan-del:hover{background:#fff1f2;color:#be123c}
+.add-row{display:flex;gap:8px;margin-top:12px}
+.add-row input{
+  border:1px solid var(--line);border-radius:9px;padding:8px 11px;font-size:13px;
+  font-family:inherit;outline:none;transition:.16s;min-width:0;
+}
+.add-row input:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
+.add-row input.t{width:74px;flex-shrink:0}
+.add-row input.x{flex:1}
+textarea{
+  width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-size:13.5px;
+  font-family:inherit;color:var(--ink);outline:none;resize:vertical;min-height:76px;line-height:1.7;transition:.16s;
+}
+textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+.link-bar{display:flex;align-items:center;gap:10px;justify-content:space-between;flex-wrap:wrap}
+
+/* ---------- toast ---------- */
 .toast{
-  position:fixed;top:20px;right:20px;z-index:999;
-  padding:14px 22px;border-radius:11px;
-  font-size:14px;font-weight:600;display:none;
-  animation:slideIn .3s;
+  position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);
+  background:var(--ink);color:#fff;padding:10px 18px;border-radius:10px;font-size:13px;
+  z-index:999;box-shadow:0 8px 24px rgba(15,23,42,.25);display:none;max-width:82vw;text-align:center;
 }
-.toast.water{background:var(--water);color:#fff;box-shadow:0 10px 28px rgba(8,145,178,.35)}
-.toast.word{background:var(--word);color:#fff;box-shadow:0 10px 28px rgba(217,119,6,.35)}
-@keyframes slideIn{from{transform:translateY(-14px);opacity:0}to{transform:none;opacity:1}}
+@media(min-width:769px){.toast{bottom:34px}}
 
-/* ===== 添加到主屏幕引导 ===== */
+/* ---------- 安装引导 ---------- */
 .install-bar{
-  position:fixed;left:14px;right:14px;bottom:calc(72px + env(safe-area-inset-bottom,0px));
-  z-index:900;display:none;align-items:center;gap:11px;
-  background:var(--sidebar);color:#fff;border-radius:14px;padding:12px 14px;
-  box-shadow:0 12px 32px rgba(19,23,34,.28);animation:fadeUp .4s ease;
+  position:fixed;left:12px;right:12px;bottom:calc(72px + env(safe-area-inset-bottom,0px));
+  background:#fff;border:1px solid var(--blue-100);border-radius:13px;padding:11px 13px;
+  display:none;align-items:center;gap:10px;box-shadow:0 8px 26px rgba(37,99,235,.18);z-index:50;
 }
-.install-bar .ib-ico{font-size:26px;flex-shrink:0}
-.install-bar .ib-txt{flex:1;font-size:13px;line-height:1.4}
-.install-bar .ib-txt b{display:block;font-size:14px}
+.install-bar .ib-ico{font-size:22px;flex-shrink:0}
+.install-bar .ib-txt{flex:1;font-size:12.5px;line-height:1.45;color:var(--ink-2)}
+.install-bar .ib-txt b{display:block;font-size:13.5px;color:var(--ink)}
 .install-bar .ib-btn{
-  border:none;background:var(--accent);color:#fff;font-size:13px;font-weight:700;
-  padding:9px 14px;border-radius:9px;cursor:pointer;flex-shrink:0;white-space:nowrap;
+  border:none;background:var(--blue-600);color:#fff;padding:7px 13px;border-radius:8px;
+  font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit;flex-shrink:0;
 }
-.install-bar .ib-close{
-  border:none;background:transparent;color:#8b93a5;font-size:18px;cursor:pointer;padding:2px 4px;flex-shrink:0;
-}
+.install-bar .ib-close{border:none;background:none;color:var(--ink-3);cursor:pointer;font-size:15px;padding:2px 4px}
 .install-modal{
-  position:fixed;inset:0;z-index:950;display:none;align-items:center;justify-content:center;
-  background:rgba(19,23,34,.55);padding:24px;backdrop-filter:blur(3px);
+  position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:100;
+  display:none;align-items:center;justify-content:center;padding:20px;
 }
-.install-modal.show{display:flex;animation:fadeIn .25s ease}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.install-modal .im-card{
-  background:#fff;border-radius:18px;padding:24px 22px;width:100%;max-width:340px;text-align:center;
+.install-modal.show{display:flex;animation:fadeUp .22s ease}
+.install-modal .im-card{background:#fff;border-radius:16px;padding:24px 20px;max-width:340px;width:100%;text-align:center}
+.install-modal .im-ico{font-size:42px;margin-bottom:8px}
+.install-modal h3{font-size:16px;margin-bottom:6px}
+.install-modal p{font-size:13px;color:var(--ink-2);margin-bottom:14px}
+.im-step{display:flex;gap:9px;text-align:left;font-size:13px;color:var(--ink-2);margin-bottom:9px;align-items:flex-start;line-height:1.5}
+.im-step .n{
+  width:20px;height:20px;border-radius:50%;background:var(--blue-600);color:#fff;flex-shrink:0;
+  display:grid;place-items:center;font-size:11px;font-weight:700;margin-top:2px;
 }
-.install-modal .im-ico{font-size:44px;margin-bottom:10px}
-.install-modal h3{font-size:17px;font-weight:750;margin-bottom:6px}
-.install-modal p{font-size:13px;color:var(--text-2);margin-bottom:16px;line-height:1.6}
-.install-modal .im-step{
-  text-align:left;background:var(--surface-2);border:1px solid var(--border);
-  border-radius:12px;padding:12px 14px;margin-bottom:8px;font-size:13px;color:var(--text);
-  display:flex;align-items:center;gap:10px;
+.im-done{
+  width:100%;margin-top:8px;border:none;background:var(--blue-600);color:#fff;
+  padding:11px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;
 }
-.install-modal .im-step .n{
-  width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;
-  font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.install-modal .im-done{
-  width:100%;border:none;background:var(--accent);color:#fff;font-size:15px;font-weight:700;
-  padding:13px;border-radius:11px;cursor:pointer;margin-top:6px;
-}
-.done-badge{
-  display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
-  color:var(--success);background:var(--success-soft);padding:3px 10px;border-radius:20px;
-}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-/* ===== 响应式 ===== */
-/* 平板/窄桌面：侧栏收成图标栏 */
-@media(max-width:900px){
-  .sidebar{width:72px;min-width:72px;padding:16px 8px}
-  .brand-name,.brand-sub,.nav-label,.nav-item .txt,.sidebar-footer,.side-date{display:none}
-  .nav-item{justify-content:center;padding:13px 0}
-  .nav-item .badge{display:none}
-  .brand{justify-content:center;border:none;padding:4px 0 14px;margin:0}
-  .checkin-wrap{grid-template-columns:1fr}
-  .content{padding:16px}
-}
-/* 手机：底部 Tab 导航 */
+/* ---------- 移动端：底部 Tab ---------- */
 @media(max-width:768px){
   .app{flex-direction:column}
   .sidebar{
-    order:2;width:100%;min-width:100%;flex-direction:row;align-items:stretch;
-    padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));
-    border-top:1px solid var(--sidebar-line);
+    order:2;width:100%;flex-direction:row;align-items:stretch;gap:2px;
+    padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));
+    border-top:1px solid var(--line);border-right:none;background:rgba(255,255,255,.96);
+    backdrop-filter:blur(10px);
   }
-  .brand,.nav-label,.side-date,.sidebar-footer{display:none}
+  .brand,.side-date,.nav-label,.sidebar-footer{display:none}
   .nav-item{
-    flex:1;flex-direction:column;gap:4px;padding:7px 2px;
-    justify-content:center;border-radius:9px;position:relative;
+    flex:1;flex-direction:column;gap:2px;padding:6px 2px;justify-content:center;
+    border-radius:10px;position:relative;min-height:52px;text-align:center;
   }
-  .nav-item .ico{font-size:20px;width:auto}
-  .nav-item .txt{font-size:10.5px;display:block;flex:none}
+  .nav-item .ico{font-size:19px;width:auto}
+  .nav-item .txt{font-size:10.5px;display:block;flex:none;white-space:nowrap}
   .nav-item .badge{
-    position:absolute;top:0;left:50%;margin-left:12px;
-    font-size:9.5px;padding:0 5px;min-width:16px;text-align:center;line-height:15px;
+    position:absolute;top:3px;right:calc(50% - 24px);font-size:9.5px;padding:0 5px;line-height:15px;
   }
+  .nav-item.active .badge{background:#fff;color:var(--blue-600)}
   .main{order:1;flex:1;min-height:0}
-  .topbar{padding:13px 16px}
-  .topbar h1{font-size:17px}
-  .topbar .meta #dataTime{display:none}
-  .content{padding:14px 14px 20px}
-  .checkin-wrap{grid-template-columns:1fr}
-  .hero-card{padding:22px 16px}
-  .ring{width:144px;height:144px}
-  .ring::after{inset:12px}
-  .ring-num{font-size:28px}
-  .quick-chip{padding:11px 4px}
-  .news-title{font-size:13.5px}
-  .btn-main{padding:15px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .topbar{height:54px;padding:0 14px}
+  .topbar h1{font-size:16px}
+  .content{padding:14px 12px}
+  .card{padding:14px}
+  .hero-card{padding:20px 14px}
+  .ring{width:142px;height:142px}
+  .ring-inner{width:114px;height:114px}
+  .ring-num{font-size:34px}
+  .install-bar{bottom:calc(66px + env(safe-area-inset-bottom,0px))}
 }
 </style>
 </head>
 <body>
 <div class="app">
-  <!-- 侧边栏 -->
   <aside class="sidebar">
     <div class="brand">
       <div class="brand-logo">🏢</div>
       <div>
         <div class="brand-name">一人公司工作台</div>
-        <div class="brand-sub">One-Person Company</div>
+        <div class="brand-sub">ONE-PERSON CO.</div>
       </div>
     </div>
     <div class="side-date" id="sideDate"></div>
 
+    <div class="nav-label">日程</div>
+    <div class="nav-item active" data-view="plan">
+      <span class="ico">📅</span><span class="txt">日程安排</span><span class="badge" id="planBadge">0/0</span>
+    </div>
+
     <div class="nav-label">情报</div>
-    <div class="nav-item active" data-view="ai">
+    <div class="nav-item" data-view="ai">
       <span class="ico">🤖</span><span class="txt">AI 情报</span><span class="badge" id="aiBadge">0</span>
     </div>
     <div class="nav-item" data-view="tech">
@@ -359,7 +302,7 @@ button{font-family:inherit}
 
     <div class="nav-label">打卡</div>
     <div class="nav-item" data-view="word">
-      <span class="ico">📚</span><span class="txt">记单词 · 四级</span><span class="badge" id="wordBadge">0/30</span>
+      <span class="ico">📚</span><span class="txt">英语打卡</span><span class="badge" id="wordBadge">0/30</span>
     </div>
     <div class="nav-item" data-view="water">
       <span class="ico">💧</span><span class="txt">喝水打卡</span><span class="badge" id="waterBadge">0ml</span>
@@ -368,54 +311,103 @@ button{font-family:inherit}
     <div class="sidebar-footer">数据本地存储 · 隐私安全</div>
   </aside>
 
-  <!-- 主区 -->
   <main class="main">
     <header class="topbar">
-      <h1 id="viewTitle">AI 情报</h1>
+      <h1 id="viewTitle">日程安排</h1>
       <div class="meta">
         <span id="dataTime"></span>
-        <button class="refresh-btn" onclick="refreshData()">↻ 刷新</button>
-        <button class="refresh-btn install-btn" id="installBtn" onclick="installApp()">📱 装到桌面</button>
+        <button class="btn" onclick="refreshData()">↻ 刷新</button>
+        <button class="btn btn-primary" id="installBtn" onclick="installApp()">📱 装桌面</button>
       </div>
     </header>
     <div class="content">
 
-      <!-- AI 资讯 -->
-      <section class="view active" id="view-ai">
-        <div class="section-head">🤖 AI 情报 · 热榜 + 基础</div>
+      <!-- 日程 -->
+      <section class="view active" id="view-plan">
+        <div class="checkin-wrap">
+          <div class="card">
+            <div class="card-title">📋 今日安排 <span class="hint" id="planDateTxt"></span></div>
+            <div id="planList"></div>
+            <div class="add-row">
+              <input class="t" id="planTime" placeholder="09:00" maxlength="5">
+              <input class="x" id="planText" placeholder="添加一项安排，回车保存">
+              <button class="btn btn-primary" onclick="addPlan()">添加</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">🗓 本周复盘 <span class="hint" id="reviewWeekTxt"></span></div>
+            <div class="field">
+              <label>本周完成了什么</label>
+              <textarea id="rvDone" placeholder="列出本周实际交付的事项…"></textarea>
+            </div>
+            <div class="field">
+              <label>没做到 & 原因</label>
+              <textarea id="rvGap" placeholder="哪些没完成，卡在哪一步？"></textarea>
+            </div>
+            <div class="field">
+              <label>沉淀的经验</label>
+              <textarea id="rvLearn" placeholder="可复用的方法、踩过的坑…"></textarea>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>下周计划</label>
+              <textarea id="rvNext" placeholder="下周最重要的 3 件事…"></textarea>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">🔗 飞书源表</div>
+            <div class="link-bar">
+              <span class="hint" style="font-size:12.5px;color:var(--ink-2)">
+                每日安排与周复盘的详细表格在飞书里维护，点右侧按钮打开
+              </span>
+              <button class="btn btn-primary" onclick="openFeishu()">打开飞书表格</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI 情报 -->
+      <section class="view" id="view-ai">
+        <div class="section-head-title">🤖 AI 情报 · 热榜 + 基础</div>
         <div class="news-list" id="aiList"></div>
       </section>
 
-      <!-- 计算机行业资讯 -->
+      <!-- 计算机情报 -->
       <section class="view" id="view-tech">
-        <div class="section-head">💻 计算机情报 · 热榜 + 基础</div>
+        <div class="section-head-title">💻 计算机情报 · 热榜 + 基础</div>
         <div class="news-list" id="techList"></div>
       </section>
 
-      <!-- 记单词打卡 -->
+      <!-- 英语打卡 -->
       <section class="view" id="view-word">
         <div class="checkin-wrap">
           <div class="card hero-card">
-            <div class="ring ring-word" id="wordRing" style="--pct:0%">
+            <div class="ring" id="wordRing" style="--pct:0%">
               <div class="ring-inner">
-                <div class="ring-num" id="wordNum">0</div>
+                <div class="ring-num num" id="wordNum">0</div>
                 <div class="ring-unit">今日 / 30 词</div>
               </div>
             </div>
-            <button class="btn-main btn-word" onclick="addWords(10)">📖 背了 10 个单词</button>
+            <div class="input-row">
+              <input type="number" id="wordInput" placeholder="输入个数" min="1" max="999" inputmode="numeric">
+              <button class="btn btn-primary" onclick="addWordsInput()">记好了</button>
+            </div>
             <div class="quick-row">
               <button class="quick-chip" onclick="addWords(5)">+5</button>
+              <button class="quick-chip" onclick="addWords(10)">+10</button>
               <button class="quick-chip" onclick="addWords(20)">+20</button>
               <button class="quick-chip" onclick="addWords(30)">完成 30</button>
             </div>
             <div class="streak-box">
               <span class="lbl">连续打卡</span>
-              <span class="val"><span id="wordStreak">0</span> <small>天</small></span>
+              <span class="val"><span class="num" id="wordStreak">0</span> <small>天</small></span>
             </div>
-            <div class="status-line status-word" id="wordStatus">今日尚未开始，先背 10 个单词吧</div>
+            <div class="status-line" id="wordStatus"></div>
+            <button class="quick-chip" style="margin-top:12px" onclick="undoWord()">↩ 撤销上一次</button>
           </div>
           <div class="card">
-            <div class="card-title">📝 今日背词记录 <span class="done-badge" id="wordDone" style="display:none">今日已达标 ✓</span></div>
+            <div class="card-title">📝 今日背词记录 <span class="done-badge" id="wordDone" style="display:none">今日达标 ✓</span></div>
             <ul class="tl" id="wordTimeline"></ul>
             <div class="quote" id="wordQuote"></div>
           </div>
@@ -426,25 +418,30 @@ button{font-family:inherit}
       <section class="view" id="view-water">
         <div class="checkin-wrap">
           <div class="card hero-card">
-            <div class="ring ring-water" id="waterRing" style="--pct:0%">
+            <div class="ring" id="waterRing" style="--pct:0%;--ring-c:var(--cyan)">
               <div class="ring-inner">
-                <div class="ring-num" id="waterNum">0</div>
+                <div class="ring-num num" id="waterNum">0</div>
                 <div class="ring-unit">今日 / 2300 ml</div>
               </div>
             </div>
-            <button class="btn-main btn-water" onclick="drink(250)">💧 喝了一杯 (250ml)</button>
+            <div class="input-row">
+              <input type="number" id="waterInput" placeholder="自定义 ml" min="1" max="2000" inputmode="numeric">
+              <button class="btn btn-primary" onclick="drinkInput()">喝了</button>
+            </div>
             <div class="quick-row">
+              <button class="quick-chip" onclick="drink(100)">+100ml</button>
               <button class="quick-chip" onclick="drink(200)">+200ml</button>
+              <button class="quick-chip" onclick="drink(250)">+250ml</button>
               <button class="quick-chip" onclick="drink(330)">+330ml</button>
               <button class="quick-chip" onclick="drink(500)">+500ml</button>
             </div>
-            <div class="status-line status-water" id="waterStatus">今天还没喝水，先来一杯吧</div>
-            <button class="btn-ghost" onclick="drink(-1)">↩ 撤销上一次记录</button>
+            <div class="status-line" id="waterStatus"></div>
+            <button class="quick-chip" style="margin-top:12px" onclick="drink(-1)">↩ 撤销上一次</button>
           </div>
           <div class="card">
             <div class="card-title">📝 今日喝水记录 <span class="done-badge" id="waterDone" style="display:none">已达 2300ml ✓</span></div>
             <ul class="tl" id="waterTimeline"></ul>
-            <div class="status-line status-water" id="nextRemind">正在计算提醒时间…</div>
+            <div class="status-line" id="nextRemind"></div>
           </div>
         </div>
       </section>
@@ -455,7 +452,6 @@ button{font-family:inherit}
 
 <div class="toast" id="toast"></div>
 
-<!-- 添加到主屏幕：底部引导条 -->
 <div class="install-bar" id="installBar">
   <span class="ib-ico">📲</span>
   <span class="ib-txt"><b>把工作台加到主屏幕</b>像 App 一样一键打开</span>
@@ -463,7 +459,6 @@ button{font-family:inherit}
   <button class="ib-close" id="installClose">✕</button>
 </div>
 
-<!-- 添加到主屏幕：步骤弹窗 -->
 <div class="install-modal" id="installModal">
   <div class="im-card">
     <div class="im-ico">📲</div>
@@ -476,9 +471,6 @@ button{font-family:inherit}
 
 <script src="data.js"></script>
 <script>
-/* ================= 资讯数据 ================= */
-let HOT = window.HOT_DATA || null;
-
 /* ================= 工具 ================= */
 function relTime(ts){
   if(!ts) return '';
@@ -492,61 +484,190 @@ function relTime(ts){
 function esc(s){return (s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function todayKey(){return new Date().toDateString()}
 function pad(n){return String(n).padStart(2,'0')}
+function fmtDate(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
 function toast(msg, type){
   const t = document.getElementById('toast');
   t.textContent = msg;
-  t.className = 'toast ' + (type||'water');
   t.style.display = 'block';
   clearTimeout(t._h); t._h = setTimeout(()=>t.style.display='none', 2600);
 }
 
-/* ================= 资讯渲染 ================= */
+/* ================= 资讯数据 ================= */
+let HOT = window.HOT_DATA || null;
+
+/* 远端最新数据源（GitHub Actions 每天 08:00 生成并提交，CDN 兜底同步） */
+const REMOTE_SOURCES = [
+  'https://fastly.jsdelivr.net/gh/cp6661/opc-workbench@main/data.js?t=' + Date.now(),
+  'https://cdn.jsdelivr.net/gh/cp6661/opc-workbench@main/data.js?t=' + Date.now()
+];
+function parseData(txt){
+  const w = {};
+  (new Function('window', txt))(w);
+  return w.HOT_DATA || null;
+}
+function applyData(d){
+  HOT = d;
+  window.HOT_DATA = d;
+  renderAllNews();
+  document.getElementById('dataTime').textContent = '更新于 ' + d.updateTime;
+}
+function autoUpdate(silent){
+  sources(0);
+  function sources(i){
+    if(i >= REMOTE_SOURCES.length){
+      if(!silent) toast('❌ 刷新失败，显示的是本地缓存数据', 0);
+      return;
+    }
+    fetch(REMOTE_SOURCES[i], {cache:'no-store'})
+      .then(r=>r.ok ? r.text() : Promise.reject())
+      .then(txt=>{
+        const d = parseData(txt);
+        if(!d) return Promise.reject();
+        if(!HOT || (d.updateTs||0) > (HOT.updateTs||0)){
+          applyData(d);
+          toast('✅ 已更新到 ' + d.date + ' 的最新内容', 0);
+        } else if(!silent){
+          toast('✅ 已是最新（' + HOT.date + '）', 0);
+        }
+      })
+      .catch(()=>sources(i+1));
+  }
+}
+function refreshData(){
+  toast('🔄 正在获取最新内容…', 0);
+  autoUpdate(false);
+}
+
 function renderNews(listId, items, tagClass, tagText){
   const el = document.getElementById(listId);
   if(!items || !items.length){
-    el.innerHTML = `<div class="empty"><div class="big">📭</div>暂无数据，请运行 sync_data.py 生成知识</div>`;
+    el.innerHTML = '<div class="empty"><div class="big">📭</div>暂无内容</div>';
     return;
   }
   el.innerHTML = items.map(x=>{
-    const inner = `
-      <div class="news-top">
-        <span class="tag ${tagClass}">${tagText}</span>
-        <span class="news-title">${esc(x.title)}</span>
-      </div>
-      ${x.summary?`<div class="news-summary">${esc(x.summary)}</div>`:''}
-      <div class="news-meta">
-        <span class="src">${esc(x.source)}</span>
-        ${x.ts?`<span>${relTime(x.ts)}</span>`:''}
-      </div>`;
+    const isHot = !!x.url;
+    const inner = '<div class="news-top">' +
+        '<span class="tag ' + tagClass + '">' + tagText + '</span>' +
+        '<span class="tag ' + (isHot ? 'tag-hot' : 'tag-base') + '">' + (isHot ? '🔥 热榜' : '📘 基础') + '</span>' +
+        '<span class="news-title">' + esc(x.title) + '</span>' +
+      '</div>' +
+      (x.summary ? '<div class="news-summary">' + esc(x.summary) + '</div>' : '') +
+      '<div class="news-meta"><span class="src-badge">' + esc(x.source) + '</span>' +
+      (x.ts ? '<span>' + relTime(x.ts) + '</span>' : '') + '</div>';
     return x.url
-      ? `<a class="news-item" href="${esc(x.url)}" target="_blank" rel="noopener">${inner}</a>`
-      : `<div class="news-item">${inner}</div>`;
+      ? '<a class="news-item" href="' + esc(x.url) + '" target="_blank" rel="noopener">' + inner + '</a>'
+      : '<div class="news-item">' + inner + '</div>';
   }).join('');
 }
 function renderAllNews(){
-  if(HOT){
-    renderNews('aiList', HOT.ai_news, 'ai', 'AI');
-    renderNews('techList', HOT.tech_news, 'tech', '计算机');
-    document.getElementById('aiBadge').textContent = HOT.ai_news.length;
-    document.getElementById('techBadge').textContent = HOT.tech_news.length;
-    document.getElementById('dataTime').textContent = '更新于 ' + HOT.updateTime;
-  } else {
-    const empty = `<div class="empty"><div class="big">📭</div>未加载到 data.js，请先运行 sync_data.py</div>`;
-    document.getElementById('aiList').innerHTML = empty;
-    document.getElementById('techList').innerHTML = empty;
+  if(!HOT){
+    document.getElementById('aiList').innerHTML =
+      document.getElementById('techList').innerHTML =
+      '<div class="empty"><div class="big">📭</div>未加载到 data.js</div>';
+    return;
   }
+  renderNews('aiList', HOT.ai_news, 'tag-ai', 'AI');
+  renderNews('techList', HOT.tech_news, 'tag-tech', '计算机');
+  document.getElementById('aiBadge').textContent = HOT.ai_news.length;
+  document.getElementById('techBadge').textContent = HOT.tech_news.length;
+  document.getElementById('dataTime').textContent = '更新于 ' + HOT.updateTime;
 }
 
-/* ================= 记单词打卡 ================= */
+/* ================= 日程：每日安排 ================= */
+const FEISHU_URL = 'https://my.feishu.cn/sheets/LDm9sxKkIhhiZttFyDucMrcE6Zf';
+function openFeishu(){ window.open(FEISHU_URL, '_blank', 'noopener'); }
+const planKey = () => 'opc_plan_' + todayKey();
+function getPlan(){
+  try{ return JSON.parse(localStorage.getItem(planKey())) || null; }
+  catch(e){ return null; }
+}
+function setPlan(a){ localStorage.setItem(planKey(), JSON.stringify(a)); }
+function defaultPlan(){
+  return [
+    {id:1, time:'09:00', text:'打开工作台，看 AI / 计算机情报', done:false},
+    {id:2, time:'09:30', text:'推进今日核心业务事项', done:false},
+    {id:3, time:'14:00', text:'学习 30 个四级单词', done:false},
+    {id:4, time:'21:30', text:'当日复盘 + 更新明日安排', done:false}
+  ];
+}
+function addPlan(){
+  const t = document.getElementById('planTime').value.trim();
+  const x = document.getElementById('planText').value.trim();
+  if(!x){ toast('请先填写安排内容', 0); return; }
+  const list = getPlan() || defaultPlan();
+  list.push({id:Date.now(), time:t || '--:--', text:x, done:false});
+  setPlan(list);
+  document.getElementById('planTime').value = '';
+  document.getElementById('planText').value = '';
+  renderPlan();
+}
+function togglePlan(id){
+  const list = getPlan() || defaultPlan();
+  const it = list.find(p=>String(p.id) === String(id));
+  if(it){ it.done = !it.done; setPlan(list); renderPlan(); }
+}
+function delPlan(id){
+  let list = getPlan() || defaultPlan();
+  list = list.filter(p=>String(p.id) !== String(id));
+  setPlan(list); renderPlan();
+}
+function renderPlan(){
+  const list = getPlan() || defaultPlan();
+  const el = document.getElementById('planList');
+  el.innerHTML = list.length
+    ? list.map(p=>'<div class="plan-row' + (p.done?' done':'') + '">' +
+        '<span class="plan-time num">' + esc(p.time) + '</span>' +
+        '<span class="plan-box' + (p.done?' on':'') + '" onclick="togglePlan(' + p.id + ')"></span>' +
+        '<span class="plan-text">' + esc(p.text) + '</span>' +
+        '<button class="plan-del" onclick="delPlan(' + p.id + ')">✕</button>' +
+      '</div>').join('')
+    : '<div class="empty" style="padding:18px 0">今天还没有安排，加一条吧</div>';
+  const doneN = list.filter(p=>p.done).length;
+  document.getElementById('planBadge').textContent = doneN + '/' + list.length;
+}
+
+/* ================= 日程：本周复盘 ================= */
+function weekKey(){
+  const d = new Date();
+  const day = (d.getDay() + 6) % 7;           // 周一为一周起点
+  const monday = new Date(d); monday.setDate(d.getDate() - day);
+  return 'opc_review_' + fmtDate(monday);
+}
+const RV_FIELDS = [['rvDone','content'],['rvGap','content'],['rvLearn','content'],['rvNext','content']];
+function getReview(){
+  try{ return JSON.parse(localStorage.getItem(weekKey())) || {}; }
+  catch(e){ return {}; }
+}
+function renderReview(){
+  const r = getReview();
+  ['rvDone','rvGap','rvLearn','rvNext'].forEach(id=>{
+    document.getElementById(id).value = r[id] || '';
+  });
+  const d = new Date();
+  const day = (d.getDay() + 6) % 7;
+  const monday = new Date(d); monday.setDate(d.getDate() - day);
+  document.getElementById('reviewWeekTxt').textContent =
+    fmtDate(monday) + ' ~ ' + fmtDate(new Date(monday.getTime() + 6*86400000));
+}
+function bindReview(){
+  ['rvDone','rvGap','rvLearn','rvNext'].forEach(id=>{
+    document.getElementById(id).addEventListener('input', ()=>{
+      const r = getReview();
+      r[id] = document.getElementById(id).value;
+      localStorage.setItem(weekKey(), JSON.stringify(r));
+    });
+  });
+}
+
+/* ================= 英语打卡 ================= */
 const WORD_GOAL = 30;
 const wordKey = () => 'opc_word_' + todayKey();
 const WORD_DONE_KEY = 'opc_word_done';
 function getWord(){
-  try{return JSON.parse(localStorage.getItem(wordKey()))||{count:0,records:[]};}
-  catch(e){return {count:0,records:[]};}
+  try{ return JSON.parse(localStorage.getItem(wordKey())) || {count:0, records:[]}; }
+  catch(e){ return {count:0, records:[]}; }
 }
-function setWord(d){localStorage.setItem(wordKey(), JSON.stringify(d))}
-
+function setWord(d){ localStorage.setItem(wordKey(), JSON.stringify(d)); }
 const QUOTES = [
   {en:"The secret of getting ahead is getting started.", zh:"领先的秘诀，就是立刻开始。"},
   {en:"Little strokes fell great oaks.", zh:"水滴石穿，绳锯木断。"},
@@ -554,132 +675,130 @@ const QUOTES = [
   {en:"Where there is a will, there is a way.", zh:"有志者，事竟成。"},
   {en:"Rome was not built in a day.", zh:"罗马不是一天建成的。"},
   {en:"Knowledge is power.", zh:"知识就是力量。"},
-  {en:"Perseverance is not a long race; it is many short races, one after another.", zh:"坚持不是一场长跑，而是一段又一段的短跑。"},
   {en:"A journey of a thousand miles begins with a single step.", zh:"千里之行，始于足下。"},
-  {en:"Success is the sum of small efforts, repeated day in and day out.", zh:"成功是日复一日小努力的总和。"},
-  {en:"The more that you read, the more things you will know.", zh:"读得越多，懂得越多。"},
+  {en:"Success is the sum of small efforts, repeated day in and day out.", zh:"成功是日复一日小努力的总和。"}
 ];
-
 function addWords(n){
+  if(!(n > 0)) return;
   const d = getWord();
-  if(n > 0){
-    d.count += n;
-    d.records.push({time:Date.now(), n:n});
-  }
+  d.count += n;
+  d.records.push({time:Date.now(), n:n});
   setWord(d);
   renderWord();
-  if(n > 0) toast('📚 已记 ' + n + ' 个单词，今日共 ' + d.count + ' 个', 'word');
+  toast('📚 已记 ' + n + ' 个单词，今日共 ' + d.count + ' 个', 0);
 }
-
+function addWordsInput(){
+  const el = document.getElementById('wordInput');
+  const n = parseInt(el.value, 10);
+  if(!(n > 0)){ toast('请输入大于 0 的数字', 0); return; }
+  addWords(n);
+  el.value = '';
+}
+function undoWord(){
+  const d = getWord();
+  if(!d.records.length){ toast('今天还没有记录', 0); return; }
+  const last = d.records.pop();
+  d.count = Math.max(0, d.count - last.n);
+  setWord(d); renderWord();
+  toast('↩ 已撤销 ' + last.n + ' 个单词', 0);
+}
 function computeStreak(){
-  const done = JSON.parse(localStorage.getItem(WORD_DONE_KEY)||'{}');
+  const done = JSON.parse(localStorage.getItem(WORD_DONE_KEY) || '{}');
   let streak = 0;
   const d = new Date();
-  if(!done[fmtDate(d)]) d.setDate(d.getDate()-1);
-  while(done[fmtDate(d)]){ streak++; d.setDate(d.getDate()-1); }
+  if(!done[fmtDate(d)]) d.setDate(d.getDate() - 1);
+  while(done[fmtDate(d)]){ streak++; d.setDate(d.getDate() - 1); }
   return streak;
 }
-function fmtDate(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
-
 function renderWord(){
   const d = getWord();
-  const num = document.getElementById('wordNum');
-  num.textContent = d.count;
-  const pct = Math.min(100, d.count/WORD_GOAL*100);
-  document.getElementById('wordRing').style.setProperty('--pct', pct+'%');
-  document.getElementById('wordBadge').textContent = d.count+'/'+WORD_GOAL;
-
+  document.getElementById('wordNum').textContent = d.count;
+  document.getElementById('wordRing').style.setProperty('--pct', Math.min(100, d.count/WORD_GOAL*100) + '%');
+  document.getElementById('wordBadge').textContent = d.count + '/' + WORD_GOAL;
   const done = d.count >= WORD_GOAL;
-  document.getElementById('wordDone').style.display = done?'':'none';
+  document.getElementById('wordDone').style.display = done ? '' : 'none';
   document.getElementById('wordStatus').innerHTML = done
-    ? '<b>今日已达标 ✓</b> 坚持就是胜利，明天继续！'
-    : '今日还差 <b>' + (WORD_GOAL - d.count) + '</b> 个单词，继续加油';
-
-  // 达标时记录完成日期（用于 streak）
-  const doneMap = JSON.parse(localStorage.getItem(WORD_DONE_KEY)||'{}');
-  if(done && !doneMap[fmtDate(new Date())]){
-    doneMap[fmtDate(new Date())] = true;
-    localStorage.setItem(WORD_DONE_KEY, JSON.stringify(doneMap));
+    ? '<b>今日已达标 ✓</b> 坚持就是胜利'
+    : '今日还差 <b>' + (WORD_GOAL - d.count) + '</b> 个单词';
+  const dm = JSON.parse(localStorage.getItem(WORD_DONE_KEY) || '{}');
+  if(done && !dm[fmtDate(new Date())]){
+    dm[fmtDate(new Date())] = true;
+    localStorage.setItem(WORD_DONE_KEY, JSON.stringify(dm));
   }
   document.getElementById('wordStreak').textContent = computeStreak();
-
-  // 时间线
   const tl = document.getElementById('wordTimeline');
-  if(!d.records.length){
-    tl.innerHTML = `<li><span class="t" style="color:#9aa0ab">今天还没背单词，点上面的按钮开始</span></li>`;
-  } else {
-    tl.innerHTML = [...d.records].reverse().map(r=>{
-      const t = new Date(r.time);
-      return `<li><span class="t">${pad(t.getHours())}:${pad(t.getMinutes())}</span><span>背了单词</span><span class="v word">+${r.n} 个</span></li>`;
-    }).join('');
-  }
-
-  // 每日名言（按日期轮换）
+  tl.innerHTML = d.records.length
+    ? [...d.records].reverse().map(r=>{
+        const t = new Date(r.time);
+        return '<li><span class="t num">' + pad(t.getHours()) + ':' + pad(t.getMinutes()) +
+               '</span><span>背单词</span><span class="v word">+' + r.n + ' 个</span></li>';
+      }).join('')
+    : '<li><span class="t">—</span><span style="color:#94a3b8">今天还没背单词</span></li>';
   const doy = Math.floor((Date.now() - new Date(new Date().getFullYear(),0,0).getTime())/86400000);
   const q = QUOTES[doy % QUOTES.length];
   document.getElementById('wordQuote').innerHTML =
-    `<div class="en">“${esc(q.en)}”</div><div class="zh">${esc(q.zh)}</div>`;
+    '<div class="en">“' + esc(q.en) + '”</div><div class="zh">' + esc(q.zh) + '</div>';
 }
 
 /* ================= 喝水打卡 ================= */
 const WATER_GOAL = 2300;
-const REMIND_INTERVAL = 60*60*1000; // 1 小时
+const REMIND_INTERVAL = 60*60*1000;
 const waterKey = () => 'opc_water_' + todayKey();
 function getWater(){
-  try{return JSON.parse(localStorage.getItem(waterKey()))||{ml:0,records:[]};}
-  catch(e){return {ml:0,records:[]};}
+  try{ return JSON.parse(localStorage.getItem(waterKey())) || {ml:0, records:[]}; }
+  catch(e){ return {ml:0, records:[]}; }
 }
-function setWater(d){localStorage.setItem(waterKey(), JSON.stringify(d))}
-let lastRemindTs = Number(localStorage.getItem('opc_last_remind')||0);
-
+function setWater(d){ localStorage.setItem(waterKey(), JSON.stringify(d)); }
+let lastRemindTs = Number(localStorage.getItem('opc_last_remind') || 0);
 function drink(ml){
   const d = getWater();
   if(ml > 0){
     d.ml += ml;
     d.records.push({time:Date.now(), ml:ml});
+    setWater(d); renderWater();
+    toast('💧 已记录 ' + ml + 'ml，今日共 ' + d.ml + 'ml', 0);
   } else if(ml < 0 && d.records.length){
     const last = d.records.pop();
     d.ml = Math.max(0, d.ml - last.ml);
+    setWater(d); renderWater();
+    toast('↩ 已撤销 ' + last.ml + 'ml', 0);
   }
-  setWater(d);
-  renderWater();
-  if(ml > 0) toast('💧 已记录 ' + ml + 'ml，今日共 ' + d.ml + 'ml', 'water');
 }
-
+function drinkInput(){
+  const el = document.getElementById('waterInput');
+  const ml = parseInt(el.value, 10);
+  if(!(ml > 0)){ toast('请输入大于 0 的毫升数', 0); return; }
+  drink(ml);
+  el.value = '';
+}
 function renderWater(){
   const d = getWater();
   document.getElementById('waterNum').textContent = d.ml;
-  const pct = Math.min(100, d.ml/WATER_GOAL*100);
-  document.getElementById('waterRing').style.setProperty('--pct', pct+'%');
-  document.getElementById('waterBadge').textContent = d.ml+'ml';
-
+  document.getElementById('waterRing').style.setProperty('--pct', Math.min(100, d.ml/WATER_GOAL*100) + '%');
+  document.getElementById('waterBadge').textContent = d.ml + 'ml';
   const done = d.ml >= WATER_GOAL;
-  document.getElementById('waterDone').style.display = done?'':'none';
+  document.getElementById('waterDone').style.display = done ? '' : 'none';
   document.getElementById('waterStatus').innerHTML = done
-    ? '<b>已达 2300ml ✓</b> 今日喝水目标完成！'
+    ? '<b>已达 2300ml ✓</b> 今日喝水目标完成'
     : '今日还需 <b>' + (WATER_GOAL - d.ml) + 'ml</b> 水';
-
   const tl = document.getElementById('waterTimeline');
-  if(!d.records.length){
-    tl.innerHTML = `<li><span class="t" style="color:#9aa0ab">今天还没喝水，点上面的按钮开始</span></li>`;
-  } else {
-    tl.innerHTML = [...d.records].reverse().map(r=>{
-      const t = new Date(r.time);
-      return `<li><span class="t">${pad(t.getHours())}:${pad(t.getMinutes())}</span><span>喝水</span><span class="v water">+${r.ml}ml</span></li>`;
-    }).join('');
-  }
+  tl.innerHTML = d.records.length
+    ? [...d.records].reverse().map(r=>{
+        const t = new Date(r.time);
+        return '<li><span class="t num">' + pad(t.getHours()) + ':' + pad(t.getMinutes()) +
+               '</span><span>喝水</span><span class="v water">+' + r.ml + 'ml</span></li>';
+      }).join('')
+    : '<li><span class="t">—</span><span style="color:#94a3b8">今天还没喝水</span></li>';
   updateRemind();
 }
-
 function updateRemind(){
   const el = document.getElementById('nextRemind');
-  const now = Date.now();
-  const remain = Math.max(0, lastRemindTs + REMIND_INTERVAL - now);
+  const remain = Math.max(0, lastRemindTs + REMIND_INTERVAL - Date.now());
   if(remain <= 0){
     el.innerHTML = '🔔 该喝水了！点上面的按钮记录';
   } else {
     const m = Math.floor(remain/60000), s = Math.floor((remain%60000)/1000);
-    el.innerHTML = `⏱ 下次喝水提醒：<b>${m} 分 ${pad(s)} 秒</b> 后`;
+    el.innerHTML = '⏱ 下次喝水提醒：<b>' + m + ' 分 ' + pad(s) + ' 秒</b> 后';
   }
 }
 function checkRemind(){
@@ -687,26 +806,83 @@ function checkRemind(){
   if(now - lastRemindTs >= REMIND_INTERVAL){
     lastRemindTs = now;
     localStorage.setItem('opc_last_remind', String(now));
-    toast('💧 起来喝水啦！', 'water');
+    toast('💧 起来喝水啦！', 0);
     if('Notification' in window && Notification.permission === 'granted'){
       new Notification('喝水提醒 💧', {body:'已经 1 小时啦，起来喝杯水吧', silent:true});
     }
   }
   updateRemind();
 }
-function requestNotify(){
-  if('Notification' in window && Notification.permission === 'default') Notification.requestPermission();
-}
 
 /* ================= 导航 ================= */
-const VIEW_TITLES = {ai:'AI 情报', tech:'计算机情报', word:'记单词 · 四级', water:'喝水打卡'};
+const VIEW_TITLES = {
+  plan:'日程安排', ai:'AI 情报', tech:'计算机情报', word:'英语打卡', water:'喝水打卡'
+};
+function switchView(v){
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.view === v));
+  document.querySelectorAll('.view').forEach(s=>s.classList.remove('active'));
+  document.getElementById('view-' + v).classList.add('active');
+  document.getElementById('viewTitle').textContent = VIEW_TITLES[v];
+  try{ localStorage.setItem('opc_last_view', v); }catch(e){}
+  if(v === 'ai' || v === 'tech') autoUpdate(true);
+}
+document.querySelectorAll('.nav-item').forEach(n=>{
+  n.addEventListener('click', ()=>switchView(n.dataset.view));
+});
 
-/* ================= 添加到桌面（PWA 安装引导） ================= */
+/* ================= 添加到桌面（PWA） ================= */
+let deferredPrompt = null;
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+const isAndroid = /Android/i.test(navigator.userAgent);
+
+window.addEventListener('beforeinstallprompt', (e)=>{
+  e.preventDefault();
+  deferredPrompt = e;
+  if(!isStandalone && !localStorage.getItem('opc_install_dismiss')) showInstallBar();
+});
+window.addEventListener('appinstalled', ()=>{ deferredPrompt = null; hideInstallBar(); });
+function showInstallBar(){
+  const el = document.getElementById('installBar');
+  if(el) el.style.display = 'flex';
+}
+function hideInstallBar(){
+  const el = document.getElementById('installBar');
+  if(el) el.style.display = 'none';
+}
+function openInstallGuide(){
+  const steps = document.getElementById('imSteps');
+  const desc = document.getElementById('imDesc');
+  if(isIOS){
+    desc.textContent = 'iPhone / iPad 请按以下步骤操作';
+    steps.innerHTML =
+      '<div class="im-step"><span class="n">1</span>点击 Safari 底部的<b>分享</b>按钮</div>' +
+      '<div class="im-step"><span class="n">2</span>向下滑动，选择<b>「添加到主屏幕」</b></div>' +
+      '<div class="im-step"><span class="n">3</span>点右上角<b>「添加」</b>完成</div>';
+  } else if(isAndroid){
+    desc.textContent = '安卓手机请按以下步骤操作';
+    steps.innerHTML =
+      '<div class="im-step"><span class="n">1</span>点浏览器右上角<b>⋮ 菜单</b></div>' +
+      '<div class="im-step"><span class="n">2</span>选<b>「安装应用」</b>或<b>「添加到主屏幕」</b></div>' +
+      '<div class="im-step"><span class="n">3</span>确认<b>「安装」</b>完成</div>';
+  } else {
+    desc.textContent = '电脑端请按以下步骤操作';
+    steps.innerHTML =
+      '<div class="im-step"><span class="n">1</span>点地址栏右侧的<b>安装图标</b></div>' +
+      '<div class="im-step"><span class="n">2</span>或按快捷键 <b>Ctrl/Cmd + Shift + S</b></div>';
+  }
+  document.getElementById('installModal').classList.add('show');
+}
+function closeInstall(){
+  document.getElementById('installModal').classList.remove('show');
+  hideInstallBar();
+  localStorage.setItem('opc_install_dismiss', '1');
+}
 function copyLink(){
   const url = location.href;
   if(navigator.clipboard && navigator.clipboard.writeText){
     navigator.clipboard.writeText(url).then(
-      ()=>toast('✅ 网址已复制，用 Chrome / Edge 粘贴打开', 'water'),
+      ()=>toast('✅ 网址已复制，用 Chrome / Edge 粘贴打开', 0),
       ()=>prompt('复制网址，用 Chrome 打开：', url)
     );
   } else {
@@ -720,113 +896,52 @@ function installApp(){
     return;
   }
   if(/MicroMessenger/i.test(navigator.userAgent) || /QQ\//i.test(navigator.userAgent)){
-    toast('⚠️ 微信/QQ 内不能安装 → 点右上角「…」→ 用浏览器打开', 'word');
+    toast('⚠️ 微信/QQ 内不能安装 → 点右上角「…」→ 用浏览器打开', 0);
     return;
   }
   openInstallGuide();
-  if(!/iphone|ipad|ipod/i.test(navigator.userAgent)) setTimeout(copyLink, 900);
+  if(!isIOS) setTimeout(copyLink, 900);
 }
-function switchView(v){
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.view===v));
-  document.querySelectorAll('.view').forEach(s=>s.classList.remove('active'));
-  document.getElementById('view-'+v).classList.add('active');
-  document.getElementById('viewTitle').textContent = VIEW_TITLES[v];
-  if(v==='word') renderWord();
-  if(v==='water') renderWater();
-}
-document.querySelectorAll('.nav-item').forEach(n=>n.addEventListener('click', ()=>switchView(n.dataset.view)));
-
-/* 刷新资讯：强制从云端拉取最新 data.js（绕过缓存），手机/电脑均可用 */
-function refreshData(){
-  const tip = toast('🔄 正在获取最新资讯…', 'water');
-  fetch('./data.js?nocache=1&t=' + Date.now(), {cache: 'no-store'})
-    .then(r => { if(!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
-    .then(txt => {
-      try { (new Function(txt))(); } catch(e){ throw new Error('数据格式错误'); }
-      if(!window.HOT_DATA) throw new Error('数据为空');
-      HOT = window.HOT_DATA;
-      renderAllNews();
-      toast('✅ 已更新 · ' + HOT.updateTime, 'water');
-    })
-    .catch(err => {
-      toast('❌ 刷新失败（云端数据未更新或网络不可用）', 'word');
-    });
-}
-
-/* ================= 添加到主屏幕（PWA 安装引导） ================= */
-let deferredPrompt = null;
-const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-const isAndroid = /Android/i.test(navigator.userAgent);
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  if(!isStandalone && !localStorage.getItem('opc_install_dismiss')) showInstallBar();
-});
-window.addEventListener('appinstalled', () => { deferredPrompt = null; hideInstallBar(); });
-
-function showInstallBar(){
-  const el = document.getElementById('installBar');
-  if(el) el.style.display = 'flex';
-}
-function hideInstallBar(){
-  const el = document.getElementById('installBar');
-  if(el) el.style.display = 'none';
-}
-function openInstallGuide(){
-  const steps = document.getElementById('imSteps');
-  const desc = document.getElementById('imDesc');
-  if(isIOS){
-    desc.textContent = 'iPhone/iPad 请按以下步骤操作';
-    steps.innerHTML = `
-      <div class="im-step"><span class="n">1</span>点击 Safari 底部（或右上角）的<b>分享</b>按钮</div>
-      <div class="im-step"><span class="n">2</span>向下滑动，选择<b>「添加到主屏幕」</b></div>
-      <div class="im-step"><span class="n">3</span>点右上角<b>「添加」</b>完成</div>`;
-  } else if(isAndroid){
-    desc.textContent = '安卓手机请按以下步骤操作';
-    steps.innerHTML = `
-      <div class="im-step"><span class="n">1</span>点浏览器右上角<b>⋮ 菜单</b></div>
-      <div class="im-step"><span class="n">2</span>选<b>「安装应用」</b>或<b>「添加到主屏幕」</b></div>
-      <div class="im-step"><span class="n">3</span>确认<b>「安装」</b>完成</div>`;
-  } else {
-    desc.textContent = '电脑端请按以下步骤操作';
-    steps.innerHTML = `
-      <div class="im-step"><span class="n">1</span>点地址栏右侧的<b>安装图标</b></div>
-      <div class="im-step"><span class="n">2</span>或按快捷键 <b>Ctrl/Cmd + Shift + S</b></div>`;
-  }
-  document.getElementById('installModal').classList.add('show');
-}
-function closeInstall(){
-  document.getElementById('installModal').classList.remove('show');
-  hideInstallBar();
-  localStorage.setItem('opc_install_dismiss', '1');
-}
-
-document.getElementById('installClose').addEventListener('click', () => {
-  hideInstallBar();
-  localStorage.setItem('opc_install_dismiss', '1');
-});
-document.getElementById('installBarAdd').addEventListener('click', installApp);
 
 /* ================= 初始化 ================= */
 (function init(){
   const d = new Date();
   const week = ['日','一','二','三','四','五','六'][d.getDay()];
-  document.getElementById('sideDate').textContent = d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日 周'+week;
+  document.getElementById('sideDate').textContent =
+    d.getFullYear() + '年' + (d.getMonth()+1) + '月' + d.getDate() + '日 周' + week;
+  document.getElementById('planDateTxt').textContent = fmtDate(d);
+
+  document.getElementById('installClose').addEventListener('click', ()=>{
+    hideInstallBar();
+    localStorage.setItem('opc_install_dismiss', '1');
+  });
+  document.getElementById('installBarAdd').addEventListener('click', installApp);
+  document.getElementById('planText').addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter') addPlan();
+  });
+
+  renderPlan();
+  renderReview();
+  bindReview();
   renderAllNews();
   renderWord();
   renderWater();
-  requestNotify();
+
+  // 后台自动拉取云端最新内容
+  autoUpdate(true);
+
+  if('Notification' in window && Notification.permission === 'default') Notification.requestPermission();
   setInterval(checkRemind, 1000);
-  // 注册 Service Worker（PWA 离线缓存）
   if('serviceWorker' in navigator){
     navigator.serviceWorker.register('service-worker.js').catch(()=>{});
   }
-  // iOS Safari 无 beforeinstallprompt，主动弹引导条
   if(!isStandalone && isIOS && !localStorage.getItem('opc_install_dismiss')){
     setTimeout(showInstallBar, 2500);
   }
+  try{
+    const v = localStorage.getItem('opc_last_view');
+    if(v && VIEW_TITLES[v]) switchView(v);
+  }catch(e){}
 })();
 </script>
 </body>
