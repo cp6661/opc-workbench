@@ -187,7 +187,7 @@ body{
 /* ---------- 日程 ---------- */
 .plan-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
 .plan-row:last-of-type{border-bottom:none}
-.plan-time{font-size:12px;color:var(--ink-3);width:46px;flex-shrink:0}
+.plan-time{font-size:11.5px;color:var(--ink-3);width:88px;flex-shrink:0;letter-spacing:-.2px}
 .plan-box{
   width:19px;height:19px;border:2px solid var(--blue-400);border-radius:6px;cursor:pointer;
   flex-shrink:0;display:grid;place-items:center;transition:.16s;background:#fff;
@@ -211,6 +211,10 @@ textarea{
   font-family:inherit;color:var(--ink);outline:none;resize:vertical;min-height:76px;line-height:1.7;transition:.16s;
 }
 textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
+.prio-bar{
+  font-size:11.5px;color:var(--blue-700);background:var(--blue-50);
+  border:1px solid var(--blue-100,#dbeafe);border-radius:9px;padding:7px 11px;margin-bottom:10px;
+}
 .tpl-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .tpl-box{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
 .tpl-days{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
@@ -355,6 +359,7 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
         <div class="checkin-wrap">
           <div class="card">
             <div class="card-title">📋 今日安排 <span class="hint" id="planDateTxt"></span></div>
+            <div class="prio-bar">🎯 优先级：四级（12月考试）＞ 课内 ＞ C语言 ＞ 深入浅出计组</div>
             <div id="planList"></div>
             <div class="add-row">
               <input class="t" id="planTime" placeholder="09:00" maxlength="5">
@@ -624,18 +629,87 @@ function renderAllNews(){
 const planKey = () => 'opc_plan_' + todayKey();
 const TPL_KEY = 'opc_week_tpl';
 const WEEK_CN = ['一','二','三','四','五','六','日'];
-const DEFAULT_TPL =
-  '09:00 打开工作台 · 看今天的 AI / 计算机情报\n' +
-  '09:30 推进今日核心业务事项\n' +
-  '14:00 学习 30 个四级单词\n' +
-  '21:30 当日复盘 + 更新明日安排';
+/* 默认每周固定安排（来源：大一一周每日安排表 · 西财计算机大一 10 月版） */
+const DEFAULT_TPLS = {
+  0: '08:00-08:30 起床+早餐 · 四级单词20个\n' +
+     '08:30-10:10 四级阅读1篇\n' +
+     '10:20-12:00 高数作业+错题\n' +
+     '12:00-13:00 午饭+午休\n' +
+     '13:00-15:35 四级听力精听\n' +
+     '15:45-17:25 跑操练 @体育场馆\n' +
+     '17:25-18:30 晚饭+散步\n' +
+     '18:30-20:30 高数作业+错题整理\n' +
+     '20:30-22:30 四级阅读+生词整理 → C语言基础\n' +
+     '22:30-23:30 洗漱+睡觉',
+  1: '08:00-08:30 起床+早餐 · 四级单词20个\n' +
+     '08:30-10:10 高数预习+整理\n' +
+     '10:20-12:00 高等数学I @Grid楼H203\n' +
+     '12:00-13:00 午饭+午休30min\n' +
+     '13:00-15:35 高数练习1套\n' +
+     '15:45-17:25 C语言课后2题\n' +
+     '17:25-18:30 晚饭+散步\n' +
+     '18:30-20:30 四级听力精听+精读\n' +
+     '20:30-22:30 计组阅读+笔记 → C语言习题\n' +
+     '22:30-23:30 洗漱+睡觉',
+  2: '08:00-08:30 起床+早餐 · 四级单词20个\n' +
+     '08:30-10:10 综合英语Ⅲ @综合楼B204\n' +
+     '10:20-12:00 微观英语演游记\n' +
+     '12:00-13:00 午饭+午休\n' +
+     '13:00-15:35 C语言动手敲代码\n' +
+     '15:45-17:25 大学生心理健康 @Grid楼B213\n' +
+     '17:25-18:30 晚饭+散步\n' +
+     '18:30-20:30 C语言上机敲代码\n' +
+     '20:30-22:30 四级阅读专项 → 计组预习\n' +
+     '22:30-23:30 洗漱+睡觉',
+  3: '08:00-08:30 起床+早餐 · 四级单词20个\n' +
+     '08:30-10:10 四级单词复习+精听\n' +
+     '10:20-12:00 英语国家与文化鉴赏 @学生楼B201\n' +
+     '12:00-13:00 午饭+午休\n' +
+     '13:00-15:35 高数学习I @Grid楼H203\n' +
+     '15:45-17:25 C语言综合复习\n' +
+     '17:25-18:30 晚饭+散步\n' +
+     '18:30-20:30 周四空课 @计组楼D201（课名待补）\n' +
+     '20:30-22:30 四级词汇周边+C复习\n' +
+     '22:30-23:30 洗漱+睡觉',
+  4: '08:00-08:30 起床+早餐 · 四级单词20个\n' +
+     '08:30-10:10 信箱准备\n' +
+     '10:20-12:00 勤工俭学值理\n' +
+     '12:00-13:00 午饭+午休\n' +
+     '13:00-15:35 勤工俭学值班\n' +
+     '15:45-17:25 勤工俭学值班\n' +
+     '17:25-18:30 晚饭\n' +
+     '18:30-20:30 赶本周作业（高数优先）\n' +
+     '20:30-22:30 四级本周生词复盘（之后自由休息）\n' +
+     '22:30-23:30 洗漱+睡觉',
+  5: '08:30 起床+早餐 · 早单词30个\n' +
+     '08:30-10:10 高数集中刷题\n' +
+     '10:20-12:00 高数错题整理\n' +
+     '12:00-13:00 午饭+午休\n' +
+     '13:00-15:35 四级真题限时模考\n' +
+     '15:45-17:25 整理生活 · 收纳复盘\n' +
+     '17:25-18:30 晚饭\n' +
+     '18:30-20:30 C语言系统练习+写代码\n' +
+     '20:30-22:30 计组精读1章\n' +
+     '22:30-23:30 24:00前睡觉',
+  6: '08:30 起床+早餐 · 早单词30个\n' +
+     '08:30-10:10 C语言本周复盘\n' +
+     '10:20-12:00 整理本周C语言错题\n' +
+     '12:00-13:00 午饭+午休\n' +
+     '13:00-15:35 四级听力专项\n' +
+     '15:45-17:25 计组：梳理本周概念\n' +
+     '17:25-18:30 晚饭\n' +
+     '18:30-20:30 背单词30min · 标注下周重点\n' +
+     '20:30-22:30 自由休息 · 不碰新难题\n' +
+     '22:30-23:30 洗漱+睡觉'
+};
+const DEFAULT_TPL = DEFAULT_TPLS[0];
 
 function weekdayIdx(){ return (new Date().getDay() + 6) % 7; }   // 0 = 周一
 function getTpl(){
   try{ return JSON.parse(localStorage.getItem(TPL_KEY)) || {}; }catch(e){ return {}; }
 }
 function setTpl(o){ localStorage.setItem(TPL_KEY, JSON.stringify(o)); }
-function tplOf(i){ const t = getTpl(); return (t[i] == null ? DEFAULT_TPL : String(t[i])); }
+function tplOf(i){ const t = getTpl(); return (t[i] == null ? (DEFAULT_TPLS[i] || DEFAULT_TPL) : String(t[i])); }
 function parseTpl(txt){
   return (txt || '').split('\n').map(l=>l.trim()).filter(Boolean).map(l=>{
     const m = l.match(/^(\d{1,2}:\d{2})\s+(.*)$/);
