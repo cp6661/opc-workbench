@@ -8,6 +8,10 @@ on:
     - cron: '45 23 * * *'
   workflow_dispatch: {}
 
+env:
+  # runner 默认 UTC，统一改成北京时间，避免 commit 日志和日期对不上
+  TZ: Asia/Shanghai
+
 permissions:
   contents: write
   pages: write
