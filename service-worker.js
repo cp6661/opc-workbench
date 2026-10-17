@@ -1,5 +1,5 @@
 /* 一人公司工作台 - Service Worker（离线缓存） */
-const CACHE = 'opc-v11';
+const CACHE = 'opc-v12';
 const ASSETS = [
   './',
   './index.html',
@@ -35,6 +35,11 @@ self.addEventListener('fetch', (e) => {
         return res;
       })
     );
+    return;
+  }
+  // 跨域请求（拉取每日最新数据）直接走网络，不进缓存，避免缓存膨胀与旧数据干扰
+  if (url.origin !== self.location.origin) {
+    e.respondWith(fetch(e.request));
     return;
   }
   e.respondWith(
