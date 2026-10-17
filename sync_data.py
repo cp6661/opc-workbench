@@ -11,7 +11,14 @@ import re
 import time
 import urllib.parse
 import urllib.request
-from datetime import date
+from datetime import datetime, timezone, timedelta
+
+# GitHub Actions  runner 是 UTC，必须显式按北京时间算「今天」，否则 07:30 那次会标成前一天
+CST = timezone(timedelta(hours=8))
+def now_cst():
+    return datetime.now(CST)
+def today_cst():
+    return now_cst().strftime("%Y-%m-%d")
 
 # 每个模块：热榜条数 + 基础条数
 HOT_N = 8
@@ -138,7 +145,7 @@ def build_base(kb_items, n, offset, source):
 
 
 def main():
-    offset = date.today().toordinal()
+    offset = now_cst().toordinal()
     logs = []
 
     # ---- 热榜 ----
@@ -170,10 +177,11 @@ def main():
     ai_news = ai_hot + ai_base
     tech_news = tech_hot + cs_base
 
+    _now = now_cst()
     result = {
-        "updateTime": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "updateTime": _now.strftime("%Y-%m-%d %H:%M:%S"),
         "updateTs": int(time.time()),
-        "date": date.today().strftime("%Y-%m-%d"),
+        "date": _now.strftime("%Y-%m-%d"),
         "total": len(ai_news) + len(tech_news),
         "ai_news": ai_news,
         "tech_news": tech_news,
