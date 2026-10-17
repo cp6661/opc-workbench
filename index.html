@@ -358,7 +358,7 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
             <div id="planList"></div>
             <div class="add-row">
               <input class="t" id="planTime" placeholder="09:00" maxlength="5">
-              <input class="x" id="planText" placeholder="添加一项安排，回车保存">
+              <input class="x" id="planText" placeholder="添加一项安排，支持一次粘贴多行">
               <button class="btn btn-primary" onclick="addPlan()">添加</button>
             </div>
             <div class="tpl-bar">
@@ -368,7 +368,10 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
             <div class="tpl-box" id="tplBox" style="display:none">
               <div class="tpl-days" id="tplDays"></div>
               <textarea id="tplText" rows="7" placeholder="每行一条：09:00 事项内容"></textarea>
-              <div class="tpl-hint">每行一条，格式「时间 内容」（时间可省略）。按周一～周日分别设置，每天打开会自动带入当天那一套。</div>
+              <div class="tpl-bar" style="margin-top:10px">
+                <button class="btn btn-primary" onclick="pasteTpl()">📥 粘贴表格内容</button>
+              </div>
+              <div class="tpl-hint">每行一条，格式「时间 内容」（时间可省略）。按周一～周日分别设置，每天打开会自动带入当天那一套。<br>在飞书里复制好日程，点上面按钮一次性粘进来。</div>
             </div>
           </div>
 
@@ -704,6 +707,44 @@ function renderTplDays(){
   document.getElementById('tplText').value = tplOf(curTplDay);
 }
 function pickTplDay(i){ saveTplText(); curTplDay = i; renderTplDays(); }
+/* ---- 从剪贴板批量导入（在飞书里复制后，一次粘进来） ---- */
+function parseLines(txt){
+  return (txt || '').split(/\r?\n/).map(s=>s.trim()).filter(Boolean)
+    .map(l=>{
+      const m = l.match(/^(\d{1,2}:\d{2})\s+(.*)$/);
+      return m ? {time:m[1], text:m[2]} : {time:'--:--', text:l};
+    });
+}
+/* 今日安排输入框：粘贴多行时一次性全部加入 */
+function pastePlan(e){
+  const txt = (e.clipboardData || window.clipboardData).getData('text') || '';
+  const items = parseLines(txt);
+  if(items.length < 2) return;             // 单行照普通粘贴处理
+  e.preventDefault();
+  const list = curList();
+  items.forEach((x,i)=>list.push({id:Date.now()+i, time:x.time, text:x.text, done:false}));
+  setPlan(list); renderPlan();
+  document.getElementById('planText').value = '';
+  toast('✅ 已导入 ' + items.length + ' 条安排', 0);
+}
+/* 每周模板：从剪贴板整段写入当前星期 */
+function pasteTpl(){
+  const ta = document.getElementById('tplText');
+  const apply = (txt)=>{
+    const items = parseLines(txt);
+    if(!items.length){ toast('剪贴板里没有内容', 0); return; }
+    ta.value = items.map(x=>(x.time === '--:--' ? '' : x.time + ' ') + x.text).join('\n');
+    saveTplText(); renderPlan();
+    toast('✅ 周' + WEEK_CN[curTplDay] + '模板已导入 ' + items.length + ' 条', 0);
+  };
+  if(navigator.clipboard && navigator.clipboard.readText){
+    navigator.clipboard.readText().then(apply, ()=>{
+      ta.focus(); toast('请长按输入框 → 粘贴', 0);
+    });
+  } else {
+    ta.focus(); toast('请长按输入框 → 粘贴', 0);
+  }
+}
 function saveTplText(){
   const el = document.getElementById('tplText');
   if(!el || curTplDay == null) return;
@@ -932,6 +973,7 @@ window.addEventListener('appinstalled', ()=>{ deferredPrompt = null; });
   document.getElementById('planDateTxt').textContent = fmtDate(d);
 
   document.getElementById('tplText').addEventListener('input', saveTplText);
+  document.getElementById('planText').addEventListener('paste', pastePlan);
   document.getElementById('planText').addEventListener('keydown', (e)=>{
     if(e.key === 'Enter') addPlan();
   });
