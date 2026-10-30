@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-10-30 08:00:40",
-  "updateTs": 1793318440,
+  "updateTime": "2026-10-30 08:16:38",
+  "updateTs": 1793319398,
   "date": "2026-10-30",
   "total": 30,
   "ai_news": [
@@ -147,13 +147,6 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "太实用了！推荐一款 AI Agent 的浏览器 ego-lite，跑Web 自动化太爽了！",
-      "summary": "前段时间我在 GitHub 上翻到一个项目：ego-lite，一款面向 AI Agent 人机协同的浏览器，专门用来解决 Claude Code / Codex / Cursor 这类 AI 智能体.",
-      "url": "https://juejin.cn/post/7701258021997625353",
-      "ts": 1793148418,
-      "source": "掘金·技术热文"
-    },
-    {
       "title": "做了三年 ProseMirror 后，我用四个月自研排版引擎实现 WPS / Google Docs 替代品，整套框架 MIT 开源",
       "summary": "做了三年 ProseMirror 后，自研排版引擎做出浏览器里真正分页的文档编辑器，还有块编辑器、Markdown 编辑器，背后两套 Tiptap 风格的编辑器框架 MIT 开源，附在线体验。",
       "url": "https://juejin.cn/post/7701285133392199690",
@@ -161,10 +154,17 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "中共中央30日上午举行新闻发布会",
-      "summary": "热度 9747839",
-      "url": "https://www.toutiao.com/trending/7702023711893651995/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227702023711893651995%22%2C%22hot_board_impr_id%22%3A%2220261030080040437E415F44C24D1B14FA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E5%85%B1%E4%B8%AD%E5%A4%AE30%E6%97%A5%E4%B8%8A%E5%8D%88%E4%B8%BE%E8%A1%8C%E6%96%B0%E9%97%BB%E5%8F%91%E5%B8%83%E4%BC%9A%22%7D&rank=&style_id=40132&topic_id=7702023711893651995",
-      "ts": 1793318440,
+      "title": "太实用了！推荐一款 AI Agent 的浏览器 ego-lite，跑Web 自动化太爽了！",
+      "summary": "前段时间我在 GitHub 上翻到一个项目：ego-lite，一款面向 AI Agent 人机协同的浏览器，专门用来解决 Claude Code / Codex / Cursor 这类 AI 智能体.",
+      "url": "https://juejin.cn/post/7701258021997625353",
+      "ts": 1793148418,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "美股芯片股下挫 医药龙头大涨8%",
+      "summary": "热度 10969572",
+      "url": "https://www.toutiao.com/trending/7702122310676922906/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227702122310676922906%22%2C%22hot_board_impr_id%22%3A%2220261030081637E29D4F1322E8F6E580C1%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%BE%8E%E8%82%A1%E8%8A%AF%E7%89%87%E8%82%A1%E4%B8%8B%E6%8C%AB+%E5%8C%BB%E8%8D%AF%E9%BE%99%E5%A4%B4%E5%A4%A7%E6%B6%A88%25%22%7D&rank=&style_id=40132&topic_id=7702122310676922906",
+      "ts": 1793319398,
       "source": "今日热榜"
     },
     {
