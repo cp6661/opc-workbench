@@ -1,7 +1,7 @@
 {
-  "updateTime": "2026-10-31 08:15:58",
-  "updateTs": 1793405758,
-  "date": "2026-10-31",
+  "updateTime": "2026-11-01 07:57:46",
+  "updateTs": 1793491066,
+  "date": "2026-11-01",
   "total": 30,
   "ai_news": [
     {
@@ -9,13 +9,6 @@
       "summary": "1. 引言：为什么需要协程 PHP 的传统运行模型里，一个请求对应一个进程（或一个 FPM worker），请求结束，进程内的所有变量、连接、内存全部释放。这种「一次请求、一次生命周期」的模式简单可靠",
       "url": "https://juejin.cn/post/7701591870955012111",
       "ts": 1793237584,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "Deepseek v5 来了",
-      "summary": "DeepSeek V5 好像早就做出来了，只是官方到现在都没发布。 今天下午，孟老师在 DeepSeek Harness 的代码里看到一屏 deepseek-v5，截图发给了我。 一、它是模型名，不是",
-      "url": "https://juejin.cn/post/7701541249069383706",
-      "ts": 1793177164,
       "source": "掘金·AI热文"
     },
     {
@@ -33,27 +26,6 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "我用 DeepSeek 做了 4 个零依赖的赚钱小工具，全部开源",
-      "summary": "纯 Python 标准库，不装一个依赖，每个工具一个文件，30 秒上手。",
-      "url": "https://juejin.cn/post/7673809190474629155",
-      "ts": 1786716638,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "太实用了！推荐一款 AI Agent 的浏览器 ego-lite，跑Web 自动化太爽了！",
-      "summary": "前段时间我在 GitHub 上翻到一个项目：ego-lite，一款面向 AI Agent 人机协同的浏览器，专门用来解决 Claude Code / Codex / Cursor 这类 AI 智能体.",
-      "url": "https://juejin.cn/post/7701258021997625353",
-      "ts": 1793148418,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "DeepSeek Harness 和 Pi Agent 怎么选？先想想你愿意折腾什么",
-      "summary": "想要 Web 界面、MCP、子 Agent 这些现成能力，可以先试 DeepSeek Harness；习惯在终端里干活，想保留一个小核心，用到什么再加什么，可以先试 Pi Agent。 它们的出发点不",
-      "url": "https://juejin.cn/post/7701490621295935529",
-      "ts": 1793155352,
-      "source": "掘金·AI热文"
-    },
-    {
       "title": "最近 Android 有什么更新：Android Dev Summit 2026 技术解读",
       "summary": "Android Studio 正式开放 Agent，ACP 让 IDE 能力也跟着过去 这个其实之前聊过了，最直接的变化是 Bring Your Own Agent（BYOA）在 Rabbit 2 进",
       "url": "https://juejin.cn/post/7701991107366731785",
@@ -61,11 +33,32 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "算力",
-      "summary": "运行和训练模型所需的计算能力，通常指 GPU 资源。",
-      "url": "",
-      "source": "AI 基础",
-      "ts": 0
+      "title": "腾讯 Buddy One 来了，办公全家桶一键打通WorkBuddy（附教程）",
+      "summary": "大家好，我是苍何。 兄弟们，腾讯这次憋了个大招。 正式推出了跨应用 AI 协同体系 Buddy One，把 WorkBuddy、腾讯会议、腾讯文档、ima 和腾讯网盘一键打通了。 说实话，这几个 Ap",
+      "url": "https://juejin.cn/post/7701870817484210230",
+      "ts": 1793265022,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "别学 subagent 了，很可能要凉了。",
+      "summary": "前两天，Claude 发了一篇文章叫《Building agents: When to fold subagents into your main agent loop》，意为《构建代理：何时把子代理",
+      "url": "https://juejin.cn/post/7702012705843232810",
+      "ts": 1793327776,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "Epic 摊牌了：Claude 和 Codex 在写 UE6 的代码，十年没修掉的 bug 被 AI 扫光",
+      "summary": "一类缺陷，Epic 的工程师追了整整十年，没有清干净。换成 AI 工具上场，几个月就被扫掉了。 这不是宣传话术。Epic 开发副总裁 Marcus Wassmer 在回应媒体求证时亲口确认，像 Cla",
+      "url": "https://juejin.cn/post/7701637989949751315",
+      "ts": 1793254509,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "AI 时代一群人在卷笔记软件，我想先把 Markdown 编辑器的底层做好",
+      "summary": "大家都在卷 AI 编辑器，底层却还是那几个老问题：Markdown 来回转换会改写源码、所见即所得要塞两套编辑器、协同一来就丢内容。这篇对照十几款流行笔记软件的技术路线，讲清 Markdown 真正的限制，介绍源码优先的开源编辑器框架 MS",
+      "url": "https://juejin.cn/post/7701625236325154826",
+      "ts": 1793246627,
+      "source": "掘金·AI热文"
     },
     {
       "title": "机器学习",
@@ -108,35 +101,21 @@
       "url": "",
       "source": "AI 基础",
       "ts": 0
+    },
+    {
+      "title": "参数",
+      "summary": "模型内部可调节的权重数量，参数越多通常能力越强、越吃资源。",
+      "url": "",
+      "source": "AI 基础",
+      "ts": 0
     }
   ],
   "tech_news": [
-    {
-      "title": "Python 面向对象编程：类、继承、多态与组合",
-      "summary": "目录 1. 引言 2. 类与实例 2.1 定义一个类 2.2 创建实例 2.3 self 是什么 3. 属性与方法 3.1 实例属性与类属性 3.2 实例方法、类方法与静态方法 3.3 属性封装与 p",
-      "url": "https://juejin.cn/post/7701269657706315811",
-      "ts": 1793154511,
-      "source": "掘金·技术热文"
-    },
     {
       "title": "Service Mesh 可观测性：分布式追踪、指标与日志的统一方案",
       "summary": "1. 引言：为什么 Mesh 层是可观测性的最佳切入点 微服务架构把单体拆成了几十上百个服务，随之而来的是调用链路变长、故障定位变难。传统做法是在每个业务服务里埋点、打日志、上报指标，但这种方式有三个",
       "url": "https://juejin.cn/post/7701971738456752162",
       "ts": 1793322600,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "程序员 1v1 访谈系列第八期：大龄女程序员的困境",
-      "summary": "大家好，我是双越。我最近正在搞一个《程序员 1v1 访谈系列》即和我 1v1 微信语音或文字聊天，分享你的状态和困惑，我给出建议。以下是第 8 位沟通者的主要内容，分享出来供大家参考。",
-      "url": "https://juejin.cn/post/7701269925755846671",
-      "ts": 1793153852,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "现代 Android 架构指南：不要再主动设计 Callback 接口",
-      "summary": "项目已经完全协程化，`Flow` 也用了三年。 有一天，讨论一个持续接收数据的接口时，一位工作",
-      "url": "https://juejin.cn/post/7701545991036862491",
-      "ts": 1793191043,
       "source": "掘金·技术热文"
     },
     {
@@ -147,71 +126,92 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "想做个人副业别乱买服务器！我的 5 个月真实开销分享",
-      "summary": "很多开发者想做个人副业，一上来就先买服务器、租云主机，还没验证想法就先有了固定开销。 我自己断断续续折腾了五个多月，最后算下来，云服务器相关费用基本为零，唯一开销就是 6 块钱的域名费。",
-      "url": "https://juejin.cn/post/7701510609427185690",
-      "ts": 1793172621,
+      "title": "Rspack 2.3 发布：联手 SWC 团队带来全新编译器",
+      "summary": "Rspack 2.3 现已发布！本次更新集成了 SWC Next 解析器，提升构建速度，降低内存占用和产物体积。同时推出实验性的新版缓存，支持为 loader 单独缓存转换结果。",
+      "url": "https://juejin.cn/post/7701932169296003082",
+      "ts": 1793266060,
       "source": "掘金·技术热文"
     },
     {
-      "title": "uView Pro X 1.0.0 发布：全面支持 uni-app x 蒸汽模式，80+ 组件",
-      "summary": "80+精选UI组件，蒸汽模式优先、多主题、暗黑模式、多语言配置，一套代码覆盖App(安卓/iOS/鸿蒙)、H5与微信小程序",
-      "url": "https://juejin.cn/post/7701525643872321571",
-      "ts": 1793176959,
+      "title": "副业搞钱点子之独立开发",
+      "summary": "大家好，我是： 农村程序员（2020年回农村，至今未出村） 独立开发者（致力于开发 1000 个小产品） 技术观察者（分享编程技术，行业资讯等） 前端之虎陈随易（自封的） 我的官网是：https://",
+      "url": "https://juejin.cn/post/7702012705842724906",
+      "ts": 1793324943,
       "source": "掘金·技术热文"
     },
     {
-      "title": "AI友好的可视化图形引擎自我革命：Meta2d.js 2.0 历时一年全新重写，性能与多人协作全面升级",
-      "summary": "Meta2d.js 一个国产开源的 2D 可视化引擎，快速搭建 Web 组态、SCADA、监控大屏、流程图、中控可视化以及图形编辑与交互等应用 —— 接入实时数据，设置动画和条件，事件交互等",
-      "url": "https://juejin.cn/post/7701604765431873545",
-      "ts": 1793185539,
+      "title": "下载神器！Motrix 停更三年后重写回归",
+      "summary": "大家好，我是： 农村程序员（2020年回农村，至今未出村） 独立开发者（致力于开发 1000 个小产品） 技术观察者（分享编程技术，行业资讯等） 前端之虎陈随易（自封的） 我的官网是：https://",
+      "url": "https://juejin.cn/post/7701925000958115883",
+      "ts": 1793274805,
       "source": "掘金·技术热文"
     },
     {
-      "title": "开源",
-      "summary": "源代码公开，允许自由使用和修改。",
+      "title": "删掉 1.1 万行 C 代码，Rust 正式接手 Android Binder",
+      "summary": "Linux 正在用 Rust 替换 Android Binder 驱动的 C 实现。这说明，内存安全正在变成实际的工程选择。",
+      "url": "https://juejin.cn/post/7701979838148722724",
+      "ts": 1793321980,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "一个人+AI做情侣食谱小程序，0 费用的服务器",
+      "summary": "我搭建了一个情侣食谱小程序，你没看错，服务器整个搭建过程只花了0元。 一、Serv00 是什么，限制有哪些 Serv00 是波兰主机商 ADMIN.NET.PL 旗下的免费虚拟主机，已经运营超过10年",
+      "url": "https://juejin.cn/post/7701929263046000703",
+      "ts": 1793272307,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "我有个朋友，工作八年，公司从 300 人减到 80 人",
+      "summary": "先说清楚，这不是我自己的故事，是我一个朋友的故事。 他叫老周（化名），写后端，八年工龄，今年三十一岁。 我本来以为，三十五岁才是程序员那道坎。听他讲完这半年，我更愿意相信：这道坎只是提前到了。 一、八",
+      "url": "https://juejin.cn/post/7702434781235101738",
+      "ts": 1793417783,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "TCP 三次握手",
+      "summary": "建立连接时 SYN、SYN-ACK、ACK 三次交互，确认双方收发能力正常。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "云计算",
-      "summary": "通过网络按需租用计算资源，而非自购服务器。",
+      "title": "TCP 四次挥手",
+      "summary": "断开连接需双方各自关闭发送通道，因此是全双工的四次交互。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "环境变量",
-      "summary": "存系统/程序配置的变量，如路径、密钥。",
+      "title": "HTTPS 与 TLS",
+      "summary": "HTTP 之上加 TLS 加密层防窃听篡改；握手阶段协商密钥并校验证书。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "终端",
-      "summary": "命令行界面，用文本命令操作电脑。",
+      "title": "DNS 解析",
+      "summary": "把域名解析成 IP 的分层查询系统，常见记录有 A、CNAME、MX、TXT。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "端口",
-      "summary": "网络服务的入口编号，如网页常用 80、443。",
+      "title": "HTTP 状态码",
+      "summary": "2xx 成功、3xx 重定向、4xx 客户端错误、5xx 服务端错误。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "请求/响应",
-      "summary": "客户端发请求、服务器返回响应的完整交互。",
+      "title": "HTTP/2 与 HTTP/3",
+      "summary": "H2 多路复用解决队头阻塞；H3 基于 QUIC，进一步降低延迟。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "数据序列化",
-      "summary": "把数据转成可存储/传输的格式，如 JSON 文本。",
+      "title": "进程与线程",
+      "summary": "进程是资源分配单位，线程是 CPU 调度单位，线程共享进程内存。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
