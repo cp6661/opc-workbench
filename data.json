@@ -1,7 +1,7 @@
 {
-  "updateTime": "2026-10-30 08:16:38",
-  "updateTs": 1793319398,
-  "date": "2026-10-30",
+  "updateTime": "2026-10-31 08:00:04",
+  "updateTs": 1793404804,
+  "date": "2026-10-31",
   "total": 30,
   "ai_news": [
     {
@@ -19,13 +19,6 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "出事了，AI 提效后，老板让我裁员20%",
-      "summary": "上周五，跟朋友吃了个饭。朋友一见面就说：\"老板让我裁员 20%，下不去手啊\" 朋友是技术负责人。半年前，他找我帮忙从 0 到 1 构建他们公司的 AI Coding 工作流，期间他经常跟我吐槽，老板经",
-      "url": "https://juejin.cn/post/7700887980139036682",
-      "ts": 1793062389,
-      "source": "掘金·AI热文"
-    },
-    {
       "title": "排名算法一变，国产模型全部滑铁卢了！",
       "summary": "国产模型最近是“被虐”得太惨了，以前宣传都是追上甚至超越国际水平了，也就一年光景，现在是尾灯都快看不到了。 AA 算法一调整，所有国模排名又下滑~~ 除了最新的K3.1 Pro 还能扛一下，其它全部跌",
       "url": "https://juejin.cn/post/7701637989948784659",
@@ -33,24 +26,10 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "Three.js 医院三维大屏实战：Codex + Blender MCP + React 从建模到交互全流程",
-      "summary": "800 行代码、18 万面模型，我用 Codex 做完一个能进楼层的医院三维大屏。聊聊 AI 写前端的边界：哪些活全交出去，哪些一条都不能交。",
-      "url": "https://juejin.cn/post/7700887980140429322",
-      "ts": 1793069933,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "GPT-6.1 Terra上线：更便宜了，干活到底怎么样？",
-      "summary": "​ 给AI一张电车照片，让它照着做个3D模型，会做成什么样？ OpenAI刚发布的GPT-6.1 Terra，就接了这么个活。 Terra能看懂图片和屏幕，也能操作浏览器、桌面和应用，替你在电脑上做事",
-      "url": "https://juejin.cn/post/7701352628311392297",
-      "ts": 1793111276,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "AI 会干掉 React Native 吗？",
-      "summary": "各位 Vibe Coder，上午好！ 我最近读到一篇旧文，Shopify 在 2026 年 9 月 10 日宣布从 React Native 回到 Swift 和 Kotlin。 这就很有意思了！",
-      "url": "https://juejin.cn/post/7700822035409928246",
-      "ts": 1793062447,
+      "title": "冷知识：国模又慢又贵，洋模又快又便宜！",
+      "summary": "今天上午发了一篇《排名算法一变，国产模型全部滑铁卢了！》，国模现状让人唏嘘！ 我们突然发现，国外的模型既能干，又快，又便宜。而国内的模型普遍又蠢又慢还费钱。 虽然DS在性价比方面还能和他们一战，但是也",
+      "url": "https://juejin.cn/post/7702013601234370596",
+      "ts": 1793329756,
       "source": "掘金·AI热文"
     },
     {
@@ -61,11 +40,25 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "开源模型",
-      "summary": "权重公开、可自己部署的模型，如 Llama、Qwen、DeepSeek。",
-      "url": "",
-      "source": "AI 基础",
-      "ts": 0
+      "title": "太实用了！推荐一款 AI Agent 的浏览器 ego-lite，跑Web 自动化太爽了！",
+      "summary": "前段时间我在 GitHub 上翻到一个项目：ego-lite，一款面向 AI Agent 人机协同的浏览器，专门用来解决 Claude Code / Codex / Cursor 这类 AI 智能体.",
+      "url": "https://juejin.cn/post/7701258021997625353",
+      "ts": 1793148418,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "DeepSeek Harness 和 Pi Agent 怎么选？先想想你愿意折腾什么",
+      "summary": "想要 Web 界面、MCP、子 Agent 这些现成能力，可以先试 DeepSeek Harness；习惯在终端里干活，想保留一个小核心，用到什么再加什么，可以先试 Pi Agent。 它们的出发点不",
+      "url": "https://juejin.cn/post/7701490621295935529",
+      "ts": 1793155352,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "最近 Android 有什么更新：Android Dev Summit 2026 技术解读",
+      "summary": "Android Studio 正式开放 Agent，ACP 让 IDE 能力也跟着过去 这个其实之前聊过了，最直接的变化是 Bring Your Own Agent（BYOA）在 Rabbit 2 进",
+      "url": "https://juejin.cn/post/7701991107366731785",
+      "ts": 1793322452,
+      "source": "掘金·AI热文"
     },
     {
       "title": "算力",
@@ -108,6 +101,13 @@
       "url": "",
       "source": "AI 基础",
       "ts": 0
+    },
+    {
+      "title": "微调 Fine-tuning",
+      "summary": "在预训练模型基础上用特定数据再训练，适配专门任务。",
+      "url": "",
+      "source": "AI 基础",
+      "ts": 0
     }
   ],
   "tech_news": [
@@ -116,6 +116,13 @@
       "summary": "目录 1. 引言 2. 类与实例 2.1 定义一个类 2.2 创建实例 2.3 self 是什么 3. 属性与方法 3.1 实例属性与类属性 3.2 实例方法、类方法与静态方法 3.3 属性封装与 p",
       "url": "https://juejin.cn/post/7701269657706315811",
       "ts": 1793154511,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "Service Mesh 可观测性：分布式追踪、指标与日志的统一方案",
+      "summary": "1. 引言：为什么 Mesh 层是可观测性的最佳切入点 微服务架构把单体拆成了几十上百个服务，随之而来的是调用链路变长、故障定位变难。传统做法是在每个业务服务里埋点、打日志、上报指标，但这种方式有三个",
+      "url": "https://juejin.cn/post/7701971738456752162",
+      "ts": 1793322600,
       "source": "掘金·技术热文"
     },
     {
@@ -133,10 +140,10 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "又找到一个纯Java的OCR项目，识别的格式还挺多",
-      "summary": "前两天分享一个**RapidOCR**的项目，今天又发现一款OCR项目，Python零依赖，纯Java项目， 不用GPU也能跑，这不就是为我们这种 Java 后端量身定做的吗Java后端调",
-      "url": "https://juejin.cn/post/7700962023287128115",
-      "ts": 1793080360,
+      "title": "Go-Gui:一套 无限接近 现代化UI的 GPU绘制界面组件框架",
+      "summary": "纯 Go、零 CGO：我手写了一个不用 WebView 的 Web 风格 GUI 框架 仓库地址：https://github.com/2252688138/Go-gui 规模：129 个 Go 源文",
+      "url": "https://juejin.cn/post/7701703182474248211",
+      "ts": 1793252233,
       "source": "掘金·技术热文"
     },
     {
@@ -147,71 +154,64 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "做了三年 ProseMirror 后，我用四个月自研排版引擎实现 WPS / Google Docs 替代品，整套框架 MIT 开源",
-      "summary": "做了三年 ProseMirror 后，自研排版引擎做出浏览器里真正分页的文档编辑器，还有块编辑器、Markdown 编辑器，背后两套 Tiptap 风格的编辑器框架 MIT 开源，附在线体验。",
-      "url": "https://juejin.cn/post/7701285133392199690",
-      "ts": 1793145459,
+      "title": "uView Pro X 1.0.0 发布：全面支持 uni-app x 蒸汽模式，80+ 组件",
+      "summary": "80+精选UI组件，蒸汽模式优先、多主题、暗黑模式、多语言配置，一套代码覆盖App(安卓/iOS/鸿蒙)、H5与微信小程序",
+      "url": "https://juejin.cn/post/7701525643872321571",
+      "ts": 1793176959,
       "source": "掘金·技术热文"
     },
     {
-      "title": "太实用了！推荐一款 AI Agent 的浏览器 ego-lite，跑Web 自动化太爽了！",
-      "summary": "前段时间我在 GitHub 上翻到一个项目：ego-lite，一款面向 AI Agent 人机协同的浏览器，专门用来解决 Claude Code / Codex / Cursor 这类 AI 智能体.",
-      "url": "https://juejin.cn/post/7701258021997625353",
-      "ts": 1793148418,
+      "title": "AI友好的可视化图形引擎自我革命：Meta2d.js 2.0 历时一年全新重写，性能与多人协作全面升级",
+      "summary": "Meta2d.js 一个国产开源的 2D 可视化引擎，快速搭建 Web 组态、SCADA、监控大屏、流程图、中控可视化以及图形编辑与交互等应用 —— 接入实时数据，设置动画和条件，事件交互等",
+      "url": "https://juejin.cn/post/7701604765431873545",
+      "ts": 1793185539,
       "source": "掘金·技术热文"
     },
     {
-      "title": "美股芯片股下挫 医药龙头大涨8%",
-      "summary": "热度 10969572",
-      "url": "https://www.toutiao.com/trending/7702122310676922906/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227702122310676922906%22%2C%22hot_board_impr_id%22%3A%2220261030081637E29D4F1322E8F6E580C1%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%BE%8E%E8%82%A1%E8%8A%AF%E7%89%87%E8%82%A1%E4%B8%8B%E6%8C%AB+%E5%8C%BB%E8%8D%AF%E9%BE%99%E5%A4%B4%E5%A4%A7%E6%B6%A88%25%22%7D&rank=&style_id=40132&topic_id=7702122310676922906",
-      "ts": 1793319398,
-      "source": "今日热榜"
-    },
-    {
-      "title": "编程语言",
-      "summary": "人与计算机沟通的语言，如 Python、JS、Go。",
+      "title": "开源",
+      "summary": "源代码公开，允许自由使用和修改。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "数据库",
-      "summary": "有组织地存储和管理数据的系统，如 MySQL、PostgreSQL。",
+      "title": "云计算",
+      "summary": "通过网络按需租用计算资源，而非自购服务器。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "缓存",
-      "summary": "临时存储常用数据以加速访问的机制。",
+      "title": "环境变量",
+      "summary": "存系统/程序配置的变量，如路径、密钥。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "前端",
-      "summary": "用户直接看到和交互的部分，即 HTML/CSS/JS。",
+      "title": "终端",
+      "summary": "命令行界面，用文本命令操作电脑。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "后端",
-      "summary": "服务器端逻辑，处理数据、接口、权限。",
+      "title": "端口",
+      "summary": "网络服务的入口编号，如网页常用 80、443。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "全栈",
-      "summary": "同时掌握前端和后端开发。",
+      "title": "请求/响应",
+      "summary": "客户端发请求、服务器返回响应的完整交互。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "Git",
-      "summary": "版本控制工具，记录代码改动、支持协作。",
+      "title": "数据序列化",
+      "summary": "把数据转成可存储/传输的格式，如 JSON 文本。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
