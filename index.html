@@ -94,6 +94,10 @@ body{
 .view{display:none;animation:fadeUp .28s ease}
 .view.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.view.slide-l{animation:slideL .26s cubic-bezier(.2,.7,.3,1)}
+.view.slide-r{animation:slideR .26s cubic-bezier(.2,.7,.3,1)}
+@keyframes slideL{from{opacity:.35;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes slideR{from{opacity:.35;transform:translateX(-28px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* ---------- 通用卡片 ---------- */
@@ -359,7 +363,7 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
       <span class="ico">💧</span><span class="txt">喝水打卡</span><span class="badge" id="waterBadge">0ml</span>
     </div>
 
-    <div class="sidebar-footer">数据本地存储 · 隐私安全 · v18</div>
+    <div class="sidebar-footer">数据本地存储 · 隐私安全 · v19</div>
   </aside>
 
   <main class="main">
@@ -1090,14 +1094,54 @@ function checkRemind(){
 const VIEW_TITLES = {
   plan:'日程安排', ai:'AI 情报', tech:'计算机情报', word:'英语打卡', quiz:'单词闯关', water:'喝水打卡'
 };
-function switchView(v){
+function switchView(v, dir){
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.view === v));
-  document.querySelectorAll('.view').forEach(s=>s.classList.remove('active'));
-  document.getElementById('view-' + v).classList.add('active');
+  document.querySelectorAll('.view').forEach(s=>s.classList.remove('active','slide-l','slide-r'));
+  const sec = document.getElementById('view-' + v);
+  sec.classList.add('active');
+  if(dir){
+    void sec.offsetWidth;
+    sec.classList.add(dir === 'l' ? 'slide-l' : 'slide-r');
+  }
   document.getElementById('viewTitle').textContent = VIEW_TITLES[v];
   try{ localStorage.setItem('opc_last_view', v); }catch(e){}
+  const box = document.querySelector('.content');
+  if(box) box.scrollTop = 0;
   if(v === 'ai' || v === 'tech') autoUpdate(true);
 }
+
+/* ---------- 左右滑动切换栏目（手机上用） ---------- */
+const VIEW_ORDER = ['plan','ai','tech','word','quiz','water'];
+(function bindSwipe(){
+  const box = document.querySelector('.content');
+  if(!box) return;
+  let start = null;
+  box.addEventListener('touchstart', (e)=>{
+    if(e.touches.length !== 1){ start = null; return; }
+    const tag = (e.target.tagName || '').toLowerCase();
+    if(tag === 'input' || tag === 'textarea' || tag === 'select'){ start = null; return; }
+    if(e.target.closest('[data-noswipe]')){ start = null; return; }
+    const t = e.touches[0];
+    start = {x:t.clientX, y:t.clientY, t:Date.now()};
+  }, {passive:true});
+  box.addEventListener('touchend', (e)=>{
+    if(!start) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - start.x, dy = t.clientY - start.y, dt = Date.now() - start.t;
+    start = null;
+    if(dt > 900 || Math.abs(dx) < 60) return;
+    if(Math.abs(dx) < Math.abs(dy) * 1.6) return;
+    const cur = (document.querySelector('.view.active') || {}).id || '';
+    const i = VIEW_ORDER.indexOf(cur.replace('view-',''));
+    if(i < 0) return;
+    const n = dx < 0 ? i + 1 : i - 1;
+    if(n < 0 || n >= VIEW_ORDER.length){
+      toast(dx < 0 ? '已经是最后一个栏目啦' : '已经是第一个栏目啦', 0);
+      return;
+    }
+    switchView(VIEW_ORDER[n], dx < 0 ? 'l' : 'r');
+  }, {passive:true});
+})();
 document.querySelectorAll('.nav-item').forEach(n=>{
   n.addEventListener('click', ()=>switchView(n.dataset.view));
 });
@@ -1128,6 +1172,10 @@ window.addEventListener('appinstalled', ()=>{ deferredPrompt = null; });
   document.getElementById('goalText').addEventListener('keydown', (e)=>{
     if(e.key === 'Enter') addGoal();
   });
+  if(!localStorage.getItem('opc_swipe_hint')){
+    localStorage.setItem('opc_swipe_hint', '1');
+    setTimeout(()=>toast('👈 左右滑动可切换栏目'), 1800);
+  }
   renderAllNews();
   updateDataTime();
   renderWord();
