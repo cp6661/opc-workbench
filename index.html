@@ -284,34 +284,44 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
 /* ---------- 移动端：底部 Tab ---------- */
 @media(max-width:768px){
   .app{flex-direction:column}
+  /* 底部导航改为 fixed，滚动时可整体滑出屏幕，给内容腾地方 */
   .sidebar{
-    order:2;width:100%;flex-direction:row;align-items:stretch;gap:2px;
-    padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    width:100%;flex-direction:row;align-items:stretch;gap:2px;
+    padding:5px 4px calc(5px + env(safe-area-inset-bottom,0px));
     border-top:1px solid var(--line);border-right:none;background:rgba(255,255,255,.96);
     backdrop-filter:blur(10px);
+    box-shadow:0 -6px 18px rgba(15,23,42,.06);
+    transition:transform .28s ease;
   }
   .brand,.side-date,.nav-label,.sidebar-footer{display:none}
   .nav-item{
-    flex:1;flex-direction:column;gap:2px;padding:6px 2px;justify-content:center;
-    border-radius:10px;position:relative;min-height:52px;text-align:center;
+    flex:1;flex-direction:column;gap:2px;padding:4px 2px;justify-content:center;
+    border-radius:10px;position:relative;min-height:46px;text-align:center;
   }
-  .nav-item .ico{font-size:19px;width:auto}
-  .nav-item .txt{font-size:10.5px;display:block;flex:none;white-space:nowrap}
+  .nav-item .ico{font-size:17px;width:auto}
+  .nav-item .txt{font-size:10px;display:block;flex:none;white-space:nowrap}
   .nav-item .badge{
-    position:absolute;top:3px;right:calc(50% - 24px);font-size:9.5px;padding:0 5px;line-height:15px;
+    position:absolute;top:2px;right:calc(50% - 22px);font-size:9px;padding:0 4px;line-height:14px;
   }
   .nav-item.active .badge{background:#fff;color:var(--blue-600)}
   .main{order:1;flex:1;min-height:0}
-  .topbar{height:58px;padding:0 15px}
-  .topbar h1{font-size:17px}
-  .tb-sub{font-size:11px}
-  .icon-btn{width:36px;height:36px;border-radius:11px}
-  .content{padding:14px 12px}
-  .card{padding:14px}
-  .hero-card{padding:20px 14px}
+  /* 顶栏吸顶，内容滚动时也可滑出 */
+  .topbar{position:sticky;top:0;z-index:50;height:48px;padding:0 14px;transition:transform .28s ease}
+  .topbar h1{font-size:15.5px}
+  .tb-sub{font-size:10.5px}
+  .icon-btn{width:32px;height:32px;border-radius:10px}
+  .content{padding:12px 11px calc(80px + env(safe-area-inset-bottom,0px));transition:padding .28s ease}
+  .card{padding:13px}
+  .hero-card{padding:18px 13px}
   .ring{width:142px;height:142px}
   .ring-inner{width:114px;height:114px}
   .ring-num{font-size:34px}
+  /* 内容下滑时隐藏顶栏 + 底部导航，上滑或回顶恢复 */
+  .app.bars-hidden .topbar{transform:translateY(-110%)}
+  .app.bars-hidden .sidebar{transform:translateY(120%)}
+  .app.bars-hidden .content{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+  .app.bars-hidden .quiz-wrap{height:calc(100dvh - 56px)}
 }
 
 /* 单词闯关（内嵌 iframe） */
@@ -323,7 +333,7 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
 }
 .quiz-wrap iframe{width:100%; height:100%; border:0; display:block}
 @media(max-width:720px){
-  .quiz-wrap{height:calc(100vh - 168px); height:calc(100dvh - 168px)}
+  .quiz-wrap{height:calc(100vh - 116px); height:calc(100dvh - 116px)}
 }
 </style>
 </head>
@@ -363,7 +373,7 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
       <span class="ico">💧</span><span class="txt">喝水打卡</span><span class="badge" id="waterBadge">0ml</span>
     </div>
 
-    <div class="sidebar-footer">数据本地存储 · 隐私安全 · v20</div>
+    <div class="sidebar-footer">数据本地存储 · 隐私安全 · v21</div>
   </aside>
 
   <main class="main">
@@ -1163,6 +1173,20 @@ window.addEventListener('message', (e)=>{
   const dx = Number(e.data.dx) || 0;
   if(Math.abs(dx) >= 60) swipeByDelta(dx);
 });
+
+/* ---------- 顶栏/底部导航：下滑让位给内容，上滑或回顶出现 ---------- */
+(function hideBarsOnScroll(){
+  const c = document.querySelector('.content');
+  const app = document.querySelector('.app');
+  if(!c || !app) return;
+  let lastY = 0;
+  c.addEventListener('scroll', ()=>{
+    const y = c.scrollTop;
+    if(y > 90 && y - lastY > 4) app.classList.add('bars-hidden');
+    else if(y < 40 || y - lastY < -4) app.classList.remove('bars-hidden');
+    lastY = y;
+  }, {passive:true});
+})();
 document.querySelectorAll('.nav-item').forEach(n=>{
   n.addEventListener('click', ()=>switchView(n.dataset.view));
 });
