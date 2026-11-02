@@ -363,7 +363,7 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
       <span class="ico">💧</span><span class="txt">喝水打卡</span><span class="badge" id="waterBadge">0ml</span>
     </div>
 
-    <div class="sidebar-footer">数据本地存储 · 隐私安全 · v19</div>
+    <div class="sidebar-footer">数据本地存储 · 隐私安全 · v20</div>
   </aside>
 
   <main class="main">
@@ -1112,36 +1112,57 @@ function switchView(v, dir){
 
 /* ---------- 左右滑动切换栏目（手机上用） ---------- */
 const VIEW_ORDER = ['plan','ai','tech','word','quiz','water'];
-(function bindSwipe(){
-  const box = document.querySelector('.content');
-  if(!box) return;
+function attachSwipe(root){
+  if(!root || root.__swipeBound) return;
+  root.__swipeBound = true;
   let start = null;
-  box.addEventListener('touchstart', (e)=>{
+  root.addEventListener('touchstart', (e)=>{
     if(e.touches.length !== 1){ start = null; return; }
     const tag = (e.target.tagName || '').toLowerCase();
     if(tag === 'input' || tag === 'textarea' || tag === 'select'){ start = null; return; }
-    if(e.target.closest('[data-noswipe]')){ start = null; return; }
+    if(e.target.closest && e.target.closest('[data-noswipe]')){ start = null; return; }
     const t = e.touches[0];
     start = {x:t.clientX, y:t.clientY, t:Date.now()};
   }, {passive:true});
-  box.addEventListener('touchend', (e)=>{
+  root.addEventListener('touchend', (e)=>{
     if(!start) return;
     const t = e.changedTouches[0];
     const dx = t.clientX - start.x, dy = t.clientY - start.y, dt = Date.now() - start.t;
     start = null;
     if(dt > 900 || Math.abs(dx) < 60) return;
     if(Math.abs(dx) < Math.abs(dy) * 1.6) return;
-    const cur = (document.querySelector('.view.active') || {}).id || '';
-    const i = VIEW_ORDER.indexOf(cur.replace('view-',''));
-    if(i < 0) return;
-    const n = dx < 0 ? i + 1 : i - 1;
-    if(n < 0 || n >= VIEW_ORDER.length){
-      toast(dx < 0 ? '已经是最后一个栏目啦' : '已经是第一个栏目啦', 0);
-      return;
-    }
-    switchView(VIEW_ORDER[n], dx < 0 ? 'l' : 'r');
+    swipeByDelta(dx);
   }, {passive:true});
+}
+function swipeByDelta(dx){
+  const cur = (document.querySelector('.view.active') || {}).id || '';
+  const i = VIEW_ORDER.indexOf(cur.replace('view-',''));
+  if(i < 0) return;
+  const n = dx < 0 ? i + 1 : i - 1;
+  if(n < 0 || n >= VIEW_ORDER.length){
+    toast(dx < 0 ? '已经是最后一个栏目啦' : '已经是第一个栏目啦', 0);
+    return;
+  }
+  switchView(VIEW_ORDER[n], dx < 0 ? 'l' : 'r');
+}
+attachSwipe(document.querySelector('.content'));
+
+/* 单词闯关是 iframe，触摸事件不会冒泡到父页面 → 同源直接给它内部也绑一份；
+   跨域时由 word-quiz.html 内的脚本 postMessage 回来触发。 */
+(function bindFrameSwipe(){
+  const f = document.getElementById('quizFrame');
+  if(!f) return;
+  const doBind = ()=>{
+    try{ attachSwipe(f.contentDocument); }catch(e){}
+  };
+  f.addEventListener('load', doBind);
+  doBind();
 })();
+window.addEventListener('message', (e)=>{
+  if(!e.data || e.data.type !== 'opc-swipe') return;
+  const dx = Number(e.data.dx) || 0;
+  if(Math.abs(dx) >= 60) swipeByDelta(dx);
+});
 document.querySelectorAll('.nav-item').forEach(n=>{
   n.addEventListener('click', ()=>switchView(n.dataset.view));
 });
