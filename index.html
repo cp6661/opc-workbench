@@ -229,6 +229,13 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
 .field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
 .link-bar{display:flex;align-items:center;gap:10px;justify-content:space-between;flex-wrap:wrap}
 
+/* ---------- 目标安排 ---------- */
+.goal-bar{height:6px;border-radius:99px;background:#eef2f7;overflow:hidden;margin:2px 0 10px}
+.goal-bar span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--blue-500),var(--blue-600));transition:width .35s ease}
+.goal-due{font-size:11px;color:var(--blue-700);background:var(--blue-50);border-radius:20px;padding:2px 8px;flex-shrink:0}
+.goal-row .plan-text{line-height:1.5}
+.goal-row .goal-x{font-size:10.5px;color:var(--ink-3);flex-shrink:0}
+
 /* ---------- toast ---------- */
 .toast{
   position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);
@@ -302,6 +309,18 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
   .ring-inner{width:114px;height:114px}
   .ring-num{font-size:34px}
 }
+
+/* 单词闯关（内嵌 iframe） */
+#view-quiz{padding:0}
+.quiz-wrap{
+  height:calc(100vh - 118px); height:calc(100dvh - 118px);
+  min-height:440px; border-radius:var(--radius); overflow:hidden;
+  border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow);
+}
+.quiz-wrap iframe{width:100%; height:100%; border:0; display:block}
+@media(max-width:720px){
+  .quiz-wrap{height:calc(100vh - 168px); height:calc(100dvh - 168px)}
+}
 </style>
 </head>
 <body>
@@ -332,6 +351,9 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
     <div class="nav-label">打卡</div>
     <div class="nav-item" data-view="word">
       <span class="ico">📚</span><span class="txt">英语打卡</span><span class="badge" id="wordBadge">0/30</span>
+    </div>
+    <div class="nav-item" data-view="quiz">
+      <span class="ico">🎮</span><span class="txt">单词闯关</span>
     </div>
     <div class="nav-item" data-view="water">
       <span class="ico">💧</span><span class="txt">喝水打卡</span><span class="badge" id="waterBadge">0ml</span>
@@ -381,23 +403,18 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
           </div>
 
           <div class="card">
-            <div class="card-title">🗓 本周复盘 <span class="hint" id="reviewWeekTxt"></span></div>
-            <div class="field">
-              <label>本周完成了什么</label>
-              <textarea id="rvDone" placeholder="列出本周实际交付的事项…"></textarea>
+            <div class="card-title">🎯 目标安排 <span class="hint" id="goalHint">0/0</span></div>
+            <div class="goal-bar"><span id="goalBar" style="width:0%"></span></div>
+            <div id="goalList"></div>
+            <div class="add-row">
+              <input class="t" id="goalDue" placeholder="期限" maxlength="10">
+              <input class="x" id="goalText" placeholder="写下一个目标，回车添加">
+              <button class="btn btn-primary" onclick="addGoal()">添加</button>
             </div>
-            <div class="field">
-              <label>没做到 & 原因</label>
-              <textarea id="rvGap" placeholder="哪些没完成，卡在哪一步？"></textarea>
+            <div class="tpl-bar">
+              <button class="quick-chip" onclick="clearDoneGoals()">🧹 清除已完成</button>
             </div>
-            <div class="field">
-              <label>沉淀的经验</label>
-              <textarea id="rvLearn" placeholder="可复用的方法、踩过的坑…"></textarea>
-            </div>
-            <div class="field" style="margin-bottom:0">
-              <label>下周计划</label>
-              <textarea id="rvNext" placeholder="下周最重要的 3 件事…"></textarea>
-            </div>
+            <div class="tpl-hint">勾选 = 当日打卡，进度自动累计；期限可写「本周」「11-30」或留空。</div>
           </div>
         </div>
       </section>
@@ -438,7 +455,8 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
               <span class="val"><span class="num" id="wordStreak">0</span> <small>天</small></span>
             </div>
             <div class="status-line" id="wordStatus"></div>
-            <button class="quick-chip" style="margin-top:12px" onclick="undoWord()">↩ 撤销上一次</button>
+            <button class="btn btn-primary" style="width:100%;margin-top:12px" onclick="switchView('quiz')">🎮 单词闯关 · 英译汉 / 汉译英</button>
+            <button class="quick-chip" style="margin-top:8px" onclick="undoWord()">↩ 撤销上一次</button>
           </div>
           <div class="card">
             <div class="card-title">📝 今日背词记录 <span class="done-badge" id="wordDone" style="display:none">今日达标 ✓</span></div>
@@ -477,6 +495,13 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
             <ul class="tl" id="waterTimeline"></ul>
             <div class="status-line" id="nextRemind"></div>
           </div>
+        </div>
+      </section>
+
+      <!-- 单词闯关 -->
+      <section class="view" id="view-quiz">
+        <div class="quiz-wrap">
+          <iframe id="quizFrame" src="word-quiz.html" title="单词闯关"></iframe>
         </div>
       </section>
 
@@ -841,37 +866,69 @@ function saveTplText(){
   setTpl(t);
 }
 
-/* ================= 日程：本周复盘 ================= */
-function weekKey(){
+/* ================= 日程：目标安排 + 打卡 ================= */
+const GOAL_KEY = 'opc_goals';
+function getGoals(){
+  try{ return JSON.parse(localStorage.getItem(GOAL_KEY)) || []; }
+  catch(e){ return []; }
+}
+function setGoals(a){ localStorage.setItem(GOAL_KEY, JSON.stringify(a)); }
+function addGoal(){
+  const tEl = document.getElementById('goalText');
+  const dEl = document.getElementById('goalDue');
+  const txt = tEl.value.trim();
+  if(!txt){ toast('请先填写目标内容', 0); return; }
+  const list = getGoals();
+  list.push({id:Date.now(), text:txt, due:dEl.value.trim(), done:false, doneAt:0});
+  setGoals(list);
+  tEl.value = ''; dEl.value = '';
+  renderGoals();
+  toast('🎯 目标已加入', 0);
+}
+function toggleGoal(id){
+  const list = getGoals();
+  const it = list.find(g=>String(g.id) === String(id));
+  if(!it) return;
+  it.done = !it.done;
+  it.doneAt = it.done ? Date.now() : 0;
+  setGoals(list);
+  renderGoals();
+  if(it.done) toast('✓ 打卡成功，继续加油', 0);
+}
+function delGoal(id){
+  setGoals(getGoals().filter(g=>String(g.id) !== String(id)));
+  renderGoals();
+}
+function clearDoneGoals(){
+  const list = getGoals();
+  const keep = list.filter(g=>!g.done);
+  if(keep.length === list.length){ toast('还没有已完成的目标', 0); return; }
+  setGoals(keep);
+  renderGoals();
+  toast('🧹 已清除 ' + (list.length - keep.length) + ' 个已完成目标', 0);
+}
+function goalWeekCount(list){
   const d = new Date();
-  const day = (d.getDay() + 6) % 7;           // 周一为一周起点
-  const monday = new Date(d); monday.setDate(d.getDate() - day);
-  return 'opc_review_' + fmtDate(monday);
+  const monday = new Date(d); monday.setDate(d.getDate() - ((d.getDay()+6)%7));
+  monday.setHours(0,0,0,0);
+  return list.filter(g=>g.doneAt && g.doneAt >= monday.getTime()).length;
 }
-const RV_FIELDS = [['rvDone','content'],['rvGap','content'],['rvLearn','content'],['rvNext','content']];
-function getReview(){
-  try{ return JSON.parse(localStorage.getItem(weekKey())) || {}; }
-  catch(e){ return {}; }
-}
-function renderReview(){
-  const r = getReview();
-  ['rvDone','rvGap','rvLearn','rvNext'].forEach(id=>{
-    document.getElementById(id).value = r[id] || '';
-  });
-  const d = new Date();
-  const day = (d.getDay() + 6) % 7;
-  const monday = new Date(d); monday.setDate(d.getDate() - day);
-  document.getElementById('reviewWeekTxt').textContent =
-    fmtDate(monday) + ' ~ ' + fmtDate(new Date(monday.getTime() + 6*86400000));
-}
-function bindReview(){
-  ['rvDone','rvGap','rvLearn','rvNext'].forEach(id=>{
-    document.getElementById(id).addEventListener('input', ()=>{
-      const r = getReview();
-      r[id] = document.getElementById(id).value;
-      localStorage.setItem(weekKey(), JSON.stringify(r));
-    });
-  });
+function renderGoals(){
+  const list = getGoals();
+  const el = document.getElementById('goalList');
+  el.innerHTML = list.length
+    ? list.map(g=>'<div class="plan-row goal-row' + (g.done?' done':'') + '">' +
+        '<span class="plan-box' + (g.done?' on':'') + '" onclick="toggleGoal(' + g.id + ')"></span>' +
+        '<span class="plan-text">' + esc(g.text) + '</span>' +
+        (g.due ? '<span class="goal-due">' + esc(g.due) + '</span>' : '') +
+        '<button class="plan-del" onclick="delGoal(' + g.id + ')">✕</button>' +
+      '</div>').join('')
+    : '<div class="empty" style="padding:14px 0">还没有目标，先写下这周最想完成的一件事</div>';
+  const doneN = list.filter(g=>g.done).length;
+  const pct = list.length ? Math.round(doneN / list.length * 100) : 0;
+  document.getElementById('goalBar').style.width = pct + '%';
+  document.getElementById('goalHint').textContent =
+    doneN + '/' + list.length + ' · 本周打卡 ' + goalWeekCount(list) + ' 次';
 }
 
 /* ================= 英语打卡 ================= */
@@ -1031,7 +1088,7 @@ function checkRemind(){
 
 /* ================= 导航 ================= */
 const VIEW_TITLES = {
-  plan:'日程安排', ai:'AI 情报', tech:'计算机情报', word:'英语打卡', water:'喝水打卡'
+  plan:'日程安排', ai:'AI 情报', tech:'计算机情报', word:'英语打卡', quiz:'单词闯关', water:'喝水打卡'
 };
 function switchView(v){
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.view === v));
@@ -1067,8 +1124,10 @@ window.addEventListener('appinstalled', ()=>{ deferredPrompt = null; });
   });
 
   renderPlan();
-  renderReview();
-  bindReview();
+  renderGoals();
+  document.getElementById('goalText').addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter') addGoal();
+  });
   renderAllNews();
   updateDataTime();
   renderWord();
