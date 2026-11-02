@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>单词循环猜</title>
+<style>
+:root {
+  --bg: #f5f6fa;
+  --card: #ffffff;
+  --text: #1f2330;
+  --muted: #8a90a3;
+  --primary: #4f6ef7;
+  --primary-soft: #eef1fe;
+  --ok: #2fbf71;
+  --err: #f25f5c;
+  --warn: #f5a623;
+  --radius: 16px;
+  --shadow: 0 4px 16px rgba(31,35,48,.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg); color: var(--text);
+  max-width: 560px; margin: 0 auto; min-height: 100vh;
+  display: flex; flex-direction: column;
+}
+header { padding: 18px 16px 8px; text-align: center; }
+header h1 { font-size: 20px; }
+.stats { display:flex; justify-content:center; gap:12px; margin-top:6px; font-size:12px; color:var(--muted); flex-wrap:wrap; }
+.stats b { color: var(--primary); }
+
+/* 模式选择 */
+.mode-select { padding: 18px 16px; display:flex; flex-direction:column; gap:12px; flex:1; justify-content:center; }
+.btn {
+  border:none; border-radius: var(--radius); padding: 16px;
+  font-size: 17px; font-weight: 600; cursor:pointer;
+  background: var(--card); color: var(--text); box-shadow: var(--shadow);
+  transition: transform .1s;
+}
+.btn:active { transform: scale(.97); }
+.btn.primary { background: var(--primary); color:#fff; }
+.btn.warn { background:#fff7ea; color:#b97b12; }
+.btn small { display:block; font-weight:400; font-size:12px; margin-top:4px; opacity:.7; }
+
+/* 答题区 */
+.quiz { flex:1; display:flex; flex-direction:column; padding: 14px; gap:12px; }
+.progress-bar { height:6px; background:#e8eaf1; border-radius:3px; overflow:hidden; }
+.progress-bar i { display:block; height:100%; background:var(--primary); border-radius:3px; transition: width .3s; }
+.card {
+  background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 32px 20px; text-align:center; flex:1;
+  display:flex; flex-direction:column; justify-content:center; gap:8px;
+}
+.card .tag { font-size:12px; color:var(--muted); letter-spacing:2px; }
+.card .word { font-size:32px; font-weight:700; word-break:break-all; }
+.card .word.zh { font-size:26px; }
+.answer-row { display:flex; gap:10px; }
+#answerInput {
+  flex:1; border:2px solid #e8eaf1; border-radius:12px; padding:14px;
+  font-size:16px; outline:none; background:var(--card); color:var(--text);
+  transition: border-color .15s;
+}
+#answerInput:focus { border-color:var(--primary); }
+#answerInput.ok { border-color:var(--ok); background:#eafaf1; }
+#answerInput.err { border-color:var(--err); background:#feeeee; }
+#submitBtn { padding:14px 20px; font-size:16px; }
+.feedback { text-align:center; font-size:14px; min-height:20px; font-weight:600; }
+.feedback.ok { color:var(--ok); }
+.feedback.err { color:var(--err); }
+.feedback.skip { color:var(--warn); }
+.answer-reveal {
+  text-align:center; font-size:15px; font-weight:700; min-height:22px;
+  color:var(--text); word-break:break-all;
+}
+.answer-reveal .zh { color:var(--muted); font-weight:500; }
+.bottom-btns { display:flex; gap:10px; padding: 0 16px 16px; }
+.bottom-btns .btn { flex:1; padding:12px; font-size:14px; }
+
+/* 结束页 */
+.done { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; padding:24px; }
+.done .big { font-size:56px; }
+.done p { color:var(--muted); text-align:center; }
+.done .warn-note { color:#b97b12; font-size:14px; text-align:center; }
+.hidden { display:none !important; }
+</style>
+</head>
+<body>
+
+<!-- 首页 -->
+<div id="home">
+  <header>
+    <h1>📚 单词循环猜</h1>
+    <div class="stats">
+      <span>词库 <b id="totalWords">0</b> 词</span>
+      <span>每组 <b id="sessionSizeTxt">45</b> 题</span>
+      <span>待复习 <b id="reviewLen">0</b></span>
+    </div>
+  </header>
+  <div class="mode-select">
+    <button class="btn warn hidden" id="continueBtn" onclick="resume()">▶ 继续上次进度<small id="continueTxt"></small></button>
+    <button class="btn primary" onclick="start('e2c')">英译汉 🇬🇧→🇨🇳<small>看英文，写中文意思（随机 45 词一组）</small></button>
+    <button class="btn primary" onclick="start('c2e')">汉译英 🇨🇳→🇬🇧<small>看中文，写英文单词（随机 45 词一组）</small></button>
+    <button class="btn" onclick="start('mixed')">混合模式 🔄<small>两种随机交替，错了隔几题再考</small></button>
+  </div>
+</div>
+
+<!-- 答题页 -->
+<div id="quiz" class="hidden">
+  <div class="quiz">
+    <div class="progress-bar"><i id="bar"></i></div>
+    <div class="card">
+      <div class="tag" id="qTag">写出正确意思</div>
+      <div class="word" id="qWord">word</div>
+    </div>
+    <div class="answer-reveal" id="reveal"></div>
+    <div class="answer-row">
+      <input id="answerInput" type="text" autocomplete="off" autocapitalize="off"
+             spellcheck="false" placeholder="输入答案…" disabled>
+      <button class="btn primary" id="submitBtn" onclick="submitAnswer()">提交</button>
+    </div>
+    <div style="padding:0 0 2px">
+      <button class="btn" id="skipBtn" onclick="dontKnow()">🙋 不认识，下次再记</button>
+    </div>
+    <div class="feedback" id="feedback"></div>
+  </div>
+  <div class="bottom-btns">
+    <button class="btn" onclick="quitQuiz()">暂停退出（进度已保存）</button>
+    <button class="btn primary hidden" id="nextBtn" onclick="next()">下一题</button>
+  </div>
+</div>
+
+<!-- 结束页 -->
+<div id="done" class="hidden">
+  <div class="done">
+    <div class="big">🎉</div>
+    <h2>本组完成！</h2>
+    <p id="doneStats"></p>
+    <p class="warn-note" id="reviewNote"></p>
+    <button class="btn primary" onclick="goHome()">返回首页</button>
+  </div>
+</div>
+
+<script>
+/* ===== 词库 ===== */
+const WORDS = [
+  /* --- Unit 1 Reading 1 (p.23) --- */
+  { en: "commencement", zh: "毕业典礼；开始；开端" },
+  { en: "faculty", zh: "全体教员；（大学的）系；部；院" },
+  { en: "confront", zh: "处理；解决；面对" },
+  { en: "quitter", zh: "半途而废的人；遇到困难就放弃的人" },
+  { en: "mediocre", zh: "不太好的；平庸的" },
+  { en: "slipshod", zh: "马虎的；随意的；草率的" },
+  { en: "forgiving", zh: "宽容的；宽大的" },
+  { en: "deadline", zh: "截止时间；最后期限" },
+  { en: "garrulous", zh: "喋喋不休的；饶舌的" },
+  { en: "toss", zh: "扔；掷；抛" },
+  { en: "dull", zh: "迟钝的；愚蠢的；无趣味的" },
+  { en: "unimaginative", zh: "无创意的；缺乏想象力的" },
+  { en: "fantasy", zh: "幻想；想象" },
+  /* --- Unit 1 (p.24) --- */
+  { en: "pretend", zh: "假装；伪装；假托" },
+  { en: "conventional", zh: "依照传统的；常规习俗的" },
+  { en: "spoil", zh: "损坏；破坏；糟蹋；溺爱" },
+  { en: "deprive", zh: "剥夺" },
+  { en: "adequate", zh: "足够的；充分的；合乎需要的" },
+  { en: "attentive", zh: "关心的；体贴的；注意的；专心的" },
+  { en: "co-worker", zh: "同事；同僚" },
+  { en: "insult", zh: "侮辱；辱骂" },
+  { en: "perilous", zh: "危险的；非常危险的" },
+  { en: "tolerate", zh: "宽容；容忍；忍受；忍耐" },
+  { en: "adolescent", zh: "青少年" },
+  { en: "unlearn", zh: "设法忘记；抛却（已学会的东西）" },
+  { en: "preparatory", zh: "准备的；预备的" },
+  { en: "formulate", zh: "仔细思考并明确表达；制定；规划" },
+  /* --- Unit 1 (p.25) --- */
+  { en: "tolerant", zh: "宽容的；容忍的" },
+  { en: "broaden", zh: "增长（知识、经验等）；扩大" },
+  { en: "supposedly", zh: "据说；据称；一般相信" },
+  { en: "erase", zh: "清除；消除；消灭；删除" },
+  { en: "semester", zh: "学期；半学年" },
+  { en: "midterm", zh: "期中考试；（政府任期的）中期" },
+  { en: "final", zh: "期末考试；决赛" },
+  { en: "due", zh: "预定的；预期的；到期的" },
+  { en: "drop out", zh: "退学；辍学" },
+  { en: "look back", zh: "回忆起；回顾" },
+  { en: "the easy way out", zh: "省事的做法" },
+  { en: "act out", zh: "用行动来表现情绪" },
+  { en: "be rid of", zh: "摆脱某人/某事物" },
+  /* --- Unit 2 Reading 1 (p.50) --- */
+  { en: "casual", zh: "便装；便鞋；随意的" },
+  { en: "headphones", zh: "耳机" },
+  { en: "corporate", zh: "公司的" },
+  { en: "mortgage", zh: "抵押贷款" },
+  { en: "time off", zh: "休息（或休假）时间" },
+  { en: "headquarters", zh: "总部；总公司；总办事处" },
+  { en: "perk", zh: "额外收入；津贴" },
+  { en: "administrative", zh: "行政的；管理的" },
+  { en: "distributor", zh: "分销商；经销商；批发商" },
+  { en: "liberal", zh: "思想开放的；开明的" },
+  { en: "barrier", zh: "分界线；屏障；障碍；关卡" },
+  { en: "blurred", zh: "难以区分的；模糊的" },
+  { en: "cubicle", zh: "小隔间" },
+  { en: "reinvent", zh: "彻底改造；重新创造" },
+  { en: "rat race", zh: "你死我活的竞争" },
+  /* --- Unit 2 (p.51) --- */
+  { en: "hierarchy", zh: "等级制度" },
+  { en: "flatten", zh: "使变平；变平" },
+  { en: "wizard", zh: "男巫；术士" },
+  { en: "ninja", zh: "忍者；日本武士" },
+  { en: "integration", zh: "结合；整合" },
+  { en: "acupuncture", zh: "针刺疗法" },
+  { en: "nap", zh: "小睡；打盹" },
+  { en: "pod", zh: "吊舱；发射架" },
+  { en: "nap pod", zh: "小憩舱；打盹舱" },
+  { en: "popularize", zh: "宣传；推广" },
+  { en: "investigation", zh: "调查" },
+  { en: "vocal", zh: "直言不讳的；激烈表达意见的" },
+  { en: "opponent", zh: "反对者" },
+  { en: "newsroom", zh: "新闻编辑室" },
+  { en: "start-up", zh: "新兴公司；新创办企业" },
+  { en: "parody", zh: "滑稽模仿作品" },
+  { en: "portrayal", zh: "描绘；描述；人物画像；肖像" },
+  { en: "misdirection", zh: "误导" },
+  { en: "rotten", zh: "极糟的；恶劣的；腐烂的；变质的" },
+  /* --- Unit 2 (p.52) --- */
+  { en: "recast", zh: "重塑；重铸；重演（角色）；重拍" },
+  { en: "workaholism", zh: "醉心工作；痴迷工作" },
+  { en: "unwind", zh: "解开；展开；放松" },
+  { en: "absurdity", zh: "荒谬；荒唐；荒诞" },
+  { en: "norm", zh: "常态；规范；标准" },
+  { en: "suitcase", zh: "手提箱；衣箱" },
+  { en: "resign", zh: "辞职；放弃（工作、职位）" },
+  { en: "abusive", zh: "漫骂的；虐待的" },
+  { en: "tweet", zh: "发推文；（在社交网络）发送信息" },
+  { en: "allegation", zh: "宣称；指控" },
+  { en: "trade-off", zh: "平衡；妥协；协调" },
+  { en: "depressing", zh: "令人沮丧的；让人忧愁的" },
+  { en: "pop up", zh: "突然出现" },
+  { en: "tune out", zh: "不听；不注意；不理会" },
+  { en: "hang out", zh: "闲逛" },
+  { en: "let alone", zh: "更不用说" },
+  { en: "come along", zh: "不期而至；出现" },
+  { en: "on tap", zh: "打开阀门即可获得的；随时可取用的" },
+  /* --- 新增：Unit 2 短语页 / p.26 / p.28 --- */
+  { en: "manual", zh: "说明书；手册；手工的" },
+  { en: "shift gears", zh: "突然改变方式" },
+  { en: "supermodel", zh: "超级名模" },
+  { en: "test the water", zh: "试探" },
+  { en: "flip", zh: "快速翻转" },
+  { en: "shut the door on sth", zh: "把…拒之门外" },
+  { en: "crystal clear", zh: "一清二楚的；明白的；无疑问的" },
+  { en: "break the news to sb", zh: "把坏消息告诉某人" },
+  { en: "dive into/in", zh: "热切地开始" },
+  { en: "spill the beans", zh: "泄露秘密" },
+  { en: "put up with", zh: "容忍" },
+  { en: "flip through", zh: "浏览" },
+  { en: "go off", zh: "发出响声；爆炸" },
+  { en: "under one's nose", zh: "就在某人眼皮底下" },
+  { en: "come around", zh: "如期而至" },
+  { en: "give up on sth", zh: "放弃（努力）" },
+  { en: "audible", zh: "听得见的" },
+  { en: "interrupt", zh: "打断；打扰" },
+  { en: "slam dunk", zh: "稳操胜券的事；强力灌篮" },
+  { en: "verbatim", zh: "一字不差的（地）；逐字的" },
+  { en: "rustle", zh: "沙沙作响" },
+  { en: "frantic", zh: "紧张忙乱的；手忙脚乱的" },
+  { en: "frantically", zh: "手忙脚乱地" },
+  { en: "index", zh: "索引" },
+  { en: "oddly", zh: "奇怪的是；奇怪地" },
+  { en: "vice versa", zh: "反之亦然" },
+  { en: "cut one's losses", zh: "及早脱手以减少损失" },
+  { en: "pack up", zh: "收好物品；打包" },
+  { en: "smile broadly", zh: "咧着嘴笑" },
+  { en: "cut into", zh: "削减" },
+  { en: "better still", zh: "更好的选择是" },
+  /* --- 新增：Unit 2 Reading 1 (p.53-54) --- */
+  { en: "merit", zh: "评分；优良；长处；优点" },
+  { en: "neurobiology", zh: "神经生物学" },
+  { en: "physiology", zh: "生理学" },
+  { en: "dreaded", zh: "可怕的" },
+  { en: "internship", zh: "实习期；医生实习期" },
+  { en: "surgical", zh: "外科的" },
+  { en: "scrub", zh: "手术服" },
+  { en: "mask", zh: "面罩；口罩" },
+  { en: "cafeteria", zh: "自助食堂" },
+  { en: "enthusiasm", zh: "热心；热情" },
+  { en: "application", zh: "应用；申请" },
+  { en: "outfit", zh: "全套服装" },
+  { en: "wardrobe", zh: "衣柜；衣橱" },
+  { en: "gear", zh: "排挡；齿轮" },
+  { en: "drastically", zh: "激烈地；大幅度地" },
+  { en: "swirl", zh: "（使）旋转" },
+  { en: "spill", zh: "透露；溢出；泼出" },
+  { en: "legitimate", zh: "合理的；正当的；合法的" },
+  /* --- 新增：Unit 1 词汇页 --- */
+  { en: "snug", zh: "自满的；沾沾自喜的；温暖舒适的" },
+  { en: "leer", zh: "猥亵的目光" },
+  { en: "dimension", zh: "大小；尺寸；方面" },
+  { en: "contemplate", zh: "深思；考虑；打算" },
+  { en: "warehouse", zh: "仓库；货栈" },
+  { en: "grain", zh: "谷粒；谷物；粮食" },
+  { en: "industrial", zh: "工业的；产业的" },
+  { en: "revenue", zh: "收益；收入" },
+  { en: "exterminator", zh: "消灭害虫者；灭鼠者" },
+  { en: "feasible", zh: "可行的；行得通的" },
+  { en: "glare", zh: "怒目而视" },
+  { en: "pointedly", zh: "明确地；直言不讳地" },
+  { en: "groan", zh: "抱怨；呻吟；哼哼声" },
+  /* --- 新增：Unit 2 Reading 2 (p.53) --- */
+  { en: "at the expense of", zh: "以…为代价" },
+  { en: "wallpaper", zh: "糊墙纸" },
+  { en: "amplify", zh: "增强；放大" },
+  { en: "dive", zh: "跳水；俯冲" },
+  { en: "albeit", zh: "虽然；尽管" },
+  { en: "reputable", zh: "有声望的；信誉卓著的" },
+  { en: "plastic surgery", zh: "整形手术；整形外科" },
+  { en: "specialty", zh: "医学专科；专业；专长" },
+  { en: "surgeon", zh: "外科医生" },
+  { en: "intern", zh: "实习医生；实习生" },
+  { en: "operating room", zh: "手术室" },
+  { en: "cosmetic", zh: "整容的；化妆品的" },
+  /* --- 新增：Unit 2 Reading 2 (p.26-27) --- */
+  { en: "pop into one's mind", zh: "突然冒出（想到）" },
+  { en: "get away with", zh: "做错事不被发现；逃避惩罚" },
+  { en: "get down to", zh: "开始认真对待；开始努力做" },
+  { en: "by no means", zh: "绝不；一点也不" },
+  { en: "wicker", zh: "干柳条；芦苇杆" },
+  { en: "grumpy", zh: "脾气坏的；易怒的" },
+  { en: "visualize", zh: "设想；想象" },
+  { en: "assignment", zh: "作业；任务" },
+  { en: "jeer", zh: "嘲笑；嘲弄" },
+  { en: "stun", zh: "使震惊" },
+  { en: "proceed", zh: "继续进行" },
+  { en: "arch", zh: "（使）拱起；（使）成拱形" },
+  { en: "eyebrow", zh: "眉毛" },
+  { en: "shrug", zh: "耸（肩）" },
+  { en: "slum", zh: "贫民窟" },
+  { en: "marketable", zh: "有市场的；畅销的" },
+  { en: "hand out", zh: "分发；散发" },
+  { en: "reason out", zh: "（通过推理）解释；解决" },
+  { en: "think through", zh: "认真考虑（后果）" }
+];
+
+/* ===== 常量与状态 ===== */
+const SESSION_SIZE = 45;
+const LS_SESSION = 'wordquiz_session_v2';
+const LS_REVIEW  = 'wordquiz_review_v2';
+
+let queue = [], current = null, mode = "e2c";
+let totalTries = 0, totalWrong = 0, sessionSize = 0;
+let reviewPool = loadReview(); // 「不认识」的词（en 数组），下次一组题优先考
+
+const $ = id => document.getElementById(id);
+const byEn = {};
+WORDS.forEach(w => byEn[w.en.toLowerCase()] = w);
+const shuffle = arr => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
+/* ===== 进度保存 ===== */
+function loadReview(){
+  try { return JSON.parse(localStorage.getItem(LS_REVIEW)) || []; } catch(e){ return []; }
+}
+function saveReview(){
+  try { localStorage.setItem(LS_REVIEW, JSON.stringify(reviewPool)); } catch(e){}
+}
+function saveState(){
+  try {
+    localStorage.setItem(LS_SESSION, JSON.stringify({
+      mode, queue: queue.map(w => w.en), tries: totalTries, wrong: totalWrong, size: sessionSize
+    }));
+  } catch(e){}
+}
+function clearState(){
+  try { localStorage.removeItem(LS_SESSION); } catch(e){}
+}
+function loadState(){
+  try {
+    const s = JSON.parse(localStorage.getItem(LS_SESSION));
+    if (!s || !Array.isArray(s.queue) || !s.queue.length) return null;
+    const q = s.queue.map(en => byEn[en.toLowerCase()]).filter(Boolean);
+    if (!q.length) return null;
+    return { mode: s.mode || 'mixed', queue: q, tries: s.tries || 0, wrong: s.wrong || 0, size: s.size || q.length };
+  } catch(e){ return null; }
+}
+
+/* ===== 流程 ===== */
+function start(m){
+  mode = m;
+  totalTries = 0; totalWrong = 0;
+  // 一组 45 词：优先带上「待复习」的词，其余从词库随机补齐，整体打乱
+  const session = [];
+  reviewPool.forEach(en => { const w = byEn[en.toLowerCase()]; if (w && !session.includes(w)) session.push(w); });
+  const rest = shuffle(WORDS.filter(w => !session.includes(w)));
+  while (session.length < SESSION_SIZE && rest.length) session.push(rest.pop());
+  queue = shuffle(session);
+  sessionSize = queue.length;
+  saveReview();
+  $("home").classList.add("hidden");
+  $("done").classList.add("hidden");
+  $("quiz").classList.remove("hidden");
+  saveState();
+  next();
+}
+
+function resume(){
+  const s = loadState();
+  if (!s) { goHome(); return; }
+  mode = s.mode; queue = s.queue;
+  totalTries = s.tries; totalWrong = s.wrong; sessionSize = s.size;
+  $("home").classList.add("hidden");
+  $("done").classList.add("hidden");
+  $("quiz").classList.remove("hidden");
+  next();
+}
+
+function makeQuestion(item){
+  let m = mode;
+  if (mode === "mixed") m = Math.random() < .5 ? "e2c" : "c2e";
+  return { item, askEn: m === "e2c" };
+}
+
+function next(){
+  $("nextBtn").classList.add("hidden");
+  $("feedback").textContent = "";
+  $("feedback").className = "feedback";
+  $("reveal").textContent = "";
+  if (!queue.length) { finish(); return; }
+  current = makeQuestion(queue[0]);
+  const { item, askEn } = current;
+  $("qTag").textContent = askEn ? "英译汉 · 写出中文意思" : "汉译英 · 写出英文单词";
+  const q = $("qWord");
+  q.textContent = askEn ? item.en : item.zh;
+  q.className = askEn ? "word" : "word zh";
+  const input = $("answerInput");
+  input.value = "";
+  input.disabled = false;
+  input.className = "";
+  input.placeholder = askEn ? "输入中文意思…" : "输入英文单词…";
+  updateBar();
+  setTimeout(() => input.focus(), 50);
+}
+
+// 中文答案：按常见分隔符拆成多个可接受答案
+function zhAlternatives(zh) {
+  return zh.split(/[;；、，,\/\s]+/).map(s => s.trim()).filter(Boolean);
+}
+// 归一化：去空格、去词性标注、转小写
+function normalize(s) {
+  return s.trim().toLowerCase().replace(/^(n|v|vt|vi|adj|adv|prep|conj|pron|art|num|interj)\.\s*/g, "").replace(/\s+/g, "");
+}
+
+function isCorrect(input) {
+  const { item, askEn } = current;
+  const norm = normalize(input);
+  if (!norm) return false;
+  if (askEn) {
+    return zhAlternatives(item.zh).some(z => normalize(z) === norm);
+  } else {
+    return normalize(item.en) === norm;
+  }
+}
+
+function esc(s){return (s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+// 无论对错，都展示「单词 + 意思」
+function revealAnswer(prefix, cls) {
+  const { item } = current;
+  $("feedback").textContent = prefix;
+  $("feedback").className = "feedback " + cls;
+  $("reveal").innerHTML = esc(item.en) + ' <span class="zh">：' + esc(item.zh) + '</span>';
+}
+
+function submitAnswer() {
+  const input = $("answerInput");
+  if (input.disabled) return; // 已提交，等待下一题
+  const val = input.value.trim();
+  if (!val) {
+    $("feedback").textContent = "先写下答案，或点「不认识」跳过";
+    $("feedback").className = "feedback err";
+    input.focus();
+    return;
+  }
+  totalTries++;
+  const right = isCorrect(val);
+  input.disabled = true;
+  input.className = right ? "ok" : "err";
+  if (right) {
+    queue.shift(); // 答对，移出队列
+    // 答对了就从「待复习」里毕业
+    const en = current.item.en.toLowerCase();
+    if (reviewPool.includes(en)) {
+      reviewPool = reviewPool.filter(x => x !== en);
+      saveReview();
+    }
+    revealAnswer("✅ 答对了！", "ok");
+  } else {
+    totalWrong++;
+    const item = queue.shift();
+    // 错了：隔 3~5 题之后重新出现
+    if (queue.length) {
+      const gap = 3 + Math.floor(Math.random() * 3);
+      queue.splice(Math.min(gap, queue.length), 0, item);
+    } else {
+      queue.push(item);
+    }
+    revealAnswer("❌ 错了，一会儿还会再考你", "err");
+    input.value = current.item.en;
+  }
+  saveState();
+  updateBar();
+  $("nextBtn").classList.remove("hidden");
+}
+
+// 「不认识」：跳过本次，标记进待复习池，下次一组题优先考
+function dontKnow() {
+  const input = $("answerInput");
+  if (input.disabled) return; // 已提交后不可用
+  if (!queue.length) return;
+  const item = queue.shift();
+  current = { item, askEn: current ? current.askEn : true };
+  const en = item.en.toLowerCase();
+  if (!reviewPool.includes(en)) {
+    reviewPool.push(en);
+    saveReview();
+  }
+  revealAnswer("🙋 已标记，下次再记", "skip");
+  input.disabled = true;
+  input.className = "";
+  input.value = "";
+  saveState();
+  updateBar();
+  $("nextBtn").classList.remove("hidden");
+}
+
+function quitQuiz() {
+  saveState();
+  goHome();
+}
+
+function updateBar() {
+  const total = sessionSize || 1;
+  const left = queue.length;
+  $("bar").style.width = Math.max(0, Math.min(100, (total - left) / total * 100)) + "%";
+}
+
+function finish() {
+  clearState();
+  $("quiz").classList.add("hidden");
+  $("done").classList.remove("hidden");
+  const acc = totalTries ? Math.round((totalTries - totalWrong) / totalTries * 100) : 100;
+  $("doneStats").textContent =
+    `本组 ${sessionSize} 词 · 答题 ${totalTries} 次 · 错 ${totalWrong} 次 · 正确率 ${acc}%`;
+  $("reviewNote").textContent = reviewPool.length
+    ? `待复习池还有 ${reviewPool.length} 个词，下次一组题会优先考它们`
+    : "待复习池已清空，太棒了！";
+  saveReview();
+}
+
+function goHome() {
+  $("quiz").classList.add("hidden");
+  $("done").classList.add("hidden");
+  $("home").classList.remove("hidden");
+  refreshHome();
+}
+
+function refreshHome() {
+  $("totalWords").textContent = WORDS.length;
+  $("sessionSizeTxt").textContent = SESSION_SIZE;
+  $("reviewLen").textContent = reviewPool.length;
+  const s = loadState();
+  const btn = $("continueBtn");
+  if (s) {
+    btn.classList.remove("hidden");
+    $("continueTxt").textContent = `剩 ${s.queue.length} 题 · 已答 ${s.tries} 次`;
+  } else {
+    btn.classList.add("hidden");
+  }
+}
+
+// 回车提交 / 回车下一题
+let lastAction = 0;
+document.addEventListener("keydown", e => {
+  if (e.key !== "Enter") return;
+  if (!$("quiz").classList.contains("hidden")) {
+    if (e.target.tagName === "BUTTON") return;
+    e.preventDefault();
+    if (Date.now() - lastAction < 250) return;
+    if (!$("nextBtn").classList.contains("hidden")) {
+      next();
+      lastAction = Date.now();
+    } else {
+      submitAnswer();
+    }
+  }
+});
+
+refreshHome();
+</script>
+</body>
+</html>
