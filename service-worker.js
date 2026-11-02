@@ -1,8 +1,9 @@
 /* 一人公司工作台 - Service Worker（离线缓存） */
-const CACHE = 'opc-v12';
+const CACHE = 'opc-v17';
 const ASSETS = [
   './',
   './index.html',
+  './word-quiz.html',
   './data.js',
   './manifest.json',
   './icon-192.png',
