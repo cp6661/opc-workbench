@@ -602,6 +602,26 @@ document.addEventListener("keydown", e => {
 });
 
 refreshHome();
+
+// 嵌在工作台 iframe 里时：把左右滑动手势抛给父页面（跨域兜底）
+(function relaySwipe(){
+  if(window.parent === window) return;
+  let s = null;
+  document.addEventListener("touchstart", e => {
+    if(e.touches.length !== 1){ s = null; return; }
+    const t = e.touches[0];
+    s = {x:t.clientX, y:t.clientY, t:Date.now()};
+  }, {passive:true});
+  document.addEventListener("touchend", e => {
+    if(!s) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - s.x, dy = t.clientY - s.y, dt = Date.now() - s.t;
+    s = null;
+    if(dt > 900 || Math.abs(dx) < 60) return;
+    if(Math.abs(dx) < Math.abs(dy) * 1.6) return;
+    try{ window.parent.postMessage({type:"opc-swipe", dx:dx}, "*"); }catch(err){}
+  }, {passive:true});
+})();
 </script>
 </body>
 </html>
