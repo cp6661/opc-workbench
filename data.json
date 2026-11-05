@@ -1,9 +1,16 @@
 {
-  "updateTime": "2026-11-04 08:20:52",
-  "updateTs": 1793751652,
-  "date": "2026-11-04",
+  "updateTime": "2026-11-05 08:04:26",
+  "updateTs": 1793837066,
+  "date": "2026-11-05",
   "total": 30,
   "ai_news": [
+    {
+      "title": "真绝了，国产模型 Token 自由了！",
+      "summary": "实测讯飞星火X2.6：国产MoE模型，1M上下文。我让它纯代码手搓ESP32迷你钢琴实验台、修复火山喷发物理Bug、写纯CSS3D魔方和飞行模拟器，四个硬核Case全部拿下。",
+      "url": "https://juejin.cn/post/7703431570200739875",
+      "ts": 1793671430,
+      "source": "掘金·AI热文"
+    },
     {
       "title": "我，13年Java老兵，建了个免费网站，公开叫板“Java已死”：没有广告，没有付费墙，151个页面全是踩坑干货",
       "summary": "北漂13年Java架构师，搭建免费无广告站点javadashen.com。覆盖面试、高并发场景、Java+AI落地、实战项目，拆解源码坑点，分享大厂一线踩坑经验。Java同路人，欢迎一起深耕！",
@@ -19,38 +26,10 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "真绝了，国产模型 Token 自由了！",
-      "summary": "实测讯飞星火X2.6：国产MoE模型，1M上下文。我让它纯代码手搓ESP32迷你钢琴实验台、修复火山喷发物理Bug、写纯CSS3D魔方和飞行模拟器，四个硬核Case全部拿下。",
-      "url": "https://juejin.cn/post/7703431570200739875",
-      "ts": 1793671430,
-      "source": "掘金·AI热文"
-    },
-    {
       "title": "用 AI + threejs 写了个浏览器里的 3D 动作游戏《武来》：砍怪、放技能、开 SU7",
       "summary": "前前言：开始就是 token 没用完快过期了，问了下五爷，咋整。他让我烧 token，生成建模去。。。那好，我就去他朋友圈挖了张图。搞了个建模，建模完，就感觉，既然人有了，那就让他飞起来吧～～～ 前言",
       "url": "https://juejin.cn/post/7703408069258264614",
       "ts": 1793614203,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "Python 中使用 SSE 实现大模型流式输出",
-      "summary": "聊天页面里的回答常常是一点点出现的，不用等整段文字生成完。SSE 就能实现这样的效果。下面从已有的 agent.execute_stream() 出发，讲清后端如何接收片段、包装并返回内容，再配上一个",
-      "url": "https://juejin.cn/post/7703370591587762203",
-      "ts": 1793604503,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "Flutter Android 性能修复：8 个大核的手机，Raster 居然只跑在 2 个核上？",
-      "summary": "最近 Flutter 刚刚合并了 PR #195071，这个 Bug 挺搞笑的，因为 Android Engine 一套沿用上古的 CPU 亲和性策略： 然后开发者在 Snapdragon 8 Eli",
-      "url": "https://juejin.cn/post/7703474285394657318",
-      "ts": 1793667192,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "Android Studio Rabbit 2 发布：除了Gemini，40+ AI Agent 正式入驻！",
-      "summary": "前言 10 月 28 日，Android Studio Rabbit 2 稳定版发布：你可以自由选择AI Agent，不再只有 Gemini。 📋 目录 1：Rabbit 2 是什么，和 Rabbit",
-      "url": "https://juejin.cn/post/7702984654097367049",
-      "ts": 1793577399,
       "source": "掘金·AI热文"
     },
     {
@@ -61,11 +40,25 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "生成式 AI",
-      "summary": "能自动生成文字、图片、代码等内容的人工智能，也叫 AIGC。",
-      "url": "",
-      "source": "AI 基础",
-      "ts": 0
+      "title": "周末花两天手撸了一个车牌识别，CCPD 上 99%，换张手机照片就翻车了 🚗",
+      "summary": "事情是这样的。 公司做车险业务，录单的时候要从车辆照片里提取车牌号。我们一直用的是蓝兴AI的车牌号识别接口，传张图过去，几百毫秒就返回车牌号、颜色和单双层，用着挺省心。 但作为一个有好奇心的程序",
+      "url": "https://juejin.cn/post/7702984654098284553",
+      "ts": 1793585662,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "Flutter Android 性能修复：8 个大核的手机，Raster 居然只跑在 2 个核上？",
+      "summary": "最近 Flutter 刚刚合并了 PR #195071，这个 Bug 挺搞笑的，因为 Android Engine 一套沿用上古的 CPU 亲和性策略： 然后开发者在 Snapdragon 8 Eli",
+      "url": "https://juejin.cn/post/7703474285394657318",
+      "ts": 1793667192,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "Python 中使用 SSE 实现大模型流式输出",
+      "summary": "聊天页面里的回答常常是一点点出现的，不用等整段文字生成完。SSE 就能实现这样的效果。下面从已有的 agent.execute_stream() 出发，讲清后端如何接收片段、包装并返回内容，再配上一个",
+      "url": "https://juejin.cn/post/7703370591587762203",
+      "ts": 1793604503,
+      "source": "掘金·AI热文"
     },
     {
       "title": "预训练",
@@ -108,6 +101,13 @@
       "url": "",
       "source": "AI 基础",
       "ts": 0
+    },
+    {
+      "title": "向量数据库",
+      "summary": "专门存储和检索向量数据的库，是 RAG 的常用组件。",
+      "url": "",
+      "source": "AI 基础",
+      "ts": 0
     }
   ],
   "tech_news": [
@@ -119,31 +119,10 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "MongoDB迁移之后，Spring Data 和 Hibernate 各自接哪类请求",
-      "summary": "MongoDB迁移到 KingbaseES，代码改造量往往不由集合数量决定，而由应用实际调用了哪些 MongoDB API 决定。Repository 派生查询、聚合管道、批量写入、事务会话和索引管理",
-      "url": "https://juejin.cn/post/7702759616728088611",
-      "ts": 1793534415,
-      "source": "掘金·技术热文"
-    },
-    {
       "title": "程序员 1v1 访谈系列第十期：纯前端坚持不了多久了",
       "summary": "大家好，我是双越。我最近正在搞一个《程序员 1v1 访谈系列》即和我 1v1 微信语音或文字聊天，分享你的状态和困惑，我给出建议。以下是第 10 位沟通者的主要内容，分享出来供大家参考。",
       "url": "https://juejin.cn/post/7703379063838310434",
       "ts": 1793605625,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "为什么几乎所有的知名开源项目都是外国人写的？",
-      "summary": "其实我都不太敢聊这个话题，只要是一聊就被骂，或者是阴阳。 一种声音是“我们就是没有开源精神”，另一种是“人家有钱有闲”。 其实一直以来，我对这个问题的观点也大约就是这两种，但现在从数据上看又不成立。",
-      "url": "https://juejin.cn/post/7703046191176990771",
-      "ts": 1793513436,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "我用workBuddy开发了自己的第一个小程序并成功上线了",
-      "summary": "关注晓凡的朋友都知道，晓凡是一名工作了好多年的牛马程序员。跟很多小伙伴一样，这些年一直在研究各种技术，当然了微信小程序开发也学过,但都没上线，这次用WorkBuddy开发了自己的第一款微信小程序",
-      "url": "https://juejin.cn/post/7702866392132337718",
-      "ts": 1793576545,
       "source": "掘金·技术热文"
     },
     {
@@ -168,50 +147,71 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "Docker 容器",
-      "summary": "把应用和依赖打包成镜像，一次构建到处运行，比虚拟机轻量。",
+      "title": "新技术、新成果亮相互联网之光博览会",
+      "summary": "热度 21687029",
+      "url": "https://www.toutiao.com/article/7704247999190319670",
+      "ts": 1793837066,
+      "source": "今日热榜"
+    },
+    {
+      "title": "半导体芯片还有大行情吗",
+      "summary": "热度 1967402",
+      "url": "https://www.toutiao.com/trending/7704335906940915241/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227704335906940915241%22%2C%22hot_board_impr_id%22%3A%22202611050804256E22B5A28850E13D6E9C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%8A%AF%E7%89%87%E8%BF%98%E6%9C%89%E5%A4%A7%E8%A1%8C%E6%83%85%E5%90%97%22%7D&rank=&style_id=40132&topic_id=7704335906940915241",
+      "ts": 1793837066,
+      "source": "今日热榜"
+    },
+    {
+      "title": "解构赋值与展开运算符：现代 JS 提效技巧",
+      "summary": "1. 引言：为什么现代 JS 离不开解构与展开 ES6 引入的解构赋值（Destructuring Assignment）与展开运算符（Spread Operator），是日常写 JavaScript",
+      "url": "https://juejin.cn/post/7703011669408661538",
+      "ts": 1793582157,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "OAuth 2.0",
+      "summary": "授权框架，让第三方应用在用户许可下有限访问资源，不接触密码。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "Kubernetes",
-      "summary": "容器编排平台，负责调度、扩缩容、自愈和滚动发布。",
+      "title": "幂等性",
+      "summary": "同一请求执行多次结果一致，是接口重试与消息重复消费的安全前提。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "CI/CD",
-      "summary": "持续集成保证代码可合并，持续交付让发布自动化、小步快跑。",
+      "title": "限流算法",
+      "summary": "固定窗口、滑动窗口、令牌桶、漏桶，保护系统不被突发流量打垮。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "Git 工作流",
-      "summary": "主分支保持稳定，功能分支开发，合并前走 PR + Code Review。",
+      "title": "熔断与降级",
+      "summary": "依赖故障达阈值就快速失败避免雪崩；降级提供兜底方案保核心。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "Git Rebase vs Merge",
-      "summary": "Rebase 整理出线性历史；Merge 保留分叉，更安全但历史更乱。",
+      "title": "CDN",
+      "summary": "把内容缓存到离用户最近的节点，降低延迟并减轻源站压力。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "RESTful API",
-      "summary": "用 URL 表示资源、HTTP 方法表示操作，无状态、可缓存、分层。",
+      "title": "时间复杂度",
+      "summary": "衡量算法随数据规模的增长趋势，常见 O(1)、O(logn)、O(n)、O(nlogn)、O(n²)。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "JWT",
-      "summary": "自包含令牌，服务端不需存会话，常用于前后端分离的鉴权。",
+      "title": "二叉树与平衡树",
+      "summary": "AVL、红黑树通过旋转维持平衡，保证查找插入稳定在 O(logn)。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
