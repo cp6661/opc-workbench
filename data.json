@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-11-05 08:04:26",
-  "updateTs": 1793837066,
+  "updateTime": "2026-11-05 08:25:20",
+  "updateTs": 1793838320,
   "date": "2026-11-05",
   "total": 30,
   "ai_news": [
@@ -148,16 +148,16 @@
     },
     {
       "title": "新技术、新成果亮相互联网之光博览会",
-      "summary": "热度 21687029",
+      "summary": "热度 22539161",
       "url": "https://www.toutiao.com/article/7704247999190319670",
-      "ts": 1793837066,
+      "ts": 1793838320,
       "source": "今日热榜"
     },
     {
       "title": "半导体芯片还有大行情吗",
-      "summary": "热度 1967402",
-      "url": "https://www.toutiao.com/trending/7704335906940915241/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227704335906940915241%22%2C%22hot_board_impr_id%22%3A%22202611050804256E22B5A28850E13D6E9C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%8A%AF%E7%89%87%E8%BF%98%E6%9C%89%E5%A4%A7%E8%A1%8C%E6%83%85%E5%90%97%22%7D&rank=&style_id=40132&topic_id=7704335906940915241",
-      "ts": 1793837066,
+      "summary": "热度 6142638",
+      "url": "https://www.toutiao.com/trending/7704335906940915241/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227704335906940915241%22%2C%22hot_board_impr_id%22%3A%2220261105082520005F3410133C8858357F%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%8A%AF%E7%89%87%E8%BF%98%E6%9C%89%E5%A4%A7%E8%A1%8C%E6%83%85%E5%90%97%22%7D&rank=&style_id=40132&topic_id=7704335906940915241",
+      "ts": 1793838320,
       "source": "今日热榜"
     },
     {
