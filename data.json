@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-11-07 08:00:39",
-  "updateTs": 1794009639,
+  "updateTime": "2026-11-07 08:18:27",
+  "updateTs": 1794010707,
   "date": "2026-11-07",
   "total": 30,
   "ai_news": [
@@ -154,10 +154,10 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "Workbuddy+HY4 略超预期！",
-      "summary": "早上我夸了一顿WorkBuddy软件界面做得好啊，各种套路玩得溜啊。 下午，就要来测一测它上面的混元4（HY4）了。 整个测下来，还是有点点超出我预期的。我们之前对HY系列的印象是有点边缘化的，现在整",
-      "url": "https://juejin.cn/post/7704561755531690011",
-      "ts": 1793880542,
+      "title": "Flutter 开始支持 Jetpack Compose Platform View",
+      "summary": "PR #195523 居然开始支持 Jetpack Compose 的 ComposeView 了，看起来是 Flutter 在给默认 FlutterActivity 补齐 AndroidX 的三个",
+      "url": "https://juejin.cn/post/7704455397477875747",
+      "ts": 1793839829,
       "source": "掘金·技术热文"
     },
     {
