@@ -1,7 +1,7 @@
 {
-  "updateTime": "2026-11-06 08:23:03",
-  "updateTs": 1793924583,
-  "date": "2026-11-06",
+  "updateTime": "2026-11-07 08:00:39",
+  "updateTs": 1794009639,
+  "date": "2026-11-07",
   "total": 30,
   "ai_news": [
     {
@@ -12,6 +12,13 @@
       "source": "掘金·AI热文"
     },
     {
+      "title": "阿里版Codex，再次惊艳到我了。",
+      "summary": "QoderCN 深度实测，用 Qwen3.8-Flash 实战站点托管、一分钟科普视频、Three.js 机械表、西湖古塔代码建模与 WebGL 捏脸交互。",
+      "url": "https://juejin.cn/post/7704197427075366946",
+      "ts": 1793842971,
+      "source": "掘金·AI热文"
+    },
+    {
       "title": "腾讯混元 Hy4 正式版发布了",
       "summary": "11 月 4 日，WorkBuddy 的模型列表里多了个 Hy4，标签是「限时免费」，倍率 0.00x。右侧详情一行小字：11 月 4 日到 15 日，每日赠送免费额度，订阅用户享更高配额。 这篇想弄",
       "url": "https://juejin.cn/post/7704150793607462950",
@@ -19,31 +26,24 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "GitHub 上最值得装的 8 个 Agent Skill 仓库，亲测好用！",
-      "summary": "今天给大家整理 8 个 GitHub 上值得装的 Agent Skill 仓库，star 从 5 万到 30 万不等。这几个Skill项目也是我平常经常用的。",
-      "url": "https://juejin.cn/post/7703423062713516082",
-      "ts": 1793666237,
+      "title": "未来十年的建议",
+      "summary": "今天看到 X 上一个点，让 AI 给出未来十年的建议。 我试下了我本地的 claude code，codex，kimi，DeepSeek，Grok，Antigravity 等 Agent 给出的建议，",
+      "url": "https://juejin.cn/post/7704198401148338218",
+      "ts": 1793791112,
       "source": "掘金·AI热文"
     },
     {
-      "title": "Flutter Android 性能修复：8 个大核的手机，Raster 居然只跑在 2 个核上？",
-      "summary": "最近 Flutter 刚刚合并了 PR #195071，这个 Bug 挺搞笑的，因为 Android Engine 一套沿用上古的 CPU 亲和性策略： 然后开发者在 Snapdragon 8 Eli",
-      "url": "https://juejin.cn/post/7703474285394657318",
-      "ts": 1793667192,
+      "title": "DeepSeek 再次崩了，DeepSeek V5正在路上？",
+      "summary": "DeepSeek近期再次出现访问响应迟缓与短时中断，这类服务端波动迅速引发了广泛讨论。每一次系统抖动，都会引来社区关于新版本迭代的猜想。",
+      "url": "https://juejin.cn/post/7704168443986214966",
+      "ts": 1793786825,
       "source": "掘金·AI热文"
     },
     {
-      "title": "为什么你写的 Agent 一报错就死循环？很多人都漏掉了这层“错误自救与熔断”机制",
-      "summary": "很多人写 Agent 时只把原始报错直接扔回给大模型，结果工具一失败它就瞎猜参数、死循环狂烧 Token。本文带你手搓 100 行代码，补齐错误分类提示、调用指纹记账与批次熔断刹车，让 Agent 学",
-      "url": "https://juejin.cn/post/7703754295011098651",
-      "ts": 1793692092,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "阿里版Codex，再次惊艳到我了。",
-      "summary": "QoderCN 深度实测，用 Qwen3.8-Flash 实战站点托管、一分钟科普视频、Three.js 机械表、西湖古塔代码建模与 WebGL 捏脸交互。",
-      "url": "https://juejin.cn/post/7704197427075366946",
-      "ts": 1793842971,
+      "title": "国家数据集团校招、社招都开了：总部雄安，这些技术岗值得认真看看",
+      "summary": "国家数据集团校招社招启动，总部雄安。数据资源开发利用成主业，AI落地绕不开高质量数据集与语料库。拆解研发、数据治理、安全、FDE等岗位机会，提醒雄安成本与新组织摸索期，附简历写法。别只盯算法岗，关注我",
+      "url": "https://juejin.cn/post/7704235293701914678",
+      "ts": 1793842608,
       "source": "掘金·AI热文"
     },
     {
@@ -54,18 +54,11 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "对话式导购 + RAG + MCP 智能商品推荐系统",
-      "summary": "前言 维度 说明 技术栈 Spring AI（Alibaba）+ RAG（Milvus / PgVector）+ Function Calling + MCP + Graph 工作流 + SSE 流式",
-      "url": "https://juejin.cn/post/7703772628574486579",
-      "ts": 1793695396,
+      "title": "ValidX 正则表达式预编译优化：Pattern 复用策略",
+      "summary": "ValidX 正则表达式预编译优化：Pattern 复用策略 📋 目录 引言 一、正则表达式的编译成本 1.1 Pattern.compile() 的内部过程 1.2 编译开销的量化分析 1.3 三种",
+      "url": "https://juejin.cn/post/7703844942363918370",
+      "ts": 1793758446,
       "source": "掘金·AI热文"
-    },
-    {
-      "title": "微调 Fine-tuning",
-      "summary": "在预训练模型基础上用特定数据再训练，适配专门任务。",
-      "url": "",
-      "source": "AI 基础",
-      "ts": 0
     },
     {
       "title": "参数",
@@ -108,9 +101,23 @@
       "url": "",
       "source": "AI 基础",
       "ts": 0
+    },
+    {
+      "title": "注意力机制",
+      "summary": "让模型在处理时聚焦重要部分，是 Transformer 的核心。",
+      "url": "",
+      "source": "AI 基础",
+      "ts": 0
     }
   ],
   "tech_news": [
+    {
+      "title": "Python 类型注解与 mypy：提升代码可维护性",
+      "summary": "1. 引言：为什么需要类型注解 Python 是一门动态类型语言，变量在运行时才确定类型。这种灵活性带来了开发效率，也埋下了隐患：函数参数传错类型、返回值被误用、重构后调用方没同步修改……这些问题往往",
+      "url": "https://juejin.cn/post/7704241004282609698",
+      "ts": 1793841350,
+      "source": "掘金·技术热文"
+    },
     {
       "title": "ArkTS 做应用内\"快捷胶囊\" —— 续航日记踩过的两个鸿蒙声明式 UI workaround",
       "summary": "续航日记（BatteryLog）的首页有一排\"快捷胶囊\"：用户点一下某个胶囊，就记一条能量变化（比如\"+15 午睡\"、\"10 开会\"、\"+20 散步\"）。听起",
@@ -126,10 +133,10 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "都问程序员双十一买什么，我的答案一定是这块专业编程显示器",
-      "summary": "用了一周，眼睛不酸了，专业编程模式和软件功能更是令我惊喜。深色模式黑能压下去，灰字也扫得出来。彩纸模式把红绿颜色往纸面收一档，看文档不刺眼。护眼模式滤蓝光但不盖黄膜，ERROR 还是红的，扫一眼不用停",
-      "url": "https://juejin.cn/post/7703563555132571648",
-      "ts": 1793680523,
+      "title": "Android 架构七条铁律：架构师真正设计的不是代码，而是秩序",
+      "summary": "前段时间，和一个年轻开发者聊 Android 架构。 他谈起 MVVM。 谈起 MVI。 谈起 Clean Architecture。 也谈起各种设计模式。 他说了很多。 我听了很久。 然后问了一个问",
+      "url": "https://juejin.cn/post/7704165786369409075",
+      "ts": 1793794497,
       "source": "掘金·技术热文"
     },
     {
@@ -140,78 +147,71 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "Android 架构七条铁律：架构师真正设计的不是代码，而是秩序",
-      "summary": "前段时间，和一个年轻开发者聊 Android 架构。 他谈起 MVVM。 谈起 MVI。 谈起 Clean Architecture。 也谈起各种设计模式。 他说了很多。 我听了很久。 然后问了一个问",
-      "url": "https://juejin.cn/post/7704165786369409075",
-      "ts": 1793794497,
+      "title": "程序员 1v1 访谈系列第十一期：应届生别做开发",
+      "summary": "大家好，我是双越。我最近正在搞一个《程序员 1v1 访谈系列》即和我 1v1 微信语音或文字聊天，分享你的状态和困惑，我给出建议。以下是第 11 位沟通者的主要内容，分享出来供大家参考。",
+      "url": "https://juejin.cn/post/7703844942363525154",
+      "ts": 1793756019,
       "source": "掘金·技术热文"
     },
     {
-      "title": "iPhone Duo 适配实战，Awaking 踩过的 8 个坑",
-      "summary": "记录 Awaking 适配 iPhone Duo 的过程。首页和展台为什么这样布局，滑杆、网格和导航改过哪些细节，还有一次旋转卡死的排查。附界面截图、局部配图和 Swift 代码。",
-      "url": "https://juejin.cn/post/7703516970495574051",
-      "ts": 1793683131,
+      "title": "Workbuddy+HY4 略超预期！",
+      "summary": "早上我夸了一顿WorkBuddy软件界面做得好啊，各种套路玩得溜啊。 下午，就要来测一测它上面的混元4（HY4）了。 整个测下来，还是有点点超出我预期的。我们之前对HY系列的印象是有点边缘化的，现在整",
+      "url": "https://juejin.cn/post/7704561755531690011",
+      "ts": 1793880542,
       "source": "掘金·技术热文"
     },
     {
-      "title": "世界互联网大会乌镇峰会今天闭幕",
-      "summary": "热度 14548295",
-      "url": "https://www.toutiao.com/article/7704594856781365770",
-      "ts": 1793924583,
-      "source": "今日热榜"
+      "title": "ArkTS 做 5 态数据流 —— 咖啡电量的代谢状态机怎么驱动 UI",
+      "summary": "咖啡电量（CoffeeBattery）首页要展示用户当前的\"代谢状态\"：是刚喝下的吸收期？已经到巅峰期？在稳定区？还是精神疲劳区？用户主动戒咖期？这是 5 种业",
+      "url": "https://juejin.cn/post/7704619107316219919",
+      "ts": 1793928885,
+      "source": "掘金·技术热文"
     },
     {
-      "title": "半导体指数ETF-HOLDRs收跌11.21%",
-      "summary": "热度 3587565",
-      "url": "https://www.toutiao.com/trending/7704720781464470042/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227704720781464470042%22%2C%22hot_board_impr_id%22%3A%222026110608230252FAF80EB0E4A4C7B544%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%8A%E5%AF%BC%E4%BD%93%E6%8C%87%E6%95%B0ETF-HOLDRs%E6%94%B6%E8%B7%8C11.21%25%22%7D&rank=&style_id=40132&topic_id=7704720781464470042",
-      "ts": 1793924583,
-      "source": "今日热榜"
-    },
-    {
-      "title": "堆",
-      "summary": "完全二叉树结构，堆顶是最大或最小值，用于优先队列和 TopK 问题。",
+      "title": "NAT",
+      "summary": "把内网私有地址转换为公网地址，缓解 IPv4 地址不足。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "动态规划",
-      "summary": "把问题拆成重叠子问题，记录子问题答案避免重复计算。",
+      "title": "对称与非对称加密",
+      "summary": "对称加密快但密钥难分发；非对称慢但解决了密钥交换问题。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "设计模式单例与工厂",
-      "summary": "单例保证全局唯一实例；工厂把对象创建逻辑与使用解耦。",
+      "title": "零拷贝",
+      "summary": "减少内核与用户态之间的数据复制次数，大幅提升大文件传输性能。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "面向接口编程",
-      "summary": "依赖抽象而非实现，降低耦合、方便替换与单元测试。",
+      "title": "I/O 多路复用",
+      "summary": "select/poll/epoll 让单线程同时监听多个连接，是高并发网络的基础。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "Linux 常用命令",
-      "summary": "grep 查文本、awk 取列、sed 替换、top 看负载、ss 看连接。",
+      "title": "机器学习三要素",
+      "summary": "模型、策略和数据；深度学习用多层神经网络自动提取特征。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "网络分层模型",
-      "summary": "应用层、传输层、网络层、数据链路层、物理层，层层封装与解封。",
+      "title": "梯度下降",
+      "summary": "沿损失函数负梯度方向迭代更新参数，是神经网络训练的核心方法。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "IP 与子网掩码",
-      "summary": "IP 定位主机，掩码划分网络位与主机位，决定是否同网段。",
+      "title": "过拟合与正则化",
+      "summary": "模型死记硬背训练集，用正则化、Dropout、早停和更多数据抑制。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
