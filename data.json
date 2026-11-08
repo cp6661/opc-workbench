@@ -1,44 +1,9 @@
 {
-  "updateTime": "2026-11-08 08:17:36",
-  "updateTs": 1794097056,
-  "date": "2026-11-08",
+  "updateTime": "2026-11-09 07:59:59",
+  "updateTs": 1794182399,
+  "date": "2026-11-09",
   "total": 30,
   "ai_news": [
-    {
-      "title": "阿里版Codex，再次惊艳到我了。",
-      "summary": "QoderCN 深度实测，用 Qwen3.8-Flash 实战站点托管、一分钟科普视频、Three.js 机械表、西湖古塔代码建模与 WebGL 捏脸交互。",
-      "url": "https://juejin.cn/post/7704197427075366946",
-      "ts": 1793842971,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "国家数据集团校招、社招都开了：总部雄安，这些技术岗值得认真看看",
-      "summary": "国家数据集团校招社招启动，总部雄安。数据资源开发利用成主业，AI落地绕不开高质量数据集与语料库。拆解研发、数据治理、安全、FDE等岗位机会，提醒雄安成本与新组织摸索期，附简历写法。别只盯算法岗，关注我",
-      "url": "https://juejin.cn/post/7704235293701914678",
-      "ts": 1793842608,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "为什么这么多 Agent Harness 都选择 TypeScript",
-      "summary": "一提到 AI 开发，我们很容易先想到 Python，但看 Claude Code、Gemini CLI、OpenCode、Pi 这些 Coding Agent，又会发现 TypeScript 出现得特",
-      "url": "https://juejin.cn/post/7704455397478334499",
-      "ts": 1793842722,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "Claude Code 同需求写两版对比：装不装 frontend-design 差多远？",
-      "summary": "实测用5段提示词驱动Claude Code打造专业级在线切图工具，包含安装frontend-design设计技能、从基础版到桌面工作台重构、动态网格与像素标注，以及零服务器成本上线部署方案。",
-      "url": "https://juejin.cn/post/7704499167134335018",
-      "ts": 1793867937,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "AI 还原 Figma 效果总达不到预期？先别急着让它写代码",
-      "summary": "我发现不少人用 AI 还原 Figma，还是先截个图，或者把设计稿导出成图片，再丢给 AI 写页面。还有人直接发个 Figma 链接，说一句“照着还原”，就等结果了。",
-      "url": "https://juejin.cn/post/7704502089117368320",
-      "ts": 1793866920,
-      "source": "掘金·AI热文"
-    },
     {
       "title": "神级 Skill，让 AI 用 HTML 代替 Markdown 回复",
       "summary": "一个非常有趣又实用的 Skill answer-me-with-html，让 AI 用 HTML 代替 Markdown 进行回复。 话不多说，先来看看效果。 如图，左侧是 AI 的回复，右侧是通过",
@@ -47,25 +12,53 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "我现在最怕的不是 AI 写不出代码，是它写得太快，快到我不好意思说“等一下”",
-      "summary": "上周三下午，我 review 了一个 PR。 三百多行，React 组件加一堆工具函数，来自我们组新来的一个同学。代码是 Cursor 写的，他自己改了几处，测试过了，UI 跑起来没问题。 我看了二十",
-      "url": "https://juejin.cn/post/7704189949114335286",
-      "ts": 1793841549,
+      "title": "LobeHub 是真的夯，简直 Super-Agent 最佳实现。",
+      "summary": "上一篇内容《通了个宵，终于把 Super-Agent 架构玩明白了》发出来之后，大家认可度比较高，同时也有不少小伙伴在后台留言问到 DeepSeek Harness 的这套 Super-Agent 机",
+      "url": "https://juejin.cn/post/7704864028610773027",
+      "ts": 1793955666,
       "source": "掘金·AI热文"
     },
     {
-      "title": "一个人就是一支工程队：AI 时代超级个体的 90 天变现 SOP",
-      "summary": "一个人就是一支工程队：AI 时代超级个体的 90 天变现 SOP 先说清楚，这篇不教你\"月入十万\"。 那种标题你也看腻了。我想聊一个更小、更硬、更容易验证的目标：90 天内，完成一次真实交易。 注意三",
-      "url": "https://juejin.cn/post/7704589926880411684",
-      "ts": 1793897293,
+      "title": "Codex中必装的11个Skills",
+      "summary": "前言 你有没有遇到这样的场景：让AI帮你写一个功能模块，代码确实写出来了，“看起来没问题”，但一上线就炸了——边界条件没处理、异常捕获缺失、甚至还有SQL注入风险。 如果你正在用Codex或其他AI编",
+      "url": "https://juejin.cn/post/7705291560008531977",
+      "ts": 1794041494,
       "source": "掘金·AI热文"
     },
     {
-      "title": "幻觉",
-      "summary": "模型一本正经地编造不存在的事实，是当前大模型的常见缺陷。",
-      "url": "",
-      "source": "AI 基础",
-      "ts": 0
+      "title": "实测 agent-desktop：AI 控制桌面不截图、不占鼠标键盘，连点 55 次计算器 0 失误",
+      "summary": "实测 Vercel Labs 的 agent-desktop 1.2.0：通过无障碍树实现 0 截图、不抢鼠标的桌面控制，连按 55 次计算器 0 失误，附完整对比数据。",
+      "url": "https://juejin.cn/post/7704923158558621750",
+      "ts": 1793964393,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "公交App上“还有2站，约5分钟”怎么实现？90%的人答错这道大厂面试题：GPS漂移、ETA不准、10万QPS热点读全拆透（附完整代码）",
+      "summary": "公交 APP 到站预估怎么实现？大厂后端高频场景题。基于 MQTT+Kafka+Flink+Redis 架构，解决 GPS 漂移、消息乱序、热点读放大、ETA 不准等痛点，含沿线距离模型、卡尔曼增量修",
+      "url": "https://juejin.cn/post/7704562619551072298",
+      "ts": 1793927810,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "电商视觉要被 Agent 重做了：一个平台跑通主图、详情页、实拍、复刻和视频",
+      "summary": "电商视觉要被 Agent 重做了：一个平台跑通主图、详情页、实拍、复刻和视频 做电商的朋友，大概都经历过这样的循环： 找外包做一套主图，报价 800 起，等 3 天，改 5 轮； 详情页要 12 层，",
+      "url": "https://juejin.cn/post/7704728503446503467",
+      "ts": 1793936729,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "万字长文！DeepSeek Super-agent × 企业知识库架构深度拆解与落地实践",
+      "summary": "最近几年我们一直聚焦于研发 AI 产品，也一直在账号里给大家分享高价值的 AI 开源项目。DeepSeek Harness 团队 10 月底开源的 Super-agent架构设计与原型实现目标。",
+      "url": "https://juejin.cn/post/7704587408075718665",
+      "ts": 1793928471,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "TanStarter，从搭建到支付，一步到位开始赚美元",
+      "summary": "在我们感觉周围风平浪静的时刻，其实出海赚美元已经如火如荼。 尤其是 AI 日新月异的进化中，很多以前做不了的业务，写不好的功能，做不出的设计，都通通不在话下。 很多人说，国内太卷了，你写了个东西刚冒头",
+      "url": "https://juejin.cn/post/7704562619550941226",
+      "ts": 1793927347,
+      "source": "掘金·AI热文"
     },
     {
       "title": "温度 Temperature",
@@ -108,30 +101,16 @@
       "url": "",
       "source": "AI 基础",
       "ts": 0
+    },
+    {
+      "title": "文生图",
+      "summary": "根据文字描述生成图片，如 Midjourney、Stable Diffusion。",
+      "url": "",
+      "source": "AI 基础",
+      "ts": 0
     }
   ],
   "tech_news": [
-    {
-      "title": "Python 类型注解与 mypy：提升代码可维护性",
-      "summary": "1. 引言：为什么需要类型注解 Python 是一门动态类型语言，变量在运行时才确定类型。这种灵活性带来了开发效率，也埋下了隐患：函数参数传错类型、返回值被误用、重构后调用方没同步修改……这些问题往往",
-      "url": "https://juejin.cn/post/7704241004282609698",
-      "ts": 1793841350,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "ArkTS 做应用内\"快捷胶囊\" —— 续航日记踩过的两个鸿蒙声明式 UI workaround",
-      "summary": "续航日记（BatteryLog）的首页有一排\"快捷胶囊\"：用户点一下某个胶囊，就记一条能量变化（比如\"+15 午睡\"、\"10 开会\"、\"+20 散步\"）。听起",
-      "url": "https://juejin.cn/post/7704389851193606170",
-      "ts": 1793848833,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "JavaScript 模板字符串与标签模板：不只是拼接",
-      "summary": "1. 引言：从 + 拼接说起 在 ES6 之前，我们拼接字符串基本靠 +： 这段代码能跑，但问题也很明显：引号、加号、空格混在一起，稍长一点就难以阅读；换行要写 \\n；变量多了更是灾难。 ES6 引入",
-      "url": "https://juejin.cn/post/7704455397478072355",
-      "ts": 1793841533,
-      "source": "掘金·技术热文"
-    },
     {
       "title": "HarmonyOS ArkUI List 的侧滑删除 用 ListItem 的 swipeAction + endIcon 的做法",
       "summary": "鸿蒙的 List 组件自带侧滑交互，但 API 不直观——是通过 ListItem.swipeAction 配 start 和 en",
@@ -140,17 +119,10 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "Flutter 开始支持 Jetpack Compose Platform View",
-      "summary": "PR #195523 居然开始支持 Jetpack Compose 的 ComposeView 了，看起来是 Flutter 在给默认 FlutterActivity 补齐 AndroidX 的三个",
-      "url": "https://juejin.cn/post/7704455397477875747",
-      "ts": 1793839829,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "Workbuddy+HY4 略超预期！",
-      "summary": "早上我夸了一顿WorkBuddy软件界面做得好啊，各种套路玩得溜啊。 下午，就要来测一测它上面的混元4（HY4）了。 整个测下来，还是有点点超出我预期的。我们之前对HY系列的印象是有点边缘化的，现在整",
-      "url": "https://juejin.cn/post/7704561755531690011",
-      "ts": 1793880542,
+      "title": "集中式与分布式怎么选：从订单读写看 KingbaseES 的架构边界",
+      "summary": "以订单系统为例，一笔付款会扣账户余额、写一条流水、更新订单状态；月末报表则可能按日期统计所有租户的订单。前者要求几项变更一起提交，后者关心查询会覆盖多大范围。",
+      "url": "https://juejin.cn/post/7704995965740728360",
+      "ts": 1794059211,
       "source": "掘金·技术热文"
     },
     {
@@ -168,50 +140,78 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "卷积与池化",
-      "summary": "卷积提取局部特征、参数共享；池化降维并保持平移不变性。",
+      "title": "没有写一行代码：我用 Codex 制作 了一个 3D 智慧展厅可视化大屏",
+      "summary": "在前面的智慧农业和智慧高速实践里，我已经把“调研、出图、拆素材、建模、网页化”这条链路走了一遍。这次，我把场景换到了企业展厅。 室内场景给我的第一个感受，是细节更藏不住了。园区可以先看建筑体量和道路关",
+      "url": "https://juejin.cn/post/7704594117820596260",
+      "ts": 1793925534,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "Flutter Impeller Vulkan 内存持续上涨，问题没想到是文字阴影",
+      "summary": "最近 Flutter 的 #195323 挺有意思，用户最初发现的是，Flame 游戏里十来个带模糊阴影的 HUD 文字，只要每帧重绘，Native Heap 就一直往上涨，27 分钟从 34 MB",
+      "url": "https://juejin.cn/post/7704580987242872847",
+      "ts": 1793925820,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "Vue 编译器换掉 source map，快了三四成",
+      "summary": "Vue 的核心仓库里有个还在讨论中的 PR，把编译器的 source map 换了一套做法，CPU 省掉三成左右，内存省掉三分之一，顺手修掉十几个报错指错行的问题。 提这个 PR 的是 johnson",
+      "url": "https://juejin.cn/post/7704923158558867510",
+      "ts": 1793975781,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "从 Coze 居然要下线了说起",
+      "summary": "Coze 居然要下线了。 11 月 2 日，一个在字节做 Coze 的人发了条动态，说自己的主页还挂着「Coze Workflow 引擎开发者」，估计明年再挂这玩意，就没人知道 Coze 是啥了。后面",
+      "url": "https://juejin.cn/post/7705134065616207882",
+      "ts": 1794063615,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "线程",
+      "summary": "进程内的执行单元，一个进程可有多个线程并行工作。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "CPU",
-      "summary": "中央处理器，计算机的「大脑」，负责执行指令和运算。",
+      "title": "文件系统",
+      "summary": "管理文件如何存储、命名、组织的系统，如 NTFS、ext4。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "内存 RAM",
-      "summary": "临时存储正在运行的数据，断电即清空，速度快。",
+      "title": "HTTP",
+      "summary": "网页传输协议，浏览器与服务器通信的基础。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "硬盘",
-      "summary": "长期存储数据的设备，断电不丢失，速度比内存慢。",
+      "title": "HTTPS",
+      "summary": "加密版的 HTTP，数据传输更安全，网站标配。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "二进制",
-      "summary": "只用 0 和 1 表示所有数据，是计算机的底层语言。",
+      "title": "IP 地址",
+      "summary": "网络中设备的唯一标识，就像门牌号。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "操作系统",
-      "summary": "管理硬件和软件资源的系统，如 Windows、macOS、Linux。",
+      "title": "DNS",
+      "summary": "域名解析系统，把域名（如 juejin.cn）翻译成 IP 地址。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "进程",
-      "summary": "运行中的程序实例，是系统分配资源的基本单位。",
+      "title": "客户端-服务器",
+      "summary": "客户端发请求、服务器返回结果的经典架构。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
