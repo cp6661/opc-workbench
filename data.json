@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-11-10 08:01:54",
-  "updateTs": 1794268914,
+  "updateTime": "2026-11-10 08:17:38",
+  "updateTs": 1794269858,
   "date": "2026-11-10",
   "total": 30,
   "ai_news": [
@@ -155,16 +155,16 @@
     },
     {
       "title": "东方新能拟斥资超9亿采购GPU算力板卡",
-      "summary": "热度 72717766",
-      "url": "https://www.toutiao.com/trending/7706163130640204338/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706163130640204338%22%2C%22hot_board_impr_id%22%3A%2220261110080153D962A727E57D418300EA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%9C%E6%96%B9%E6%96%B0%E8%83%BD%E6%8B%9F%E6%96%A5%E8%B5%84%E8%B6%859%E4%BA%BF%E9%87%87%E8%B4%ADGPU%E7%AE%97%E5%8A%9B%E6%9D%BF%E5%8D%A1%22%7D&rank=&style_id=40132&topic_id=7706163130640204338",
-      "ts": 1794268914,
+      "summary": "热度 74582466",
+      "url": "https://www.toutiao.com/trending/7706163130640204338/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706163130640204338%22%2C%22hot_board_impr_id%22%3A%22202611100817373CF32665DBB2F020C590%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%9C%E6%96%B9%E6%96%B0%E8%83%BD%E6%8B%9F%E6%96%A5%E8%B5%84%E8%B6%859%E4%BA%BF%E9%87%87%E8%B4%ADGPU%E7%AE%97%E5%8A%9B%E6%9D%BF%E5%8D%A1%22%7D&rank=&style_id=40132&topic_id=7706163130640204338",
+      "ts": 1794269858,
       "source": "今日热榜"
     },
     {
       "title": "谷歌被曝向英伟达发起挑战",
-      "summary": "热度 48744176",
-      "url": "https://www.toutiao.com/trending/7706149026655109641/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706149026655109641%22%2C%22hot_board_impr_id%22%3A%2220261110080153D962A727E57D418300EA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%B0%B7%E6%AD%8C%E8%A2%AB%E6%9B%9D%E5%90%91%E8%8B%B1%E4%BC%9F%E8%BE%BE%E5%8F%91%E8%B5%B7%E6%8C%91%E6%88%98%22%7D&rank=&style_id=40132&topic_id=7706149026655109641",
-      "ts": 1794268914,
+      "summary": "热度 45236552",
+      "url": "https://www.toutiao.com/trending/7706149026655109641/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706149026655109641%22%2C%22hot_board_impr_id%22%3A%22202611100817373CF32665DBB2F020C590%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%B0%B7%E6%AD%8C%E8%A2%AB%E6%9B%9D%E5%90%91%E8%8B%B1%E4%BC%9F%E8%BE%BE%E5%8F%91%E8%B5%B7%E6%8C%91%E6%88%98%22%7D&rank=&style_id=40132&topic_id=7706149026655109641",
+      "ts": 1794269858,
       "source": "今日热榜"
     },
     {
