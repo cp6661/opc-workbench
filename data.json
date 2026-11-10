@@ -1,21 +1,21 @@
 {
-  "updateTime": "2026-11-09 08:17:48",
-  "updateTs": 1794183468,
-  "date": "2026-11-09",
+  "updateTime": "2026-11-10 08:01:54",
+  "updateTs": 1794268914,
+  "date": "2026-11-10",
   "total": 30,
   "ai_news": [
     {
-      "title": "神级 Skill，让 AI 用 HTML 代替 Markdown 回复",
-      "summary": "一个非常有趣又实用的 Skill answer-me-with-html，让 AI 用 HTML 代替 Markdown 进行回复。 话不多说，先来看看效果。 如图，左侧是 AI 的回复，右侧是通过",
-      "url": "https://juejin.cn/post/7704902910831853587",
-      "ts": 1793938741,
+      "title": "HarmonyOS ArkUI Dialog 复用 用 @CustomDialog + enum type 做多类型统一管理的做法",
+      "summary": "鸿蒙 ArkUI 的 Dialog 系统提供两类：promptAction.showDialog 简单 + 系统外观；@CustomDial",
+      "url": "https://juejin.cn/post/7705621037036421120",
+      "ts": 1794138048,
       "source": "掘金·AI热文"
     },
     {
-      "title": "LobeHub 是真的夯，简直 Super-Agent 最佳实现。",
-      "summary": "上一篇内容《通了个宵，终于把 Super-Agent 架构玩明白了》发出来之后，大家认可度比较高，同时也有不少小伙伴在后台留言问到 DeepSeek Harness 的这套 Super-Agent 机",
-      "url": "https://juejin.cn/post/7704864028610773027",
-      "ts": 1793955666,
+      "title": "LangChain ToolRuntime 入门：context、state 与 store 的实际用法",
+      "summary": "1. ToolRuntime 是什么 ToolRuntime 是 LangChain 执行工具时自动传入的运行对象。 工具参数分为两类： 普通参数：模型根据用户问题填写，例如 keyword； run",
+      "url": "https://juejin.cn/post/7705623263632457738",
+      "ts": 1794191302,
       "source": "掘金·AI热文"
     },
     {
@@ -26,46 +26,39 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "实测 agent-desktop：AI 控制桌面不截图、不占鼠标键盘，连点 55 次计算器 0 失误",
-      "summary": "实测 Vercel Labs 的 agent-desktop 1.2.0：通过无障碍树实现 0 截图、不抢鼠标的桌面控制，连按 55 次计算器 0 失误，附完整对比数据。",
-      "url": "https://juejin.cn/post/7704923158558621750",
-      "ts": 1793964393,
+      "title": "AI 写页面像说明书，修 Bug 像贴膏药？把这两句话写进 AGENTS.md",
+      "summary": "用 Agent 写页面，有一种返工特别烦：功能基本对了，页面上却多了一堆你没让它写的东西。 邮箱输入框下面写着“请在此输入您的邮箱地址”，保存按钮旁边写着“点击后将保存当前信息”，表单上方再来一句“请",
+      "url": "https://juejin.cn/post/7705724831249432591",
+      "ts": 1794132417,
       "source": "掘金·AI热文"
     },
     {
-      "title": "公交App上“还有2站，约5分钟”怎么实现？90%的人答错这道大厂面试题：GPS漂移、ETA不准、10万QPS热点读全拆透（附完整代码）",
-      "summary": "公交 APP 到站预估怎么实现？大厂后端高频场景题。基于 MQTT+Kafka+Flink+Redis 架构，解决 GPS 漂移、消息乱序、热点读放大、ETA 不准等痛点，含沿线距离模型、卡尔曼增量修",
-      "url": "https://juejin.cn/post/7704562619551072298",
-      "ts": 1793927810,
+      "title": "Lomo Agent：面向创作型、持续协作 Agent 的架构设计与工程实践",
+      "summary": "Lomo Agent 从构思到上线的架构设计与工程实践：任务组织、消息路由、持久化执行、异步生成、上下文工程、长期记忆、自主推进与共享创作工作区。",
+      "url": "https://juejin.cn/post/7705330413946093583",
+      "ts": 1794116814,
       "source": "掘金·AI热文"
     },
     {
-      "title": "电商视觉要被 Agent 重做了：一个平台跑通主图、详情页、实拍、复刻和视频",
-      "summary": "电商视觉要被 Agent 重做了：一个平台跑通主图、详情页、实拍、复刻和视频 做电商的朋友，大概都经历过这样的循环： 找外包做一套主图，报价 800 起，等 3 天，改 5 轮； 详情页要 12 层，",
-      "url": "https://juejin.cn/post/7704728503446503467",
-      "ts": 1793936729,
+      "title": "让 Codex 自己查账：一个省 token 的小技巧",
+      "summary": "最近我发现一个挺实用的小技巧：让 Codex 自己回顾最近的运行记录，分析哪些地方在浪费 token。 本文同步发布于 AI Coding 指北。 关于 Codex 会员，我经常去chong-zhen",
+      "url": "https://juejin.cn/post/7705724831249481743",
+      "ts": 1794133389,
       "source": "掘金·AI热文"
     },
     {
-      "title": "万字长文！DeepSeek Super-agent × 企业知识库架构深度拆解与落地实践",
-      "summary": "最近几年我们一直聚焦于研发 AI 产品，也一直在账号里给大家分享高价值的 AI 开源项目。DeepSeek Harness 团队 10 月底开源的 Super-agent架构设计与原型实现目标。",
-      "url": "https://juejin.cn/post/7704587408075718665",
-      "ts": 1793928471,
+      "title": "你的能力正在被重新定价：AI 时代程序员资产重估指南",
+      "summary": "你的能力正在被重新定价：AI 时代程序员资产重估指南 关于 AI 和程序员，市面上有两种声音。 一种说：AI 什么都能写，程序员要完了。 另一种说：AI 只是工具，该写的代码还得人写。 这两种说法都太",
+      "url": "https://juejin.cn/post/7705618278807289910",
+      "ts": 1794154000,
       "source": "掘金·AI热文"
     },
     {
-      "title": "TanStarter，从搭建到支付，一步到位开始赚美元",
-      "summary": "在我们感觉周围风平浪静的时刻，其实出海赚美元已经如火如荼。 尤其是 AI 日新月异的进化中，很多以前做不了的业务，写不好的功能，做不出的设计，都通通不在话下。 很多人说，国内太卷了，你写了个东西刚冒头",
-      "url": "https://juejin.cn/post/7704562619550941226",
-      "ts": 1793927347,
+      "title": "被杀掉之后：我把 Android 的「唤起 + 常驻」重做了一遍",
+      "summary": "从一条短信链接点进来，到锁屏十分钟之后进程还在不在，中间其实是一整套东西。这篇把它从头拆到尾，顺带把我用 Trae 落地时发过的提示词原样贴出来。",
+      "url": "https://juejin.cn/post/7705419801828573234",
+      "ts": 1794057986,
       "source": "掘金·AI热文"
-    },
-    {
-      "title": "温度 Temperature",
-      "summary": "控制输出随机性的参数，越高越有创意，越低越稳定。",
-      "url": "",
-      "source": "AI 基础",
-      "ts": 0
     },
     {
       "title": "嵌入 Embedding",
@@ -108,6 +101,13 @@
       "url": "",
       "source": "AI 基础",
       "ts": 0
+    },
+    {
+      "title": "文生视频",
+      "summary": "根据文字生成视频，如 Sora、可灵、即梦。",
+      "url": "",
+      "source": "AI 基础",
+      "ts": 0
     }
   ],
   "tech_news": [
@@ -119,45 +119,10 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "集中式与分布式怎么选：从订单读写看 KingbaseES 的架构边界",
-      "summary": "以订单系统为例，一笔付款会扣账户余额、写一条流水、更新订单状态；月末报表则可能按日期统计所有租户的订单。前者要求几项变更一起提交，后者关心查询会覆盖多大范围。",
-      "url": "https://juejin.cn/post/7704995965740728360",
-      "ts": 1794059211,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "她是世界上第一位程序员，写下了人类第一行代码，但却因偏执的信任数学计算而早逝",
-      "summary": "她是世界上第一位程序员。 但少有人知道她是拜伦的女儿，但她的母亲却想要用数学的理性，扼杀她骨子里诗歌的浪漫。 最后浪漫和理性在她身上疯狂共生，她以远见的卓识看见了机器不止会算...",
-      "url": "https://juejin.cn/post/7704626540621971471",
-      "ts": 1793946499,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "程序员 1v1 访谈系列第十二期：普通人没有核心竞争力",
-      "summary": "大家好，我是双越。我最近正在搞一个《程序员 1v1 访谈系列》即和我 1v1 微信语音或文字聊天，分享你的状态和困惑，我给出建议。以下是第 12 位沟通者的主要内容，分享出来供大家参考。",
-      "url": "https://juejin.cn/post/7704557568358170624",
-      "ts": 1793926638,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "没有写一行代码：我用 Codex 制作 了一个 3D 智慧展厅可视化大屏",
-      "summary": "在前面的智慧农业和智慧高速实践里，我已经把“调研、出图、拆素材、建模、网页化”这条链路走了一遍。这次，我把场景换到了企业展厅。 室内场景给我的第一个感受，是细节更藏不住了。园区可以先看建筑体量和道路关",
-      "url": "https://juejin.cn/post/7704594117820596260",
-      "ts": 1793925534,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "Flutter Impeller Vulkan 内存持续上涨，问题没想到是文字阴影",
-      "summary": "最近 Flutter 的 #195323 挺有意思，用户最初发现的是，Flame 游戏里十来个带模糊阴影的 HUD 文字，只要每帧重绘，Native Heap 就一直往上涨，27 分钟从 34 MB",
-      "url": "https://juejin.cn/post/7704580987242872847",
-      "ts": 1793925820,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "Vue 编译器换掉 source map，快了三四成",
-      "summary": "Vue 的核心仓库里有个还在讨论中的 PR，把编译器的 source map 换了一套做法，CPU 省掉三成左右，内存省掉三分之一，顺手修掉十几个报错指错行的问题。 提这个 PR 的是 johnson",
-      "url": "https://juejin.cn/post/7704923158558867510",
-      "ts": 1793975781,
+      "title": "永别了，程序员！(转）",
+      "summary": "我们这一代程序员是幸福的。 1995年以来，互联网的普及迅速打破了生产、流通、消费、服务等所有环节的效率壁垒，全球有史以来最大规模的信息化转型，让每一头会写代码的“猪”都在风口里飞了起来。 2001年",
+      "url": "https://juejin.cn/post/7705987138957328427",
+      "ts": 1794194616,
       "source": "掘金·技术热文"
     },
     {
@@ -168,50 +133,85 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "线程",
-      "summary": "进程内的执行单元，一个进程可有多个线程并行工作。",
+      "title": "Flutter 下 AOT 一个你怎么都想不出来的 Bug ，JIT 正常的计算，在 AOT 居然算错了",
+      "summary": "最近有个 dart-lang/sdk#64878 的 Bug ，太抽象了，和我最近遇到的问题一样抽象，同一段合法的 Dart 数值计算代码，Debug 运行正常，AOT 编译后居然可能直接崩溃，或者不",
+      "url": "https://juejin.cn/post/7705608480665337882",
+      "ts": 1794186241,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "栗子前端技术周刊第 153 期 - Vitest 5.1、Remix v3.2、Node.js 27 Alpha...",
+      "summary": "🌰栗子前端技术周刊第 153 期 (2026.11.02 - 2026.11.08)：浏览前端一周最新消息，学习国内外优秀文章，让我们保持对前端的好奇心。 📰 技术资讯 Vitest 5.1：Vite",
+      "url": "https://juejin.cn/post/7705724434535661609",
+      "ts": 1794185145,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "Meta 开源了一个 AI Native 组件库：Astryx，150+ React 组件，专为 AI Agent 而设计",
+      "summary": "Meta 开源 Astryx，将 8 年内部设计系统经验带给社区。150 多个 React 组件、主题系统和 CLI 协同工作，让 AI Agent 也能理解并规范地构建 UI。",
+      "url": "https://juejin.cn/post/7704982591657721866",
+      "ts": 1794034141,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "东方新能拟斥资超9亿采购GPU算力板卡",
+      "summary": "热度 72717766",
+      "url": "https://www.toutiao.com/trending/7706163130640204338/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706163130640204338%22%2C%22hot_board_impr_id%22%3A%2220261110080153D962A727E57D418300EA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%9C%E6%96%B9%E6%96%B0%E8%83%BD%E6%8B%9F%E6%96%A5%E8%B5%84%E8%B6%859%E4%BA%BF%E9%87%87%E8%B4%ADGPU%E7%AE%97%E5%8A%9B%E6%9D%BF%E5%8D%A1%22%7D&rank=&style_id=40132&topic_id=7706163130640204338",
+      "ts": 1794268914,
+      "source": "今日热榜"
+    },
+    {
+      "title": "谷歌被曝向英伟达发起挑战",
+      "summary": "热度 48744176",
+      "url": "https://www.toutiao.com/trending/7706149026655109641/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706149026655109641%22%2C%22hot_board_impr_id%22%3A%2220261110080153D962A727E57D418300EA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%B0%B7%E6%AD%8C%E8%A2%AB%E6%9B%9D%E5%90%91%E8%8B%B1%E4%BC%9F%E8%BE%BE%E5%8F%91%E8%B5%B7%E6%8C%91%E6%88%98%22%7D&rank=&style_id=40132&topic_id=7706149026655109641",
+      "ts": 1794268914,
+      "source": "今日热榜"
+    },
+    {
+      "title": "API",
+      "summary": "应用程序接口，让不同软件之间互相调用功能或数据。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "文件系统",
-      "summary": "管理文件如何存储、命名、组织的系统，如 NTFS、ext4。",
+      "title": "JSON",
+      "summary": "一种轻量数据格式，用键值对组织数据，前后端通用。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "HTTP",
-      "summary": "网页传输协议，浏览器与服务器通信的基础。",
+      "title": "数据结构",
+      "summary": "组织和存储数据的方式，如数组、链表、树。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "HTTPS",
-      "summary": "加密版的 HTTP，数据传输更安全，网站标配。",
+      "title": "数组",
+      "summary": "连续存储的一组同类型数据，按下标快速访问。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "IP 地址",
-      "summary": "网络中设备的唯一标识，就像门牌号。",
+      "title": "链表",
+      "summary": "用指针串联的节点序列，插入删除方便，随机访问慢。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "DNS",
-      "summary": "域名解析系统，把域名（如 juejin.cn）翻译成 IP 地址。",
+      "title": "栈",
+      "summary": "后进先出（LIFO）的结构，像一摞盘子。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "客户端-服务器",
-      "summary": "客户端发请求、服务器返回结果的经典架构。",
+      "title": "队列",
+      "summary": "先进先出（FIFO）的结构，像排队。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
