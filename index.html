@@ -104,6 +104,7 @@ body{
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-bottom:14px}
 .card-title{font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:12px}
 .card-title .hint{font-weight:400;font-size:11.5px;color:var(--ink-3)}
+#planDateTxt{margin-left:auto;text-align:right;font-size:11px;line-height:1.3;max-width:62%}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:860px){.grid2{grid-template-columns:1fr}}
 .section-head-title{
@@ -373,7 +374,7 @@ textarea:focus{border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-50)}
       <span class="ico">💧</span><span class="txt">喝水打卡</span><span class="badge" id="waterBadge">0ml</span>
     </div>
 
-    <div class="sidebar-footer">数据本地存储 · 隐私安全 · v22</div>
+    <div class="sidebar-footer">数据本地存储 · 隐私安全 · v23</div>
   </aside>
 
   <main class="main">
@@ -884,7 +885,34 @@ function renderPlan(){
     : '<div class="empty" style="padding:18px 0">今天还没有安排，加一条吧</div>';
   const doneN = list.filter(p=>p.done).length;
   document.getElementById('planBadge').textContent = doneN + '/' + list.length;
+  renderPlanHeader();
 }
+/* 卡片右上角显示：日期 · 周几 · 来源（自动套用作息表 / 已手动调整） */
+function renderPlanHeader(){
+  const el = document.getElementById('planDateTxt');
+  if(!el) return;
+  const d = new Date();
+  const wk = '周' + WEEK_CN[weekdayIdx()];
+  el.textContent = fmtDate(d) + ' · ' + wk + (getPlan() ? ' · 已手动调整' : ' · 自动套用作息表');
+}
+
+/* ---- 跨天自动切换：过了 0 点（或长时间没关页面）自动换成当天星期的作息表 ---- */
+let dayStamp = todayKey();
+function checkDayRollover(){
+  const k = new Date().toDateString();
+  if(k === dayStamp) return;
+  dayStamp = k;
+  const d = new Date();
+  const wk = '周' + WEEK_CN[weekdayIdx()];
+  const side = document.getElementById('sideDate');
+  if(side) side.textContent = d.getFullYear() + '年' + (d.getMonth()+1) + '月' + d.getDate() + '日 ' + wk;
+  renderPlan();
+  renderGoals();
+  toast('🔄 新的一天，已自动切换到' + wk + '的作息表', 0);
+}
+setInterval(checkDayRollover, 60 * 1000);
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) checkDayRollover(); });
+window.addEventListener('focus', checkDayRollover);
 
 /* ---- 每周固定安排编辑面板 ---- */
 let curTplDay = 0;
