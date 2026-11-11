@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-11-11 18:50:36",
-  "updateTs": 1794394236,
+  "updateTime": "2026-11-11 18:58:06",
+  "updateTs": 1794394686,
   "date": "2026-11-11",
   "total": 30,
   "ai_news": [
@@ -47,17 +47,17 @@
       "source": "掘金·AI热文"
     },
     {
+      "title": "MCP 协议会成为前端 AI 工程的标准接口吗？",
+      "summary": "2026 年了，AI 编码工具已经满天飞——Cursor、Claude Code、Codex、各种 IDE 插件。但每次让它帮我写一个业务组件，每次对话死循环来回三四轮，不如我自己写！",
+      "url": "https://juejin.cn/post/7706354193473011775",
+      "ts": 1794298164,
+      "source": "掘金·AI热文"
+    },
+    {
       "title": "永别了，程序员！(转）",
       "summary": "我们这一代程序员是幸福的。 1995年以来，互联网的普及迅速打破了生产、流通、消费、服务等所有环节的效率壁垒，全球有史以来最大规模的信息化转型，让每一头会写代码的“猪”都在风口里飞了起来。 2001年",
       "url": "https://juejin.cn/post/7705987138957328427",
       "ts": 1794194616,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "HarmonyOS ArkTS 把组件截图保存成 PNG 再调系统分享面板的做法",
-      "summary": "大家好啊，前段时间做了个 MBTI 梗化测试 app，想加个\"结果分享\"功能——用户测完 16 人格，截图给朋友看。听起来简单，真做下去发现要串三段 API：",
-      "url": "https://juejin.cn/post/7706345830358695971",
-      "ts": 1794358927,
       "source": "掘金·AI热文"
     },
     {
@@ -112,6 +112,13 @@
   ],
   "tech_news": [
     {
+      "title": "HarmonyOS ArkTS 把组件截图保存成 PNG 再调系统分享面板的做法",
+      "summary": "大家好啊，前段时间做了个 MBTI 梗化测试 app，想加个\"结果分享\"功能——用户测完 16 人格，截图给朋友看。听起来简单，真做下去发现要串三段 API：",
+      "url": "https://juejin.cn/post/7706345830358695971",
+      "ts": 1794358927,
+      "source": "掘金·技术热文"
+    },
+    {
       "title": "鸿蒙 ArkTS 独立开发者的项目结构 model / dao / viewmodel / page / common 的分层",
       "summary": "做了一堆鸿蒙 app 之后发现，项目第一天的目录结构 决定后 90 天开发顺不顺。走通几种结构后，总结出适合独立开发者的分层：model",
       "url": "https://juejin.cn/post/7705995320547278888",
@@ -151,13 +158,6 @@
       "summary": "混元 Hy4 正式版联合 WorkBuddy 深度实测，详解视觉理解、前端与 3D 工程、Computer Use 等跑分提升，实战欧姆定律 Vibe 科普视频、治愈系绵羊牧场、手绘奶茶流程图等。",
       "url": "https://juejin.cn/post/7705988547135717386",
       "ts": 1794211162,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "Event Loop 这篇你看完就不用再看别的了！",
-      "summary": "多数Event Loop讲解止步于面试题，未涉及浏览器渲染流水线。文章按16.6ms一帧的时序拆解宏任务、微任务、requestAnimationFrame、样式布局绘制合成及requestIdleCallback，解释微任务阻塞渲染、DO",
-      "url": "https://juejin.cn/post/7705651336889696310",
-      "ts": 1794188682,
       "source": "掘金·技术热文"
     },
     {
