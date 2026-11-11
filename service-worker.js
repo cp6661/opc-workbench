@@ -1,5 +1,5 @@
 /* 一人公司工作台 - Service Worker（离线缓存） */
-const CACHE = 'opc-v22';
+const CACHE = 'opc-v23';
 const ASSETS = [
   './',
   './index.html',
