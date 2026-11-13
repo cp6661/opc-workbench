@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-11-13 08:08:55",
-  "updateTs": 1794528535,
+  "updateTime": "2026-11-13 08:25:57",
+  "updateTs": 1794529557,
   "date": "2026-11-13",
   "total": 30,
   "ai_news": [
@@ -154,17 +154,17 @@
       "source": "掘金·技术热文"
     },
     {
+      "title": "科创半导体ETF华夏举牌安集科技",
+      "summary": "热度 342531",
+      "url": "https://www.toutiao.com/trending/7707190469578506803/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227707190469578506803%22%2C%22hot_board_impr_id%22%3A%222026111308255740DFC9481DE9B0834949%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%A7%91%E5%88%9B%E5%8D%8A%E5%AF%BC%E4%BD%93ETF%E5%8D%8E%E5%A4%8F%E4%B8%BE%E7%89%8C%E5%AE%89%E9%9B%86%E7%A7%91%E6%8A%80%22%7D&rank=&style_id=40132&topic_id=7707190469578506803",
+      "ts": 1794529557,
+      "source": "今日热榜"
+    },
+    {
       "title": "再见了 Typora",
       "summary": "这篇文章写起来很沉痛，因为我这就要和我用了 7 年的编辑器 Typora 说再见了。 我 19 年就开始用 Typora 了，当时 Typora 还不收费，当时我还不知道 markdown 格式是什么",
       "url": "https://juejin.cn/post/7706418656682803200",
       "ts": 1794361647,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "Flutter 3.50 & Dart 3.14  发布，快来看看有什么更新吧",
-      "summary": "这次 Flutter 3.50 & Dart 3.14 感觉就像是在在把历史包袱扔掉，感觉还是一个挺不错的版本，别天天说我发 Flutter 问题了，今天打鸡血： SDK 的 Material 与 C",
-      "url": "https://juejin.cn/post/7706740008510963722",
-      "ts": 1794437454,
       "source": "掘金·技术热文"
     },
     {
