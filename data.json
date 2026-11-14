@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-11-14 08:01:51",
-  "updateTs": 1794614511,
+  "updateTime": "2026-11-14 08:21:24",
+  "updateTs": 1794615684,
   "date": "2026-11-14",
   "total": 30,
   "ai_news": [
@@ -40,17 +40,17 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "Flutter 大小核优化又被回滚，然后又开新提案？",
-      "summary": "上周的 #195071 我们才聊过，在 Snapdragon 8 Elite 这类 Little Core 的 CPU 上，然后没想道后面还能继续折腾，类似的问题其实不止一个： Android： Sn",
-      "url": "https://juejin.cn/post/7706580144768860198",
-      "ts": 1794359029,
-      "source": "掘金·AI热文"
-    },
-    {
       "title": "GPT6.2Astra也很强啊，国模...！",
       "summary": "昨天测了 Qwen4，当前国模最新的代表性模型。整体表现中规中矩，不是特别出色。 从当下来看，作为国内的顶级模型，和国外的顶级模型 Fable5.2 之间，已经有非常大的差距了。 有人说，除了 Cla",
       "url": "https://juejin.cn/post/7707227810214150178",
       "ts": 1794560113,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "Flutter 大小核优化又被回滚，然后又开新提案？",
+      "summary": "上周的 #195071 我们才聊过，在 Snapdragon 8 Elite 这类 Little Core 的 CPU 上，然后没想道后面还能继续折腾，类似的问题其实不止一个： Android： Sn",
+      "url": "https://juejin.cn/post/7706580144768860198",
+      "ts": 1794359029,
       "source": "掘金·AI热文"
     },
     {
