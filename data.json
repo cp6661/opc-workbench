@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-11-17 13:10:52",
-  "updateTs": 1794892252,
+  "updateTime": "2026-11-17 13:15:10",
+  "updateTs": 1794892510,
   "date": "2026-11-17",
   "total": 30,
   "ai_news": [
@@ -40,17 +40,17 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "我花了一周时间，看AI公司怎么\"管\"AI，结果越看越后背发凉",
-      "summary": "最近有个事儿挺有意思。 一群非营利机构把OpenAI、谷歌、Anthropic、Meta全告了，要求法院直接叫停前沿AI的研发。理由很直白：你们自己高管都公开说超级AI有文明级风险，结果转头继续迭代模",
-      "url": "https://juejin.cn/post/7707927071724535817",
-      "ts": 1794669000,
-      "source": "掘金·AI热文"
-    },
-    {
       "title": "连AI自己也不愿意维护自己的屎山代码",
       "summary": "一句“你是代码库的所有者和长期维护者”，为什么能让AI更主动地合并重复代码？本文解析这条Claude编程提示词如何影响代码重构，以及随之增加的Token成本和功能改动风险。",
       "url": "https://juejin.cn/post/7708565080221040683",
       "ts": 1794820089,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "我花了一周时间，看AI公司怎么\"管\"AI，结果越看越后背发凉",
+      "summary": "最近有个事儿挺有意思。 一群非营利机构把OpenAI、谷歌、Anthropic、Meta全告了，要求法院直接叫停前沿AI的研发。理由很直白：你们自己高管都公开说超级AI有文明级风险，结果转头继续迭代模",
+      "url": "https://juejin.cn/post/7707927071724535817",
+      "ts": 1794669000,
       "source": "掘金·AI热文"
     },
     {
@@ -161,10 +161,10 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "深圳街头上演人形机器人舞蹈大秀",
-      "summary": "热度 18961265",
-      "url": "https://www.toutiao.com/trending/7708756375739941385/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227708756375739941385%22%2C%22hot_board_impr_id%22%3A%2220261117131052A19B021F1E25EA54FB86%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%B7%B1%E5%9C%B3%E8%A1%97%E5%A4%B4%E4%B8%8A%E6%BC%94%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%88%9E%E8%B9%88%E5%A4%A7%E7%A7%80%22%7D&rank=&style_id=40132&topic_id=7708756375739941385",
-      "ts": 1794892252,
+      "title": "英伟达迎来思科时刻了吗",
+      "summary": "热度 19036364",
+      "url": "https://www.toutiao.com/trending/7708977590077230611/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227708977590077230611%22%2C%22hot_board_impr_id%22%3A%22202611171315095ED8D15F13D6491F6AC8%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%8B%B1%E4%BC%9F%E8%BE%BE%E8%BF%8E%E6%9D%A5%E6%80%9D%E7%A7%91%E6%97%B6%E5%88%BB%E4%BA%86%E5%90%97%22%7D&rank=&style_id=40132&topic_id=7708977590077230611",
+      "ts": 1794892510,
       "source": "今日热榜"
     },
     {
