@@ -1,21 +1,21 @@
 {
-  "updateTime": "2026-11-18 12:43:37",
-  "updateTs": 1794977017,
-  "date": "2026-11-18",
+  "updateTime": "2026-11-19 12:23:31",
+  "updateTs": 1795062211,
+  "date": "2026-11-19",
   "total": 30,
   "ai_news": [
-    {
-      "title": "AI帮我生成了一个炫酷的3D大屏，上线3天就卡崩了",
-      "summary": "最近掘金上全是用 AI 写 3D 大屏、用 Three.js 做数字孪生园区的爽文。看着别人截出来的图，那叫一个丝滑，那叫一个科幻。 我看完热血沸腾。正好接了个内部物流仓储的数据大屏项目，我心想：现在",
-      "url": "https://juejin.cn/post/7708639137272102966",
-      "ts": 1794810774,
-      "source": "掘金·AI热文"
-    },
     {
       "title": "用了这 Skill，前端兄弟都觉得好",
       "summary": "AI 写完页面，还得自己截图、对照设计稿找偏差？我把 Figma 读稿、素材下载、页面实现和截图差分串成了一套工作流。给出设计节点和验收地址，AI 就能反复对比、定位问题并修正。本文分享这套用了近半年",
       "url": "https://juejin.cn/post/7708682938188578854",
       "ts": 1794877690,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "AI帮我生成了一个炫酷的3D大屏，上线3天就卡崩了",
+      "summary": "最近掘金上全是用 AI 写 3D 大屏、用 Three.js 做数字孪生园区的爽文。看着别人截出来的图，那叫一个丝滑，那叫一个科幻。 我看完热血沸腾。正好接了个内部物流仓储的数据大屏项目，我心想：现在",
+      "url": "https://juejin.cn/post/7708639137272102966",
+      "ts": 1794810774,
       "source": "掘金·AI热文"
     },
     {
@@ -40,10 +40,10 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "代码越来越便宜，判断力越来越贵：AI 时代的 Android 架构与协程避坑指南",
-      "summary": "AI 正在改变软件开发。 以前，一个程序员可能需要花半天时间写一个功能，现在把需求描述清楚，AI 几分钟就能生成一套代码。 以前需要搜索半天的 API，现在 AI 可以直接告诉你怎么用。 以前需要自己",
-      "url": "https://juejin.cn/post/7707957158462357546",
-      "ts": 1794739976,
+      "title": "GPT-6.2 Astra 发布了，但口碑崩了。。。",
+      "summary": "今天凌晨的时候，GPT 发布了 GPT-6.2 Astra ，一个很奇怪的现象是，我竟然没在时间线首页刷到 GPT 发布模型的帖子，不知道是不是和模型被吐槽太多了有关系。。。 这次是 GPT-6.2",
+      "url": "https://juejin.cn/post/7709318936996298790",
+      "ts": 1794992912,
       "source": "掘金·AI热文"
     },
     {
@@ -54,18 +54,11 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "DeepSeek Harness 实战与架构解析：让 Agent 从“会聊”到“能交付”",
-      "summary": "DSH（命令行叫 dsh）是 DeepSeek 推出的 Agent 运行环境。它给模型提供工具、沙箱、记忆和可组装的插件系统，让模型在一个受约束的执行环境里把任务从开始做到交付。本文从一次“整理周报”",
-      "url": "https://juejin.cn/post/7708058421904392242",
-      "ts": 1794752047,
+      "title": "Claude Code 过夜跑长任务实战：tmux、权限、验收，以及我为什么换到 ApexOne",
+      "summary": "让Claude Code过夜无人值守运行的方法：用tmux保持进程独立于会话，配置权限模式与规则防止误操作，通过CLAUDE.md和明确验收标准交代任务，辅以非交互模式、完成通知及机器选型建议。",
+      "url": "https://juejin.cn/post/7708760087800086563",
+      "ts": 1794895568,
       "source": "掘金·AI热文"
-    },
-    {
-      "title": "Copilot",
-      "summary": "智能编程助手，帮你补全代码、写函数、查错误。",
-      "url": "",
-      "source": "AI 基础",
-      "ts": 0
     },
     {
       "title": "提示工程",
@@ -108,35 +101,35 @@
       "url": "",
       "source": "AI 基础",
       "ts": 0
+    },
+    {
+      "title": "Temperature 采样温度",
+      "summary": "控制生成随机性的参数，越低越确定，越高越发散有创意。",
+      "url": "",
+      "source": "AI 基础",
+      "ts": 0
     }
   ],
   "tech_news": [
     {
-      "title": "HarmonyOS ArkTS 做动画 FPS 自适应降级的滞后窗口做法",
-      "summary": "鸿蒙上做 GPU 粒子渲染遇到一个新问题：同一套代码在旗舰机上 60fps 很稳，但到千元机上掉到 3040fps，低端机型用户看到的粒子动画像幻灯片",
-      "url": "https://juejin.cn/post/7707938781526065167",
-      "ts": 1794743459,
+      "title": "苹果开发者注意，请在2027年1月31日前完成合规验证，否则中国区可能下架",
+      "summary": "一、发生了什么 苹果后台本周突然发布了两项针对中国大陆AI应用的合规要求。注意，虽然是针对AI应用的，但仍需要所有在中国大陆上架应用的开发者在苹果进行合规确认。 ——不在中国大陆上架的应用不受影响，可",
+      "url": "https://juejin.cn/post/7709024949851275307",
+      "ts": 1794922259,
       "source": "掘金·技术热文"
     },
     {
-      "title": "给前端开发者的 100 个设计参考网站",
-      "summary": "按九类整理一百个设计参考网站，涵盖真实产品流程、网页动效、字体与配色，并以通知设置页示范如何把视觉参考转成可验证的交互和代码。",
-      "url": "https://juejin.cn/post/7708343970518745107",
-      "ts": 1794760955,
+      "title": "中年程序员，开始喜欢做减法",
+      "summary": "一个朋友给我发消息说，有个老板打算做出海业务，要做个网站，问我接不接。我说可以聊聊，现在借助AI，实现企业站很容易。 第二天，朋友作为中间人，我们见面……",
+      "url": "https://juejin.cn/post/7709049532556017673",
+      "ts": 1794961182,
       "source": "掘金·技术热文"
     },
     {
-      "title": "Flutter Analyzer 系列坑推进，必看，AI 时代这玩意最吃你内存",
-      "summary": "很多人现在已经不打开 Android Studio 了吧，但是还是发现电脑内存给吃光了？很大概率这里面 Dart Analyzer 做出了很大贡献。 最近赶住的几条 Dart Analyzer 的 I",
-      "url": "https://juejin.cn/post/7708010764016517147",
-      "ts": 1794790795,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "AI 热点日报（2026-11-16）：黄仁勋或重返英伟达，华为发具身世界模型，ChatGPT Wallet打通支付",
-      "summary": "AI 热点日报（2026-11-16）：黄仁勋或重返英伟达，华为发具身世界模型，ChatGPT Wallet打通支付 模型与技术 1. 华为云发布首款昇腾原生具身世界模型CloudRobo WM1.2",
-      "url": "https://juejin.cn/post/7708030289726177334",
-      "ts": 1794792434,
+      "title": "面试了20个前端，我发现高薪的都不怎么拼“底层原理”",
+      "summary": "上个月，我作为前端负责人，帮公司面了20多个高级前端，要求3-5年经验。简历清一色的漂亮：React/Vue精通、手写Promise、研究过Vue3源码响应式、做过微前端、造过组件库轮子。 甚至有几个",
+      "url": "https://juejin.cn/post/7709222846370807827",
+      "ts": 1794973232,
       "source": "掘金·技术热文"
     },
     {
@@ -147,71 +140,78 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "AI 都会编程了，Java 何去何从",
-      "summary": "「你们后端还在写 Java？」 以前听到这句，我会有点奇怪。今年再听到，我反而想问一句：那你这行代码，是你写的，还是 AI 写的？ 说得再直白点，现在那些吵「Rust 会不会取代 Java」的人，自己",
-      "url": "https://juejin.cn/post/7708236158949408783",
-      "ts": 1794793579,
+      "title": "别拿 Chrome 跑通了就提测：把这段 AI 写的代码发到 Safari 上，我差点丢了工作",
+      "summary": "上周五下午，我看着测试妹子发来的企微截图，背后冷汗直冒。 截图里是客户发来的一段录屏：我们刚上线的营销活动页面，在 Chrome 和 Edge 上丝滑得像德芙，但在 iOS 的 Safari 里，页面",
+      "url": "https://juejin.cn/post/7708714089796091946",
+      "ts": 1794896613,
       "source": "掘金·技术热文"
     },
     {
-      "title": "ArkTS 没有 AbortController 怎么取消 setTimeout 链用自增 token 的做法",
-      "summary": "Web 和 Node 有 AbortController 做异步任务取消——signal 挂出去，abort 一调所有 listener 都停。ArkT",
-      "url": "https://juejin.cn/post/7708236158949425167",
-      "ts": 1794793594,
+      "title": "REA 靠边站，逆向圈又一新王诞生了",
+      "summary": "最近逆向工程和 AI 编程圈又迎来了一个极其亮眼的开源新项目，这个 GitHub 项目就是 craft-anything。 它的定位非常硬核：帮工程师彻底搞懂手头任何网站、应用或软件的底层结构与运行逻",
+      "url": "https://juejin.cn/post/7709320849258364938",
+      "ts": 1794982206,
       "source": "掘金·技术热文"
     },
     {
-      "title": "Flutter Native Interop 稳定了，Platform Channel 要退场了",
-      "summary": "Flutter 3.50 发布之后，Flutter Native Interop 也正是 stable 了，那接下来就是 Platform Channel 要直接退休了，感觉也就再过两个版本应该就差不",
-      "url": "https://juejin.cn/post/7708728039933624363",
-      "ts": 1794877122,
+      "title": "别再抄 Flutter 了：2026 年 Android / iOS / 小程序跨端架构选型的四本成本账",
+      "summary": "选跨端框架别看跑分，看四笔账——自定义组件账、硬件拓展账、性能优化账、长期维护账。这四本账的算法完全不同，混着算就一定会算错。",
+      "url": "https://juejin.cn/post/7708586194204147739",
+      "ts": 1794818335,
       "source": "掘金·技术热文"
     },
     {
-      "title": "幂等性",
-      "summary": "同一请求执行多次结果一致，是接口重试与消息重复消费的安全前提。",
+      "title": "华为Mate90 Air将于11月24日发布",
+      "summary": "热度 8651908",
+      "url": "https://www.toutiao.com/trending/7709676501730689574/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709676501730689574%22%2C%22hot_board_impr_id%22%3A%2220261119122331DF8112AD3C715A7C98D0%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%8E%E4%B8%BAMate90+Air%E5%B0%86%E4%BA%8E11%E6%9C%8824%E6%97%A5%E5%8F%91%E5%B8%83%22%7D&rank=&style_id=40132&topic_id=7709676501730689574",
+      "ts": 1795062211,
+      "source": "今日热榜"
+    },
+    {
+      "title": "动态规划",
+      "summary": "把问题拆成重叠子问题，记录子问题答案避免重复计算。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "限流算法",
-      "summary": "固定窗口、滑动窗口、令牌桶、漏桶，保护系统不被突发流量打垮。",
+      "title": "设计模式单例与工厂",
+      "summary": "单例保证全局唯一实例；工厂把对象创建逻辑与使用解耦。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "熔断与降级",
-      "summary": "依赖故障达阈值就快速失败避免雪崩；降级提供兜底方案保核心。",
+      "title": "面向接口编程",
+      "summary": "依赖抽象而非实现，降低耦合、方便替换与单元测试。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "CDN",
-      "summary": "把内容缓存到离用户最近的节点，降低延迟并减轻源站压力。",
+      "title": "Linux 常用命令",
+      "summary": "grep 查文本、awk 取列、sed 替换、top 看负载、ss 看连接。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "时间复杂度",
-      "summary": "衡量算法随数据规模的增长趋势，常见 O(1)、O(logn)、O(n)、O(nlogn)、O(n²)。",
+      "title": "网络分层模型",
+      "summary": "应用层、传输层、网络层、数据链路层、物理层，层层封装与解封。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "二叉树与平衡树",
-      "summary": "AVL、红黑树通过旋转维持平衡，保证查找插入稳定在 O(logn)。",
+      "title": "IP 与子网掩码",
+      "summary": "IP 定位主机，掩码划分网络位与主机位，决定是否同网段。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "堆",
-      "summary": "完全二叉树结构，堆顶是最大或最小值，用于优先队列和 TopK 问题。",
+      "title": "NAT",
+      "summary": "把内网私有地址转换为公网地址，缓解 IPv4 地址不足。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
