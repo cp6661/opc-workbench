@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-11-20 12:09:29",
-  "updateTs": 1795147769,
+  "updateTime": "2026-11-20 12:20:27",
+  "updateTs": 1795148427,
   "date": "2026-11-20",
   "total": 30,
   "ai_news": [
@@ -161,11 +161,11 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "分库分表要被淘汰了？",
-      "summary": "前言 不知道你有没有遇到过这种情况：业务数据量涨到几个亿，单表查询开始变慢，大家的第一反应可能是分库分表。 于是引入 ShardingSphere，把订单表拆成 64 片。 结果分片规则要维护、跨片查",
-      "url": "https://juejin.cn/post/7709495049776480294",
-      "ts": 1795055203,
-      "source": "掘金·技术热文"
+      "title": "华为Mate90和iPhone 18买谁更合适",
+      "summary": "热度 2599400",
+      "url": "https://www.toutiao.com/trending/7709864458872487978/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%229%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709864458872487978%22%2C%22hot_board_impr_id%22%3A%222026112012202799B363387F3F4AE6100C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%8E%E4%B8%BAMate90%E5%92%8CiPhone+18%E4%B9%B0%E8%B0%81%E6%9B%B4%E5%90%88%E9%80%82%22%7D&rank=&style_id=40132&topic_id=7709864458872487978",
+      "ts": 1795148427,
+      "source": "今日热榜"
     },
     {
       "title": "对称与非对称加密",
