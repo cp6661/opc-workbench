@@ -1,23 +1,9 @@
 {
-  "updateTime": "2026-11-22 11:30:05",
-  "updateTs": 1795318205,
-  "date": "2026-11-22",
+  "updateTime": "2026-11-23 11:53:36",
+  "updateTs": 1795406016,
+  "date": "2026-11-23",
   "total": 30,
   "ai_news": [
-    {
-      "title": "GPT6.2“买家秀”来了，吼吼呵呵！",
-      "summary": "OpenAI 最强模型的“买家秀”来了！ “卖家秀”看得很爽，各种效果非常好，让我对 GPT-6.2 Astra 有了一丝尊敬和期待。 然后，我看了一下网络口碑不是很好啊，主流媒体都是批评的态度，据说",
-      "url": "https://juejin.cn/post/7709526633031942186",
-      "ts": 1795066132,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "AI 热点日报（2026-11-19）：Anthropic 全球史上最大 IPO 上市，谷歌发布 Gemini 4 Neon",
-      "summary": "AI 热点日报（2026-11-19）：Anthropic 全球史上最大 IPO 上市，谷歌发布 Gemini 4 Neon 模型与技术 1. 谷歌发布 Gemini 4 Neon：主打编程与企业工作",
-      "url": "https://juejin.cn/post/7709679151842246697",
-      "ts": 1795071650,
-      "source": "掘金·AI热文"
-    },
     {
       "title": "这 3 年 AI Agent 到底进化了啥？万字大白话，一次讲透！",
       "summary": "从只会聊天的 ChatBot 到能自主干活的 Super Agent，一口气看懂 AI Agent 这 3 年是怎么进化的！ReAct、MCP、Skills、Loop、Subagent 等知识讲解",
@@ -26,46 +12,53 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "手搓 Agent（五）：学会翻书——RAG，先查资料再回答",
-      "summary": "资料多到读不完，换个说法又搜不到。这一篇讲 RAG：嵌入怎么把“意思相近”变成能算的数，建库和查询两条流水线，找不准时查哪三关，关键词和向量怎么合用，再把检索做成工具交给 Agent。附百行代码",
-      "url": "https://juejin.cn/post/7709755322558431242",
-      "ts": 1795085069,
+      "title": "不得了，Google 造反了，Opus 5.5 又被干了",
+      "summary": "哎，昨天 GPT-6.2 Astra 刚发完就遇阻了，但我实测了一天，我发现 GPT-6.2 Sol 的效果非常好，建议小伙伴们可以试试。 来不及为 GPT-6.2 Astra 哀悼了，接下来登场的是",
+      "url": "https://juejin.cn/post/7710170786309226511",
+      "ts": 1795255641,
       "source": "掘金·AI热文"
     },
     {
-      "title": "我又用 AI 做了个小程序：24 天，记录我这辈子认识的人",
-      "summary": "24 天，第二个小程序。一本只写给自己看的人物簿子，记生日、忌口和每次见面。顺便聊聊这次全程用 AI 做下来，它到底强在哪、又在哪翻了车。",
-      "url": "https://juejin.cn/post/7709711092017086464",
-      "ts": 1795140985,
+      "title": "别再搜「LangChain 教程」了——你学的 Chain 已经被判了死刑",
+      "summary": "求你别再搜「LangChain 教程」了——你学的 Chain 已经被判了死刑 先说个真事。 上周有个读者给我发消息：照着 2024 年的一篇爆款教程写了个 LLMChain，pip install",
+      "url": "https://juejin.cn/post/7709797595107147827",
+      "ts": 1795102660,
       "source": "掘金·AI热文"
     },
     {
-      "title": "用 unslop 拯救 AI 生成网页的塑料感，7 分钟重构落地实测",
-      "summary": "AI 生成的前端网页往往充满光斑、渐变与大圆角按钮。本文实测开源设计工具 unslop，通过审计和九轮微调，7 分钟内完成去塑料感重构。",
-      "url": "https://juejin.cn/post/7709697282351120426",
-      "ts": 1795087235,
+      "title": "自从吸上了 T3 Code ，爽感堪比 GTA-6",
+      "summary": "用 Coding Agent 这么久了，估计很多小伙伴都遇到过这种问题，平常开发或者办公会用到很多 Coding Agent ，不同 Agent 中的模型不一样，虽然你可以通过开源网关把许多模型接入到",
+      "url": "https://juejin.cn/post/7710577867138367551",
+      "ts": 1795337764,
       "source": "掘金·AI热文"
     },
     {
-      "title": "ai-code-review 全链路：让 AI 来审 AI 的代码",
-      "summary": "AI 写码远超人 review 的速度，我们把评审本身工程化：规则拆成团队底线+项目自定义，CI 跑 LLM 语义评审，结果分发评论、卡片、看板，评审意见 AI 自己修自己回。全链路拆解。",
-      "url": "https://juejin.cn/post/7709320811032100874",
-      "ts": 1794991399,
+      "title": "2026 GitHub 最火的 10 个视频制作与剪辑开源项目：AI 出片、代码生视频、无损剪辑怎么选（附实测截图）",
+      "summary": "2026 年，开源视频工具的格局发生了一次明显的代际切换。 过去这个赛道的主角是 FFmpeg、Shotcut 这类经典工具；现在 GitHub 榜单上增速最快的，是「输入一句话、自动出一条成片」的",
+      "url": "https://juejin.cn/post/7710123265189412904",
+      "ts": 1795225703,
       "source": "掘金·AI热文"
     },
     {
-      "title": "给Deepseek Harness装上插件市场，从此插件无忧",
-      "summary": "前阵子折腾 DeepSeek Harness（下面简称 DSH），想给 dsh web 装几个社区插件。",
-      "url": "https://juejin.cn/post/7709537202951585818",
-      "ts": 1795065579,
+      "title": "AI Agent 如何进入实时交易系统：货拉拉的三个实践与一套工程方法论",
+      "summary": "当 AI Agent 从“回答问题”走向“直接改变业务状态”，真正的挑战不再是模型能不能思考，而是它能否在实时交易系统里可靠地行动，并带来可衡量的业务结果。",
+      "url": "https://juejin.cn/post/7710060982517432356",
+      "ts": 1795166887,
       "source": "掘金·AI热文"
     },
     {
-      "title": "LoRA",
-      "summary": "低秩适配微调方法，只训练少量参数，显存占用小、成本低。",
-      "url": "",
-      "source": "AI 基础",
-      "ts": 0
+      "title": "豆包工作，3 个月，800 万，20 亿",
+      "summary": "豆包工作上线三个月交出亮眼成绩单：日活跃用户（DAU）突破 800 万，企业客户年度经常性收入（ARR）突破 20 亿元。从个人办公到企业落地，AI 工作助手的增长速度正在被重新定义。",
+      "url": "https://juejin.cn/post/7710069393502683178",
+      "ts": 1795168590,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "给 Agent 一张地图，而不是一座迷宫：前端 monorepo 目录结构重构实录",
+      "summary": "引言 当项目同时包含 Agent 应用和管理后台，且希望 AI Agent 能稳定参与迭代时，目录结构的设计目标会发生根本变化。传统目录结构服务的是\"人类开发者的协作与长期维护\"，而 AI 稳定迭代的",
+      "url": "https://juejin.cn/post/7710053374062608438",
+      "ts": 1795164883,
+      "source": "掘金·AI热文"
     },
     {
       "title": "量化",
@@ -108,16 +101,16 @@
       "url": "",
       "source": "AI 基础",
       "ts": 0
+    },
+    {
+      "title": "MoE 混合专家",
+      "summary": "每次推理只激活一部分专家网络，用更少算力撬动更大参数量。",
+      "url": "",
+      "source": "AI 基础",
+      "ts": 0
     }
   ],
   "tech_news": [
-    {
-      "title": "永别了，程序员！(转）",
-      "summary": "我们这一代程序员是幸福的。 1995年以来，互联网的普及迅速打破了生产、流通、消费、服务等所有环节的效率壁垒，全球有史以来最大规模的信息化转型，让每一头会写代码的“猪”都在风口里飞了起来。 2001年",
-      "url": "https://juejin.cn/post/7705987138957328427",
-      "ts": 1794194616,
-      "source": "掘金·技术热文"
-    },
     {
       "title": "HarmonyOS ArkTS 做 MBTI 风格 16 人格测评用 4 维签名字符串做分类的最小算法",
       "summary": "朴素做法：每道题存一个 \"维度\" + \"方向\" 字段，答完 20 题后遍历分数树做 ifelse 判断。16 个人格 = 16 个 ifelse 分支 +",
@@ -133,85 +126,92 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "Cloudflare 开源的这套神级安全审计 Skill 太好用了！",
-      "summary": "前两天刷到 Cloudflare 开源了一套给编程 Agent 用的安全审计 Skill，名字叫做 security-audit-skill。 我立马用自己的项目试了一波， Cloudflare 之前",
-      "url": "https://juejin.cn/post/7709755274685055003",
-      "ts": 1795091262,
+      "title": "彻底搞懂 JS 对象：从字面量、构造函数到原型链与包装类",
+      "summary": "彻底搞懂 JS 对象：从字面量、构造函数到原型链与包装类 学 JS 的时候，你大概率写过这样的代码： 奇怪吗？没报错，但属性也没加上。 再比如这两行： 看起来一模一样的东西，为什么一个相等、一个不相等",
+      "url": "https://juejin.cn/post/7710140388783603750",
+      "ts": 1795186156,
       "source": "掘金·技术热文"
     },
     {
-      "title": "太强了！三周冲到8.6k+ Star，免Root 免电脑，Mika 在后台替你操作所有App",
-      "summary": "前段时间在逛 GitHub 时，翻到一个项目：Mika，挺有意思，分享给大家。 这项目 10 月 29 号才开源，三周不到 star 攒到 8600 多，冲上 trendshift",
-      "url": "https://juejin.cn/post/7709758398561435684",
-      "ts": 1795135566,
+      "title": "JavaScript 作用域、闭包与对象",
+      "summary": "JavaScript 作用域、闭包与对象。从一个代码问题切入，由浅入深讲清三者的含义与关联，适合初学者当入门梳理通读。",
+      "url": "https://juejin.cn/post/7709802672979804198",
+      "ts": 1795102539,
       "source": "掘金·技术热文"
     },
     {
-      "title": "多啃苹果牙齿能变整齐？假的",
-      "summary": "热度 387912",
-      "url": "https://www.toutiao.com/trending/7710809097779760691/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710809097779760691%22%2C%22hot_board_impr_id%22%3A%2220261122113004950EEE403DC7AD2210C8%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A4%9A%E5%95%83%E8%8B%B9%E6%9E%9C%E7%89%99%E9%BD%BF%E8%83%BD%E5%8F%98%E6%95%B4%E9%BD%90%EF%BC%9F%E5%81%87%E7%9A%84%22%7D&rank=&style_id=40132&topic_id=7710809097779760691",
-      "ts": 1795318205,
+      "title": "尾言：关于前端工程架构设计的一些思考",
+      "summary": "前端架构设计没有统一的标准答案。结合个人项目经历，从工程设计、长期维护、业务变化、组织协作到 AI 时代的技术思考，探讨如何在技术理想与现实约束之间寻找平衡，构建适合自身业务、团队和项目长期发展的工程",
+      "url": "https://juejin.cn/post/7710037720588992563",
+      "ts": 1795155125,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "我的抓取脚本凭什么从不抢你的鼠标",
+      "summary": "我每天在电脑上跑几个抓数据的脚本。它们要开浏览器、要登录、要在页面里点来点去。 但它们从来不出现在屏幕上。不是藏起来了，是压根没有可见窗口——你唯一能察觉到的痕迹，是任务栏里多了一个图标。 这件事看起",
+      "url": "https://juejin.cn/post/7709987743643795499",
+      "ts": 1795153499,
+      "source": "掘金·技术热文"
+    },
+    {
+      "title": "鸿蒙智行问界新M8开启大规模交付",
+      "summary": "热度 2018729",
+      "url": "https://www.toutiao.com/trending/7710212370961944100/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710212370961944100%22%2C%22hot_board_impr_id%22%3A%222026112311533576529073DA92FE175325%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%B8%BF%E8%92%99%E6%99%BA%E8%A1%8C%E9%97%AE%E7%95%8C%E6%96%B0M8%E5%BC%80%E5%90%AF%E5%A4%A7%E8%A7%84%E6%A8%A1%E4%BA%A4%E4%BB%98%22%7D&rank=&style_id=40132&topic_id=7710212370961944100",
+      "ts": 1795406016,
       "source": "今日热榜"
     },
     {
-      "title": "华为推出星芒试水AI手机",
-      "summary": "热度 28811",
-      "url": "https://www.toutiao.com/trending/7710656315885882906/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710656315885882906%22%2C%22hot_board_impr_id%22%3A%2220261122113004950EEE403DC7AD2210C8%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%8E%E4%B8%BA%E6%8E%A8%E5%87%BA%E6%98%9F%E8%8A%92%E8%AF%95%E6%B0%B4AI%E6%89%8B%E6%9C%BA%22%7D&rank=&style_id=40132&topic_id=7710656315885882906",
-      "ts": 1795318205,
+      "title": "主播糟蹋千斤苹果仅愿赔6000元",
+      "summary": "热度 550167",
+      "url": "https://www.toutiao.com/trending/7710858139138556425/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710858139138556425%22%2C%22hot_board_impr_id%22%3A%222026112311533576529073DA92FE175325%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%BB%E6%92%AD%E7%B3%9F%E8%B9%8B%E5%8D%83%E6%96%A4%E8%8B%B9%E6%9E%9C%E4%BB%85%E6%84%BF%E8%B5%946000%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7710858139138556425",
+      "ts": 1795406016,
       "source": "今日热榜"
     },
     {
-      "title": "空值、日期、字符串：业务 SQL 里的函数先跑一遍",
-      "summary": "空值、日期、字符串：业务 SQL 里的函数先跑一遍 写业务 SQL 时，select * 很快就不够用了。列表字段要有显示名，金额要扣掉优惠，状态要转成中文，时间要格式化，备注里的空字符串要当成没有备",
-      "url": "https://juejin.cn/post/7710058428483780623",
-      "ts": 1795222163,
-      "source": "掘金·技术热文"
-    },
-    {
-      "title": "文件系统",
-      "summary": "管理文件如何存储、命名、组织的系统，如 NTFS、ext4。",
+      "title": "JSON",
+      "summary": "一种轻量数据格式，用键值对组织数据，前后端通用。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "HTTP",
-      "summary": "网页传输协议，浏览器与服务器通信的基础。",
+      "title": "数据结构",
+      "summary": "组织和存储数据的方式，如数组、链表、树。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "HTTPS",
-      "summary": "加密版的 HTTP，数据传输更安全，网站标配。",
+      "title": "数组",
+      "summary": "连续存储的一组同类型数据，按下标快速访问。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "IP 地址",
-      "summary": "网络中设备的唯一标识，就像门牌号。",
+      "title": "链表",
+      "summary": "用指针串联的节点序列，插入删除方便，随机访问慢。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "DNS",
-      "summary": "域名解析系统，把域名（如 juejin.cn）翻译成 IP 地址。",
+      "title": "栈",
+      "summary": "后进先出（LIFO）的结构，像一摞盘子。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "客户端-服务器",
-      "summary": "客户端发请求、服务器返回结果的经典架构。",
+      "title": "队列",
+      "summary": "先进先出（FIFO）的结构，像排队。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "API",
-      "summary": "应用程序接口，让不同软件之间互相调用功能或数据。",
+      "title": "哈希表",
+      "summary": "键值对存储，查找速度快，是字典的实现基础。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
