@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-11-23 11:53:36",
-  "updateTs": 1795406016,
+  "updateTime": "2026-11-23 12:01:46",
+  "updateTs": 1795406506,
   "date": "2026-11-23",
   "total": 30,
   "ai_news": [
@@ -140,13 +140,6 @@
       "source": "掘金·技术热文"
     },
     {
-      "title": "尾言：关于前端工程架构设计的一些思考",
-      "summary": "前端架构设计没有统一的标准答案。结合个人项目经历，从工程设计、长期维护、业务变化、组织协作到 AI 时代的技术思考，探讨如何在技术理想与现实约束之间寻找平衡，构建适合自身业务、团队和项目长期发展的工程",
-      "url": "https://juejin.cn/post/7710037720588992563",
-      "ts": 1795155125,
-      "source": "掘金·技术热文"
-    },
-    {
       "title": "我的抓取脚本凭什么从不抢你的鼠标",
       "summary": "我每天在电脑上跑几个抓数据的脚本。它们要开浏览器、要登录、要在页面里点来点去。 但它们从来不出现在屏幕上。不是藏起来了，是压根没有可见窗口——你唯一能察觉到的痕迹，是任务栏里多了一个图标。 这件事看起",
       "url": "https://juejin.cn/post/7709987743643795499",
@@ -154,17 +147,24 @@
       "source": "掘金·技术热文"
     },
     {
+      "title": "尾言：关于前端工程架构设计的一些思考",
+      "summary": "前端架构设计没有统一的标准答案。结合个人项目经历，从工程设计、长期维护、业务变化、组织协作到 AI 时代的技术思考，探讨如何在技术理想与现实约束之间寻找平衡，构建适合自身业务、团队和项目长期发展的工程",
+      "url": "https://juejin.cn/post/7710037720588992563",
+      "ts": 1795155125,
+      "source": "掘金·技术热文"
+    },
+    {
       "title": "鸿蒙智行问界新M8开启大规模交付",
-      "summary": "热度 2018729",
-      "url": "https://www.toutiao.com/trending/7710212370961944100/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710212370961944100%22%2C%22hot_board_impr_id%22%3A%222026112311533576529073DA92FE175325%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%B8%BF%E8%92%99%E6%99%BA%E8%A1%8C%E9%97%AE%E7%95%8C%E6%96%B0M8%E5%BC%80%E5%90%AF%E5%A4%A7%E8%A7%84%E6%A8%A1%E4%BA%A4%E4%BB%98%22%7D&rank=&style_id=40132&topic_id=7710212370961944100",
-      "ts": 1795406016,
+      "summary": "热度 2475788",
+      "url": "https://www.toutiao.com/trending/7710212370961944100/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710212370961944100%22%2C%22hot_board_impr_id%22%3A%2220261123120145D2B530E019526ED1EC7C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%B8%BF%E8%92%99%E6%99%BA%E8%A1%8C%E9%97%AE%E7%95%8C%E6%96%B0M8%E5%BC%80%E5%90%AF%E5%A4%A7%E8%A7%84%E6%A8%A1%E4%BA%A4%E4%BB%98%22%7D&rank=&style_id=40132&topic_id=7710212370961944100",
+      "ts": 1795406506,
       "source": "今日热榜"
     },
     {
       "title": "主播糟蹋千斤苹果仅愿赔6000元",
-      "summary": "热度 550167",
-      "url": "https://www.toutiao.com/trending/7710858139138556425/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710858139138556425%22%2C%22hot_board_impr_id%22%3A%222026112311533576529073DA92FE175325%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%BB%E6%92%AD%E7%B3%9F%E8%B9%8B%E5%8D%83%E6%96%A4%E8%8B%B9%E6%9E%9C%E4%BB%85%E6%84%BF%E8%B5%946000%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7710858139138556425",
-      "ts": 1795406016,
+      "summary": "热度 409245",
+      "url": "https://www.toutiao.com/trending/7710858139138556425/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710858139138556425%22%2C%22hot_board_impr_id%22%3A%2220261123120145D2B530E019526ED1EC7C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%BB%E6%92%AD%E7%B3%9F%E8%B9%8B%E5%8D%83%E6%96%A4%E8%8B%B9%E6%9E%9C%E4%BB%85%E6%84%BF%E8%B5%946000%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7710858139138556425",
+      "ts": 1795406506,
       "source": "今日热榜"
     },
     {
