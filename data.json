@@ -1,28 +1,14 @@
 {
-  "updateTime": "2026-11-23 12:01:46",
-  "updateTs": 1795406506,
-  "date": "2026-11-23",
+  "updateTime": "2026-11-24 15:01:46",
+  "updateTs": 1795503706,
+  "date": "2026-11-24",
   "total": 30,
   "ai_news": [
-    {
-      "title": "这 3 年 AI Agent 到底进化了啥？万字大白话，一次讲透！",
-      "summary": "从只会聊天的 ChatBot 到能自主干活的 Super Agent，一口气看懂 AI Agent 这 3 年是怎么进化的！ReAct、MCP、Skills、Loop、Subagent 等知识讲解",
-      "url": "https://juejin.cn/post/7709771529751199780",
-      "ts": 1795086971,
-      "source": "掘金·AI热文"
-    },
     {
       "title": "不得了，Google 造反了，Opus 5.5 又被干了",
       "summary": "哎，昨天 GPT-6.2 Astra 刚发完就遇阻了，但我实测了一天，我发现 GPT-6.2 Sol 的效果非常好，建议小伙伴们可以试试。 来不及为 GPT-6.2 Astra 哀悼了，接下来登场的是",
       "url": "https://juejin.cn/post/7710170786309226511",
       "ts": 1795255641,
-      "source": "掘金·AI热文"
-    },
-    {
-      "title": "别再搜「LangChain 教程」了——你学的 Chain 已经被判了死刑",
-      "summary": "求你别再搜「LangChain 教程」了——你学的 Chain 已经被判了死刑 先说个真事。 上周有个读者给我发消息：照着 2024 年的一篇爆款教程写了个 LLMChain，pip install",
-      "url": "https://juejin.cn/post/7709797595107147827",
-      "ts": 1795102660,
       "source": "掘金·AI热文"
     },
     {
@@ -33,39 +19,46 @@
       "source": "掘金·AI热文"
     },
     {
-      "title": "2026 GitHub 最火的 10 个视频制作与剪辑开源项目：AI 出片、代码生视频、无损剪辑怎么选（附实测截图）",
-      "summary": "2026 年，开源视频工具的格局发生了一次明显的代际切换。 过去这个赛道的主角是 FFmpeg、Shotcut 这类经典工具；现在 GitHub 榜单上增速最快的，是「输入一句话、自动出一条成片」的",
-      "url": "https://juejin.cn/post/7710123265189412904",
-      "ts": 1795225703,
+      "title": "未来的公司，可能只需要两种人",
+      "summary": "什么是智能 大模型发展到今天，相信我们这些工程师们已经不纠结大模型是真的有智能，还是大量数据压缩中的鹦鹉学舌了。只要见识过大模型能力，我们满脑子想的都是怎么让它为我所用，那些哲学的话题就留给哲学家慢慢",
+      "url": "https://juejin.cn/post/7710433033854435354",
+      "ts": 1795258903,
       "source": "掘金·AI热文"
     },
     {
-      "title": "AI Agent 如何进入实时交易系统：货拉拉的三个实践与一套工程方法论",
-      "summary": "当 AI Agent 从“回答问题”走向“直接改变业务状态”，真正的挑战不再是模型能不能思考，而是它能否在实时交易系统里可靠地行动，并带来可衡量的业务结果。",
-      "url": "https://juejin.cn/post/7710060982517432356",
-      "ts": 1795166887,
+      "title": "Flutter A2UI 1.0 ，原来的 genui 也正式换成了这一套 SDK 了",
+      "summary": "Flutter 最近正式发布了 A2UI 1.0 和 a2ui_flutter，这里的 A2UI 就是 Flutter GenUI 里用的，这次比较有意思的是，这次感觉就是把 AI 生成界面的工程问题",
+      "url": "https://juejin.cn/post/7710790522994573354",
+      "ts": 1795396261,
       "source": "掘金·AI热文"
     },
     {
-      "title": "豆包工作，3 个月，800 万，20 亿",
-      "summary": "豆包工作上线三个月交出亮眼成绩单：日活跃用户（DAU）突破 800 万，企业客户年度经常性收入（ARR）突破 20 亿元。从个人办公到企业落地，AI 工作助手的增长速度正在被重新定义。",
-      "url": "https://juejin.cn/post/7710069393502683178",
-      "ts": 1795168590,
+      "title": "GLM5.4“买家秀”来咯，这模型得...慢慢来！",
+      "summary": "上周末的 5 亿 tokens 领到了么？ 突然送这么多，原来是有模型要更新咯！ 国模最后的希望，GLM 终于更新了！ 只是，最近国产模型很反常呀，突然都“低调”起来了，都是先不声不响放出模型，基准和",
+      "url": "https://juejin.cn/post/7711209531375796224",
+      "ts": 1795440795,
       "source": "掘金·AI热文"
     },
     {
-      "title": "给 Agent 一张地图，而不是一座迷宫：前端 monorepo 目录结构重构实录",
-      "summary": "引言 当项目同时包含 Agent 应用和管理后台，且希望 AI Agent 能稳定参与迭代时，目录结构的设计目标会发生根本变化。传统目录结构服务的是\"人类开发者的协作与长期维护\"，而 AI 稳定迭代的",
-      "url": "https://juejin.cn/post/7710053374062608438",
-      "ts": 1795164883,
+      "title": "七家中国 AI 公司被控「蒸馏」Claude：模型蒸馏的原理、攻防与争议全解（附一手资料截图）",
+      "summary": "2026 年，「蒸馏（distillation）」成了中美 AI 博弈中最敏感的一个技术词。 2 月 23 日，Anthropic 发博客点名 DeepSeek、月之暗面（Moonshot）、Mini",
+      "url": "https://juejin.cn/post/7710853195052990499",
+      "ts": 1795397662,
       "source": "掘金·AI热文"
     },
     {
-      "title": "量化",
-      "summary": "把模型权重从 FP16 压到 INT8/INT4，减小体积、提升推理速度，略有精度损失。",
-      "url": "",
-      "source": "AI 基础",
-      "ts": 0
+      "title": "A2UI 1.0 详解：让 AI 生成 Flutter 界面，还不怕它乱写",
+      "summary": "在 App 里接入 AI 助手，最常见的做法还是聊天框：用户问一句，模型回一大段文字。可一旦涉及数据和操作，这种交互就很别扭。比如问「我这个月哪类支出最多」，答案埋在一段话里的第三行",
+      "url": "https://juejin.cn/post/7710647322556547123",
+      "ts": 1795389135,
+      "source": "掘金·AI热文"
+    },
+    {
+      "title": "我把公司内部的 12 个 CRUD 接口交给了 AI Agent，然后省出了两周",
+      "summary": "从「AI 只会写 demo」到「AI 直接操作生产数据库」，中间差了 MCP。80 行代码搭一个只读 MCP Server，让 AI 读你的表结构、按你的规范生成代码、自己跑编译验证。",
+      "url": "https://juejin.cn/post/7710455506234327080",
+      "ts": 1795353358,
+      "source": "掘金·AI热文"
     },
     {
       "title": "知识蒸馏",
@@ -108,110 +101,117 @@
       "url": "",
       "source": "AI 基础",
       "ts": 0
+    },
+    {
+      "title": "Agent 智能体",
+      "summary": "能自主规划、调用工具、执行多步任务的模型系统，不止是问答。",
+      "url": "",
+      "source": "AI 基础",
+      "ts": 0
     }
   ],
   "tech_news": [
     {
-      "title": "HarmonyOS ArkTS 做 MBTI 风格 16 人格测评用 4 维签名字符串做分类的最小算法",
-      "summary": "朴素做法：每道题存一个 \"维度\" + \"方向\" 字段，答完 20 题后遍历分数树做 ifelse 判断。16 个人格 = 16 个 ifelse 分支 +",
-      "url": "https://juejin.cn/post/7709818243502735414",
-      "ts": 1795142218,
+      "title": "我们开源了公司的内部组件库，然后被各业务线骂成了筛子",
+      "summary": "上个月，为了响应“降本增效”和“统一设计规范”的号召，我们基础架构组把维护了两年多的内部 Vue 组件库正式推上了内部 NPM 仓库，强制要求所有中后台项目接入最新版本（v3.0）。 发布那天，我们在",
+      "url": "https://juejin.cn/post/7710892674455126070",
+      "ts": 1795403577,
       "source": "掘金·技术热文"
     },
     {
-      "title": "HarmonyOS 保存组件截图到相册 componentSnapshot 到 photoAccessHelper 完整链",
-      "summary": "两条路保存图片：\"保存到 app 沙箱\" 简单，fileIo.openSync 写一下就完；\"保存到用户相册\" 要走系统的 photoAcc",
-      "url": "https://juejin.cn/post/7710060982518186020",
-      "ts": 1795186881,
+      "title": "刚刚，GLM-5.4 正式发布，实测来了：看图用 Blender 建凉亭、做技术视频，再画一辆真能传动的自行车",
+      "summary": "等了好久好久，GLM-5.4 这波真的来了！ 翻了下更新记录，GLM-5.3 是 8 月 19 日上线的，算下来已经三个多月了。你知道我这三个多月是怎么过的吗？ 说实话，相比架构参数和榜单分数，我更关",
+      "url": "https://juejin.cn/post/7711193473663991818",
+      "ts": 1795433978,
       "source": "掘金·技术热文"
     },
     {
-      "title": "彻底搞懂 JS 对象：从字面量、构造函数到原型链与包装类",
-      "summary": "彻底搞懂 JS 对象：从字面量、构造函数到原型链与包装类 学 JS 的时候，你大概率写过这样的代码： 奇怪吗？没报错，但属性也没加上。 再比如这两行： 看起来一模一样的东西，为什么一个相等、一个不相等",
-      "url": "https://juejin.cn/post/7710140388783603750",
-      "ts": 1795186156,
+      "title": "AI 写代码越来越快，程序员为什么反而更累了",
+      "summary": "让 AI 写页面、补接口、改测试，确实能省下不少敲代码的时间，可同时打开几个任务之后，我们也可能换一种方式继续忙：一个窗口等着确认方案，一个提示测试失败，还有一个已经改完十几个文件，等着我们检查。 代",
+      "url": "https://juejin.cn/post/7710966014792810515",
+      "ts": 1795422933,
       "source": "掘金·技术热文"
     },
     {
-      "title": "JavaScript 作用域、闭包与对象",
-      "summary": "JavaScript 作用域、闭包与对象。从一个代码问题切入，由浅入深讲清三者的含义与关联，适合初学者当入门梳理通读。",
-      "url": "https://juejin.cn/post/7709802672979804198",
-      "ts": 1795102539,
+      "title": "我把这套 skills 引入团队，跑了好几个月后，说点真实体感。",
+      "summary": "你好呀，我是歪歪。 前两天 Matt Pocock 发布了一段长达 69 分钟的视频，完整演示了自己如何使用那套 Skills，从一个模糊的想法开始，一步一步把它变成真正交付的功能。 代码写了 2.1",
+      "url": "https://juejin.cn/post/7710960543771852800",
+      "ts": 1795411116,
       "source": "掘金·技术热文"
     },
     {
-      "title": "我的抓取脚本凭什么从不抢你的鼠标",
-      "summary": "我每天在电脑上跑几个抓数据的脚本。它们要开浏览器、要登录、要在页面里点来点去。 但它们从来不出现在屏幕上。不是藏起来了，是压根没有可见窗口——你唯一能察觉到的痕迹，是任务栏里多了一个图标。 这件事看起",
-      "url": "https://juejin.cn/post/7709987743643795499",
-      "ts": 1795153499,
+      "title": "很多开发者把物理上的分层，当成了架构",
+      "summary": "做 Android 久了，经常会看到这样的项目： Module 拆得非常细。 打开 :user，里面还有： 再看看项目结构： 一眼看过去，很有架构的样子。 但这里有一个很容易被忽略的问题： 代码分开了",
+      "url": "https://juejin.cn/post/7710701905584701440",
+      "ts": 1795332803,
       "source": "掘金·技术热文"
     },
     {
-      "title": "尾言：关于前端工程架构设计的一些思考",
-      "summary": "前端架构设计没有统一的标准答案。结合个人项目经历，从工程设计、长期维护、业务变化、组织协作到 AI 时代的技术思考，探讨如何在技术理想与现实约束之间寻找平衡，构建适合自身业务、团队和项目长期发展的工程",
-      "url": "https://juejin.cn/post/7710037720588992563",
-      "ts": 1795155125,
+      "title": "workbuddy可以操控电脑！真的太省心了，AI博主利器啊",
+      "summary": "前阵子 WorkBuddy 上新了「电脑操控」，说是能让 AI 自己点鼠标、开软件。我看到就来了兴趣——我平时写实操文章，最烦的就是这一步。 大家好，我是小虎。 我专门有个写作工具，很好用，每天写文章",
+      "url": "https://juejin.cn/post/7710647322555760691",
+      "ts": 1795357561,
       "source": "掘金·技术热文"
     },
     {
-      "title": "鸿蒙智行问界新M8开启大规模交付",
-      "summary": "热度 2475788",
-      "url": "https://www.toutiao.com/trending/7710212370961944100/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710212370961944100%22%2C%22hot_board_impr_id%22%3A%2220261123120145D2B530E019526ED1EC7C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%B8%BF%E8%92%99%E6%99%BA%E8%A1%8C%E9%97%AE%E7%95%8C%E6%96%B0M8%E5%BC%80%E5%90%AF%E5%A4%A7%E8%A7%84%E6%A8%A1%E4%BA%A4%E4%BB%98%22%7D&rank=&style_id=40132&topic_id=7710212370961944100",
-      "ts": 1795406506,
-      "source": "今日热榜"
+      "title": "很多人想把《GTA 6》移植到 PC 上，这 4 个 GitHub 项目在努力。",
+      "summary": "今年最备受瞩目的游戏应该是 《GTA 6》和《时之笛·重制版》 了吧。 11 月这两款大作一发售。 民间开发者就开始琢磨怎么让它们在电脑 PC 上玩了。 先是《塞尔达传说：时之笛》的 Switch 2",
+      "url": "https://juejin.cn/post/7710975177655451683",
+      "ts": 1795418100,
+      "source": "掘金·技术热文"
     },
     {
-      "title": "主播糟蹋千斤苹果仅愿赔6000元",
-      "summary": "热度 409245",
-      "url": "https://www.toutiao.com/trending/7710858139138556425/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710858139138556425%22%2C%22hot_board_impr_id%22%3A%2220261123120145D2B530E019526ED1EC7C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%BB%E6%92%AD%E7%B3%9F%E8%B9%8B%E5%8D%83%E6%96%A4%E8%8B%B9%E6%9E%9C%E4%BB%85%E6%84%BF%E8%B5%946000%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7710858139138556425",
-      "ts": 1795406506,
-      "source": "今日热榜"
+      "title": "Gemini 4 Neon+Antigravity，干活真猛啊。",
+      "summary": "Gemini 4 Neon+Antigravity 深度实测：/swarm 多 Agent 协作、SSH 远程开发、/run-workflow 编排、/grill-me 反问锁方案等六大高阶用法。",
+      "url": "https://juejin.cn/post/7710893312785465387",
+      "ts": 1795402215,
+      "source": "掘金·技术热文"
     },
     {
-      "title": "JSON",
-      "summary": "一种轻量数据格式，用键值对组织数据，前后端通用。",
+      "title": "算法复杂度",
+      "summary": "衡量算法耗时/占内存随数据量增长的速度（大 O）。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "数据结构",
-      "summary": "组织和存储数据的方式，如数组、链表、树。",
+      "title": "排序算法",
+      "summary": "把数据按顺序排列的方法，如快排、冒泡。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "数组",
-      "summary": "连续存储的一组同类型数据，按下标快速访问。",
+      "title": "查找算法",
+      "summary": "在数据中找目标的方法，如二分查找、顺序查找。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "链表",
-      "summary": "用指针串联的节点序列，插入删除方便，随机访问慢。",
+      "title": "编译",
+      "summary": "把源代码整体翻译成机器码的过程，如 C/C++。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "栈",
-      "summary": "后进先出（LIFO）的结构，像一摞盘子。",
+      "title": "解释",
+      "summary": "逐行执行源代码，如 Python、JavaScript。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "队列",
-      "summary": "先进先出（FIFO）的结构，像排队。",
+      "title": "编程语言",
+      "summary": "人与计算机沟通的语言，如 Python、JS、Go。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
     },
     {
-      "title": "哈希表",
-      "summary": "键值对存储，查找速度快，是字典的实现基础。",
+      "title": "数据库",
+      "summary": "有组织地存储和管理数据的系统，如 MySQL、PostgreSQL。",
       "url": "",
       "source": "计算机基础",
       "ts": 0
